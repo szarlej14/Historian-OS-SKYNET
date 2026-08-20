@@ -12,8 +12,8 @@
 
 ## Faza 1 — Korpus
 
-- [ ] Pierwsze rekordy historyczne
-- [ ] Indeks osób
+- [x] Pierwsze rekordy historyczne
+- [x] Indeks osób
 - [ ] Indeks miejsc
 - [ ] Indeks wydarzeń
 - [ ] Indeks źródeł
