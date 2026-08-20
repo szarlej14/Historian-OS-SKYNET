@@ -6,7 +6,9 @@
   "tags": ["Dywizjon 303", "RAF", "Polskie Siły Powietrzne", "Bitwa o Anglię", "myśliwcy"],
   "status": "draft",
   "sources": [],
-  "relations": ["HOS-LOTNICTWO-000001"],
+  "relations": [
+    {"type": "related_to", "target": "HOS-LOTNICTWO-000001", "label": "Jan Zumbach"}
+  ],
   "date": "1940",
   "summary": "Rekord jednostki 303 Dywizjonu Myśliwskiego Warszawskiego im. Tadeusza Kościuszki, przeznaczony jako węzeł dla pilotów, personelu, operacji i wydarzeń związanych z Bitwą o Anglię.",
   "created_at": "2026-08-20T04:40:00Z",
