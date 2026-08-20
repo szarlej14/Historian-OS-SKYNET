@@ -1,0 +1,14 @@
+{
+  "id": "HOS-F1-RINDT-001",
+  "title": "Jochen Rindt",
+  "corpus": "MOTORSPORT",
+  "category": "FORMUŁA 1/KIEROWCY/MISTRZOWIE ŚWIATA/MEMORIAL",
+  "tags": ["Jochen Rindt", "Lotus", "1970", "mistrz świata", "Hockenheim", "Memorial"],
+  "status": "review",
+  "date": "1942-04-18/1970-09-05",
+  "summary": "Jochen Rindt, austriacki kierowca Formuły 1, zdobył pośmiertnie mistrzostwo świata 1970. W sezonie 1970 wygrał pięć Grand Prix dla Lotus-Ford; jego ostatnim zwycięstwem był German Grand Prix na Hockenheimring 2 sierpnia 1970.",
+  "relations": ["HOS-F1-1970-001", "HOS-F1-HOCKENHEIM-1970-001", "HOS-F1-MEMORIAL-001"],
+  "sources": ["https://www.formula1.com/en/information/drivers-hall-of-fame-jochen-rindt.297CPloKgJFry8fsI3oVyx", "https://www.formula1.com/en/results/1970/drivers/JOCRIN01/jochen-rindt.html", "https://www.fia.com/news/auto-16-class-his-own"],
+  "created_at": "2026-08-20T06:30:00+02:00",
+  "updated_at": null
+}
