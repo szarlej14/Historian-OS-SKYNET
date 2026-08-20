@@ -12,6 +12,24 @@ Indeks relacji opisuje połączenia między rekordami bez duplikowania ich treś
 - `part_of` — rekord podrzędny względem większej całości
 - `cross_reference` — świadome powiązanie między korpusami
 
+## Łańcuch LOTNICTWO
+
+`Dęblin → pilot → jednostka → bitwy → losy`
+
+### Dęblin / Szkoła Orląt
+
+- `HOS-LOTNICTWO-000002` → `part_of` → korpus LOTNICTWO
+- `HOS-LOTNICTWO-000002` → `related_to` → `HOS-LOTNICTWO-000001` Jan Zumbach
+- `HOS-LOTNICTWO-000002` → `related_to` → `HOS-LOTNICTWO-000004` Stanisław Skalski
+- `HOS-LOTNICTWO-000002` → `related_to` → `HOS-LOTNICTWO-000005` Wacław Urbanowicz
+- `HOS-LOTNICTWO-000002` → `related_to` → `HOS-LOTNICTWO-000006` Zdzisław Horbaczewski
+
+### Dywizjon 303
+
+- `HOS-LOTNICTWO-000003` → `related_to` → `HOS-LOTNICTWO-000001` Jan Zumbach
+- `HOS-LOTNICTWO-000003` → `related_to` → `HOS-LOTNICTWO-000005` Wacław Urbanowicz
+- `HOS-LOTNICTWO-000003` → `related_to` → `HOS-LOTNICTWO-000006` Zdzisław Horbaczewski
+
 ## Format
 
 Każda relacja ma postać:
