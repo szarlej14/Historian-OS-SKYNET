@@ -1,19 +1,22 @@
 {
   "$schema": "https://json-schema.org/draft/2020-12/schema",
-  "$id": "https://github.com/szarlej14/Historian-OS-SKYNET/schema/record.schema.json",
+  "$id": "historian-os-skynet/record.schema.json",
   "title": "Historian OS SKYNET Record",
   "type": "object",
-  "required": ["id", "title", "category", "status"],
+  "required": ["id", "title", "corpus", "status", "sources", "created_at"],
   "properties": {
-    "id": { "type": "string", "minLength": 1 },
-    "title": { "type": "string", "minLength": 1 },
-    "category": { "type": "string", "minLength": 1 },
-    "tags": { "type": "array", "items": { "type": "string" } },
-    "date": { "type": ["string", "null"] },
-    "summary": { "type": "string" },
-    "sources": { "type": "array", "items": { "type": "string" } },
-    "relations": { "type": "array", "items": { "type": "string" } },
-    "status": { "type": "string", "enum": ["draft", "review", "verified", "archived"] }
+    "id": {"type": "string", "pattern": "^HOS-[A-Z0-9-]+$"},
+    "title": {"type": "string", "minLength": 1},
+    "corpus": {"type": "string", "minLength": 1},
+    "category": {"type": "string"},
+    "tags": {"type": "array", "items": {"type": "string"}},
+    "status": {"enum": ["draft", "review", "verified", "archived"]},
+    "sources": {"type": "array", "items": {"type": "string"}},
+    "relations": {"type": "array", "items": {"type": "string"}},
+    "date": {"type": ["string", "null"]},
+    "summary": {"type": "string"},
+    "created_at": {"type": "string", "format": "date-time"},
+    "updated_at": {"type": ["string", "null"]}
   },
   "additionalProperties": true
 }
