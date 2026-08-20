@@ -1,0 +1,14 @@
+{
+  "id": "HOS-F1-HOCKENHEIM-1970-001",
+  "title": "Grand Prix Niemiec 1970 — Hockenheimring",
+  "corpus": "MOTORSPORT",
+  "category": "FORMUŁA 1/WYŚCIGI/TORY",
+  "tags": ["Hockenheimring", "German Grand Prix", "1970", "Jochen Rindt", "Jacky Ickx", "Lotus", "Ferrari"],
+  "status": "verified",
+  "date": "1970-08-02",
+  "summary": "Jochen Rindt wygrał Grand Prix Niemiec 1970 na Hockenheimring, pokonując Jacky'ego Ickxa o 0,7 s. Rindt przejechał 50 okrążeń i zdobył 9 punktów.",
+  "relations": ["HOS-F1-RINDT-001", "HOS-F1-1970-001"],
+  "sources": ["https://www.formula1.com/en/results/1970/races/285/germany/race-result", "https://www.formula1.com/en/latest/article/moments-in-time-the-german-grand-prix.2FaVX5yf48IUr6cLe1Lnyd.2FaVX5yf48IUr6cLe1Lnyd"],
+  "created_at": "2026-08-20T06:32:00+02:00",
+  "updated_at": null
+}
