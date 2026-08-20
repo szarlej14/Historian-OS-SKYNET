@@ -21,7 +21,7 @@
 
 ## Faza 2 — Automatyzacja
 
-- [ ] Walidacja rekordów
+- [x] Walidacja rekordów — narzędzie lokalne + CI
 - [ ] Automatyczne indeksowanie
 - [ ] Wyszukiwanie
 - [ ] Narzędzia importu
@@ -33,3 +33,7 @@
 - [ ] Graf relacji
 - [ ] Automatyczne wykrywanie powiązań
 - [ ] Rozbudowane mechanizmy archiwizacji
+
+## Zasada kolejnych etapów
+
+Najpierw doprowadzamy istniejący korpus do spójności strukturalnej i relacyjnej. Automatyzacja nie może tworzyć ani uzupełniać faktów bez źródła. Dopiero po zamknięciu warstwy jakości uruchamiamy automatyczne indeksowanie i wyszukiwanie.
