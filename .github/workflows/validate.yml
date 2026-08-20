@@ -9,34 +9,14 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
-      - name: Validate JSON schema and records
+
+      - name: Install validation dependency
+        run: python -m pip install --disable-pip-version-check jsonschema
+
+      - name: Validate records
+        run: python scripts/validate_records.py
+
+      - name: Verify generated indexes
         run: |
-          python - <<'PY'
-          import json
-          from pathlib import Path
-          schema = json.loads(Path('schemas/record.schema.json').read_text())
-          required = set(schema['required'])
-          ids = set()
-          errors = []
-          records = list(Path('data/records').glob('*.json'))
-          for path in records:
-              try:
-                  data = json.loads(path.read_text())
-              except Exception as e:
-                  errors.append(f'{path}: invalid JSON: {e}')
-                  continue
-              missing = required - data.keys()
-              if missing:
-                  errors.append(f'{path}: missing {sorted(missing)}')
-              rid = data.get('id')
-              if rid in ids:
-                  errors.append(f'{path}: duplicate id {rid}')
-              if rid:
-                  ids.add(rid)
-              if data.get('status') not in schema['properties']['status']['enum']:
-                  errors.append(f'{path}: invalid status')
-          if errors:
-              print('\n'.join(errors))
-              raise SystemExit(1)
-          print(f'Validated {len(records)} record(s).')
-          PY
+          python scripts/generate_indexes.py
+          git diff --exit-code -- index/RECORDS-INDEX.md index/RELATIONS-INDEX.md
