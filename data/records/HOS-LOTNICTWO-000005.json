@@ -6,7 +6,10 @@
   "tags": ["Wacław Urbanowicz", "pilot", "Dywizjon 303", "Polskie Siły Powietrzne"],
   "status": "draft",
   "sources": [],
-  "relations": ["HOS-LOTNICTWO-000002", "HOS-LOTNICTWO-000003"],
+  "relations": [
+    {"type": "related_to", "target": "HOS-LOTNICTWO-000002", "label": "Dęblin — Szkoła Orląt"},
+    {"type": "related_to", "target": "HOS-LOTNICTWO-000003", "label": "Dywizjon 303"}
+  ],
   "date": null,
   "summary": "Rekord biograficzny Wacława Urbanowicza, powiązany z korpusem Dęblina i Dywizjonem 303. Rekord roboczy do dalszej dokumentacji biograficznej.",
   "created_at": "2026-08-20T04:40:00Z",
