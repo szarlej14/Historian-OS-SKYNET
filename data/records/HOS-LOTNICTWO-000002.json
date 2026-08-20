@@ -6,7 +6,9 @@
   "tags": ["Dęblin", "Szkoła Orląt", "lotnictwo wojskowe", "II RP", "Polskie Siły Powietrzne"],
   "status": "draft",
   "sources": [],
-  "relations": ["HOS-LOTNICTWO-000001"],
+  "relations": [
+    {"type": "related_to", "target": "HOS-LOTNICTWO-000001", "label": "Jan Zumbach"}
+  ],
   "date": null,
   "summary": "Korpusowy rekord Dęblina i Szkoły Orląt jako centralnego ośrodka polskiego szkolenia lotniczego. Rekord nadrzędny dla przyszłych biografii wychowanków, instruktorów, jednostek i wydarzeń związanych z Dęblinem.",
   "created_at": "2026-08-20T04:40:00Z",
