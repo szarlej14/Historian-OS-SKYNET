@@ -1,40 +1,38 @@
 # Historian OS SKYNET
 
-Centralny szkielet projektu **Historian OS SKYNET** — modularnego archiwum wiedzy, indeksowania źródeł i powiązań między rekordami.
+Centralny szkielet modularnego archiwum wiedzy, źródeł i relacji między rekordami.
 
 ## Status
 
-**FAZA 0 — fundament repozytorium**
+**FAZA 1 — stabilizacja rdzenia**
 
-Repozytorium jest budowane jako uporządkowana baza, którą można później rozwijać o kolejne moduły, dane i automatyzację.
+Repozytorium posiada teraz kanoniczny schemat rekordów, konwencję identyfikatorów, magazyn rekordów oraz osobne indeksy korpusów i relacji.
 
-## Założenia
+## Fundament
 
-- modularna struktura wiedzy,
-- jednoznaczne identyfikatory rekordów,
-- indeksowanie tematyczne i chronologiczne,
-- powiązania krzyżowe między rekordami,
-- oddzielenie danych źródłowych od warstwy indeksu,
-- możliwość dalszej automatyzacji i synchronizacji.
+- rekordy przechowywane pojedynczo jako JSON w `data/records/`,
+- identyfikatory `HOS-<KORPUS>-<NUMER>`,
+- walidacja przez `schemas/record.schema.json`,
+- statusy `draft`, `review`, `verified`, `archived`,
+- jawne źródła i relacje między rekordami,
+- indeksy oddzielone od danych źródłowych,
+- konfiguracja centralna w `config/historian.json`.
 
-## Struktura
+## Korpusy
 
-```text
-Historian-OS-SKYNET/
-├── README.md
-├── ARCHITECTURE.md
-├── config/
-│   └── historian.json
-├── data/
-│   └── README.md
-├── index/
-│   └── README.md
-├── schemas/
-│   └── record.schema.json
-└── docs/
-    └── ROADMAP.md
-```
+- HISTORIA
+- SPORT
+- LOTNICTWO
+- TECHNOLOGIA
+- OSOBY
+- ŹRÓDŁA
+
+Rejestr korpusów znajduje się w `index/CORPUS-INDEX.md`.
 
 ## Zasada główna
 
-Najpierw stabilny fundament i schemat danych, potem rozbudowa korpusu wiedzy. Każdy kolejny moduł ma być możliwy do jednoznacznego indeksowania i powiązania z innymi rekordami.
+Nie duplikujemy wiedzy. Tworzymy jeden rekord kanoniczny i łączymy go z innymi rekordami za pomocą relacji. Każdy rekord powinien być możliwy do prześledzenia do źródeł.
+
+## Następny etap
+
+Automatyczna walidacja rekordów, generator indeksów oraz pierwsze rzeczywiste rekordy korpusów.
