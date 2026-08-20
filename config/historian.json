@@ -1,8 +1,15 @@
 {
   "name": "Historian OS SKYNET",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "schema": "schemas/record.schema.json",
   "default_status": "draft",
   "encoding": "UTF-8",
-  "language": "pl"
+  "language": "pl",
+  "id_format": "HOS-<CORPUS>-<NUMBER6>",
+  "record_path": "data/records",
+  "indexes": {
+    "corpus": "index/CORPUS-INDEX.md",
+    "relations": "index/RELATIONS-INDEX.md",
+    "master": "index/MASTER-INDEX.md"
+  }
 }

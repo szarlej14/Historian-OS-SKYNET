@@ -1,0 +1,16 @@
+{
+  "id": "HOS-LOTNICTWO-000004",
+  "title": "Stanisław Skalski",
+  "corpus": "LOTNICTWO",
+  "category": "POLSCY PILOCI / POLSKIE SIŁY POWIETRZNE",
+  "tags": ["Stanisław Skalski", "pilot", "Polskie Siły Powietrzne", "II wojna światowa"],
+  "status": "draft",
+  "sources": [],
+  "relations": [
+    {"type": "related_to", "target": "HOS-LOTNICTWO-000002", "label": "Dęblin — Szkoła Orląt"}
+  ],
+  "date": "1915-2004",
+  "summary": "Rekord biograficzny Stanisława Skalskiego, jednego z najwybitniejszych polskich pilotów myśliwskich II wojny światowej. Rekord roboczy do dalszego opracowania i udokumentowania źródłami.",
+  "created_at": "2026-08-20T04:40:00Z",
+  "updated_at": null
+}

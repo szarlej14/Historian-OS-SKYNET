@@ -1,0 +1,22 @@
+name: Validate Historian OS SKYNET
+
+on:
+  push:
+  pull_request:
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install validation dependency
+        run: python -m pip install --disable-pip-version-check jsonschema
+
+      - name: Validate records
+        run: python scripts/validate_records.py
+
+      - name: Verify generated indexes
+        run: |
+          python scripts/generate_indexes.py
+          git diff --exit-code -- index/RECORDS-INDEX.md index/RELATIONS-INDEX.md

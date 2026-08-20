@@ -1,0 +1,17 @@
+{
+  "id": "HOS-LOTNICTWO-000006",
+  "title": "Zdzisław Horbaczewski",
+  "corpus": "LOTNICTWO",
+  "category": "POLSCY PILOCI / POLSKIE SIŁY POWIETRZNE",
+  "tags": ["Zdzisław Horbaczewski", "pilot", "Dywizjon 303", "Polskie Siły Powietrzne"],
+  "status": "draft",
+  "sources": [],
+  "relations": [
+    {"type": "related_to", "target": "HOS-LOTNICTWO-000002", "label": "Dęblin — Szkoła Orląt"},
+    {"type": "related_to", "target": "HOS-LOTNICTWO-000003", "label": "Dywizjon 303"}
+  ],
+  "date": null,
+  "summary": "Rekord biograficzny Zdzisława Horbaczewskiego, włączony do sieci Dęblin — pilot — jednostka. Rekord roboczy do dalszego udokumentowania.",
+  "created_at": "2026-08-20T04:40:00Z",
+  "updated_at": null
+}
