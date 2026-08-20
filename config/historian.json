@@ -1,0 +1,8 @@
+{
+  "name": "Historian OS SKYNET",
+  "version": "0.1.0",
+  "schema": "schemas/record.schema.json",
+  "default_status": "draft",
+  "encoding": "UTF-8",
+  "language": "pl"
+}
