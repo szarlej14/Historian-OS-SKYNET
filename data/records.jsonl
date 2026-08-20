@@ -1,2 +1,4 @@
 # Historian OS SKYNET — rekordy danych
 # Format: jeden rekord JSON na linię. Komentarze rozpoczynają się od #.
+{"id":"HOS-CORE-000001","title":"Historian OS SKYNET — rekord systemowy","category":"SYSTEM","tags":["core","system","index"],"date":null,"summary":"Pierwszy rekord systemowy definiujący aktywny korpus Historian OS SKYNET.","sources":["repository:README.md","repository:ARCHITECTURE.md"],"relations":["HOS-CORE-000002"],"status":"verified"}
+{"id":"HOS-CORE-000002","title":"Konwencja identyfikatorów rekordów","category":"SYSTEM","tags":["schema","id","metadata"],"date":null,"summary":"Rekordy Historiana otrzymują stabilne identyfikatory w formacie HOS-KORPUS-NUMER.","sources":["repository:index/MASTER-INDEX.md","repository:schemas/record.schema.json"],"relations":["HOS-CORE-000001"],"status":"verified"}
