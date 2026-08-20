@@ -3,20 +3,33 @@
   "$id": "historian-os-skynet/record.schema.json",
   "title": "Historian OS SKYNET Record",
   "type": "object",
-  "required": ["id", "title", "corpus", "status", "sources", "created_at"],
+  "required": ["id", "title", "corpus", "status", "sources", "relations", "created_at"],
   "properties": {
-    "id": {"type": "string", "pattern": "^HOS-[A-Z0-9-]+$"},
+    "id": {"type": "string", "pattern": "^HOS-[A-Z0-9-]+-[0-9]{6}$"},
     "title": {"type": "string", "minLength": 1},
     "corpus": {"type": "string", "minLength": 1},
     "category": {"type": "string"},
-    "tags": {"type": "array", "items": {"type": "string"}},
+    "tags": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
     "status": {"enum": ["draft", "review", "verified", "archived"]},
-    "sources": {"type": "array", "items": {"type": "string"}},
-    "relations": {"type": "array", "items": {"type": "string"}},
     "date": {"type": ["string", "null"]},
+    "date_to": {"type": ["string", "null"]},
     "summary": {"type": "string"},
+    "sources": {"type": "array", "items": {"type": "string"}, "uniqueItems": true},
+    "relations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["type", "target"],
+        "properties": {
+          "type": {"type": "string", "minLength": 1},
+          "target": {"type": "string", "pattern": "^HOS-[A-Z0-9-]+-[0-9]{6}$"},
+          "label": {"type": "string"}
+        },
+        "additionalProperties": false
+      }
+    },
     "created_at": {"type": "string", "format": "date-time"},
-    "updated_at": {"type": ["string", "null"]}
+    "updated_at": {"type": ["string", "null"], "format": "date-time"}
   },
-  "additionalProperties": true
+  "additionalProperties": false
 }
