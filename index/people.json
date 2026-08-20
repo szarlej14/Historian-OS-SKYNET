@@ -1,0 +1,13 @@
+{
+  "index": "people",
+  "version": "0.1.0",
+  "records": [
+    {
+      "id": "HOS-LOT-ZUMBACH-001",
+      "name": "Jan Zumbach",
+      "corpus": "HISTORIA",
+      "category": "LOTNICTWO/POLSKA SZKOŁA LOTNICZA W DĘBLINIE/WYCHOWANKOWIE",
+      "date": "1915-1986"
+    }
+  ]
+}
