@@ -1,0 +1,19 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/szarlej14/Historian-OS-SKYNET/schema/record.schema.json",
+  "title": "Historian OS SKYNET Record",
+  "type": "object",
+  "required": ["id", "title", "category", "status"],
+  "properties": {
+    "id": { "type": "string", "minLength": 1 },
+    "title": { "type": "string", "minLength": 1 },
+    "category": { "type": "string", "minLength": 1 },
+    "tags": { "type": "array", "items": { "type": "string" } },
+    "date": { "type": ["string", "null"] },
+    "summary": { "type": "string" },
+    "sources": { "type": "array", "items": { "type": "string" } },
+    "relations": { "type": "array", "items": { "type": "string" } },
+    "status": { "type": "string", "enum": ["draft", "review", "verified", "archived"] }
+  },
+  "additionalProperties": true
+}
