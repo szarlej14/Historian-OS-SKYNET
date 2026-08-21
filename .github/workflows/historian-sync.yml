@@ -26,6 +26,30 @@ jobs:
       - name: Validate records and rebuild catalog
         run: python3 scripts/sync_catalog.py
 
+      - name: Validate Python engines
+        run: python3 -m py_compile scripts/sync_catalog.py scripts/historian_query.py scripts/historian_api.py
+
+      - name: Smoke-test HTTP API
+        run: |
+          python3 scripts/historian_api.py --host 127.0.0.1 --port 8787 > /tmp/historian-api.log 2>&1 &
+          API_PID=$!
+          trap 'kill $API_PID 2>/dev/null || true' EXIT
+          for i in 1 2 3 4 5; do
+            if curl --fail --silent http://127.0.0.1:8787/health > /tmp/health.json; then break; fi
+            sleep 1
+          done
+          python3 - <<'PY'
+          import json
+          health = json.load(open('/tmp/health.json', encoding='utf-8'))
+          assert health['ok'] is True
+          PY
+          curl --fail --silent 'http://127.0.0.1:8787/search?q=Zumbach' > /tmp/search.json
+          python3 - <<'PY'
+          import json
+          data = json.load(open('/tmp/search.json', encoding='utf-8'))
+          assert data['count'] >= 1
+          PY
+
       - name: Commit synchronized catalog
         if: github.event_name != 'pull_request'
         run: |
