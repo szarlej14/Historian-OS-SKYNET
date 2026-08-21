@@ -1,0 +1,13 @@
+{
+  "id": "HOS-TEST-001",
+  "title": "Historian OS E2E synchronization test",
+  "corpus": "SYSTEM/TEST/E2E",
+  "category": "test",
+  "status": "draft",
+  "sources": ["test://historian-os/e2e/HOS-TEST-001"],
+  "relations": ["HOS-PERSON-JAN-ZUMBACH"],
+  "date": null,
+  "summary": "Ephemeral end-to-end synchronization test record for Historian OS. This record validates transport, hashing, validation and graph generation.",
+  "created_at": "2026-08-21T06:30:00+02:00",
+  "updated_at": null
+}
