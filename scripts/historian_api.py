@@ -1,9 +1,7 @@
 #!/usr/bin/env python3
-"""Zero-dependency HTTP API for Historian OS SKYNET.
-
-Endpoints: /health, /stats, /search?q=..., /record/<HOS-ID>, /related/<HOS-ID>
-"""
+"""Zero-dependency HTTP API for Historian OS SKYNET."""
 import json
+from collections import deque
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 from urllib.parse import parse_qs, unquote, urlparse
@@ -20,14 +18,47 @@ def records():
         if isinstance(obj, dict) and obj.get("id", "").startswith("HOS-"):
             yield obj
 
-def find_record(record_id):
-    return next((r for r in records() if r.get("id") == record_id), None)
+def all_records():
+    return list(records())
+
+def find_record(rs, record_id):
+    return next((r for r in rs if r.get("id") == record_id), None)
 
 def blob_text(obj):
     return json.dumps(obj, ensure_ascii=False).lower()
 
+def neighbors(rs, record_id):
+    ids = {r.get("id") for r in rs}
+    target = find_record(rs, record_id)
+    if not target:
+        return set()
+    out = set(target.get("relations", [])) & ids
+    for r in rs:
+        if record_id in r.get("relations", []):
+            out.add(r.get("id"))
+    return out
+
+def shortest_path(rs, start, target):
+    if not find_record(rs, start) or not find_record(rs, target):
+        return None
+    q = deque([start])
+    previous = {start: None}
+    while q:
+        current = q.popleft()
+        if current == target:
+            path = []
+            while current is not None:
+                path.append(current)
+                current = previous[current]
+            return list(reversed(path))
+        for nxt in neighbors(rs, current):
+            if nxt not in previous:
+                previous[nxt] = current
+                q.append(nxt)
+    return None
+
 class Handler(BaseHTTPRequestHandler):
-    server_version = "HistorianOS/0.1"
+    server_version = "HistorianOS/0.2"
     def send_json(self, payload, status=200):
         body = json.dumps(payload, ensure_ascii=False, indent=2).encode("utf-8")
         self.send_response(status)
@@ -40,9 +71,9 @@ class Handler(BaseHTTPRequestHandler):
         parsed = urlparse(self.path)
         path = parsed.path.rstrip("/") or "/"
         query = parse_qs(parsed.query)
-        rs = list(records())
+        rs = all_records()
         if path == "/health":
-            self.send_json({"ok": True, "service": "historian-os", "version": "0.1"}); return
+            self.send_json({"ok": True, "service": "historian-os", "version": "0.2", "records": len(rs)}); return
         if path == "/stats":
             from collections import Counter
             self.send_json({"records": len(rs), "status": dict(Counter(r.get("status", "unknown") for r in rs)), "corpus": dict(Counter(r.get("corpus", "unknown") for r in rs)), "categories": dict(Counter(r.get("category", "unknown") for r in rs))}); return
@@ -54,18 +85,23 @@ class Handler(BaseHTTPRequestHandler):
             hits = [r for r in rs if all(term in blob_text(r) for term in terms)]
             self.send_json({"query": q, "count": len(hits), "results": hits}); return
         if path.startswith("/record/"):
-            record_id = unquote(path[len("/record/"):])
-            obj = find_record(record_id)
-            self.send_json(obj if obj else {"error": "Nie znaleziono rekordu.", "id": record_id}, 200 if obj else 404); return
+            rid = unquote(path[len("/record/"):])
+            obj = find_record(rs, rid)
+            self.send_json(obj if obj else {"error": "Nie znaleziono rekordu.", "id": rid}, 200 if obj else 404); return
         if path.startswith("/related/"):
-            record_id = unquote(path[len("/related/"):])
-            target = find_record(record_id)
-            if not target:
-                self.send_json({"error": "Nie znaleziono rekordu.", "id": record_id}, 404); return
-            related_ids = set(target.get("relations", []))
-            related = [r for r in rs if r.get("id") in related_ids or record_id in r.get("relations", [])]
-            self.send_json({"id": record_id, "count": len(related), "results": related}); return
-        self.send_json({"service": "Historian OS SKYNET API", "endpoints": ["/health", "/stats", "/search?q=...", "/record/<HOS-ID>", "/related/<HOS-ID>"]})
+            rid = unquote(path[len("/related/"):])
+            if not find_record(rs, rid):
+                self.send_json({"error": "Nie znaleziono rekordu.", "id": rid}, 404); return
+            related = [r for r in rs if r.get("id") in neighbors(rs, rid)]
+            self.send_json({"id": rid, "count": len(related), "results": related}); return
+        if path == "/path":
+            start = query.get("from", [""])[0]
+            target = query.get("to", [""])[0]
+            result = shortest_path(rs, start, target)
+            if result is None:
+                self.send_json({"error": "Brak ścieżki albo nieznany rekord.", "from": start, "to": target}, 404); return
+            self.send_json({"from": start, "to": target, "length": len(result) - 1, "path": result, "records": [find_record(rs, rid) for rid in result]}); return
+        self.send_json({"service": "Historian OS SKYNET API", "endpoints": ["/health", "/stats", "/search?q=...", "/record/<HOS-ID>", "/related/<HOS-ID>", "/path?from=<HOS-ID>&to=<HOS-ID>"]})
 
     def log_message(self, fmt, *args):
         print("[historian-api]", fmt % args)
