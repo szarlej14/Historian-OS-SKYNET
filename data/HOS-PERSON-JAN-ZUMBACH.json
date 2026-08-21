@@ -1,0 +1,14 @@
+{
+  "id": "HOS-PERSON-JAN-ZUMBACH",
+  "title": "Jan Zumbach",
+  "corpus": "HISTORIA/LOTNICTWO/POLSKA-SZKOLA-LOTNICZA-W-DEBLINIE/WYCHOWANKOWIE",
+  "category": "osoba",
+  "tags": ["Jan Zumbach", "Dywizjon 303", "Szkoła Podchorążych Lotnictwa w Dęblinie", "Bitwa o Anglię", "polscy piloci"],
+  "status": "verified",
+  "sources": ["https://ipn.gov.pl/pl/historia-z-ipn/216923,Jan-Zumbach-dowodca-slynnego-Dywizjonu-303.html"],
+  "relations": ["HOS-ORG-303-SQUADRON", "HOS-ORG-DEBLIN-AVIATION-SCHOOL"],
+  "date": "1915-04-14/1986-01-03",
+  "summary": "Polski pilot myśliwski II wojny światowej, as lotniczy i dowódca Dywizjonu 303. Ukończył Szkołę Podchorążych Lotnictwa w Dęblinie w 1938 roku; w 1942 roku objął dowództwo Dywizjonu 303.",
+  "created_at": "2026-08-21T04:30:00+02:00",
+  "updated_at": null
+}
