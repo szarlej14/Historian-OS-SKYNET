@@ -1,5 +1,9 @@
 #!/usr/bin/env python3
-"""Zero-dependency HTTP API for Historian OS SKYNET."""
+"""Zero-dependency HTTP API for Historian OS SKYNET.
+
+Endpoints: /health, /stats, /search?q=..., /record/<HOS-ID>,
+/related/<HOS-ID>, /graph, /path?from=<HOS-ID>&to=<HOS-ID>
+"""
 import json
 from collections import deque
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
@@ -8,6 +12,8 @@ from urllib.parse import parse_qs, unquote, urlparse
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
+GRAPH = ROOT / "index" / "graph.json"
+
 
 def records():
     for path in sorted(DATA.glob("*.json")):
@@ -18,14 +24,25 @@ def records():
         if isinstance(obj, dict) and obj.get("id", "").startswith("HOS-"):
             yield obj
 
+
 def all_records():
     return list(records())
+
 
 def find_record(rs, record_id):
     return next((r for r in rs if r.get("id") == record_id), None)
 
+
 def blob_text(obj):
     return json.dumps(obj, ensure_ascii=False).lower()
+
+
+def load_graph():
+    try:
+        return json.loads(GRAPH.read_text(encoding="utf-8"))
+    except Exception:
+        return {"type": "knowledge_graph", "nodes": [], "edges": [], "traversal_edges": []}
+
 
 def neighbors(rs, record_id):
     ids = {r.get("id") for r in rs}
@@ -37,6 +54,7 @@ def neighbors(rs, record_id):
         if record_id in r.get("relations", []):
             out.add(r.get("id"))
     return out
+
 
 def shortest_path(rs, start, target):
     if not find_record(rs, start) or not find_record(rs, target):
@@ -57,8 +75,10 @@ def shortest_path(rs, start, target):
                 q.append(nxt)
     return None
 
+
 class Handler(BaseHTTPRequestHandler):
-    server_version = "HistorianOS/0.2"
+    server_version = "HistorianOS/0.3"
+
     def send_json(self, payload, status=200):
         body = json.dumps(payload, ensure_ascii=False, indent=2).encode("utf-8")
         self.send_response(status)
@@ -72,39 +92,54 @@ class Handler(BaseHTTPRequestHandler):
         path = parsed.path.rstrip("/") or "/"
         query = parse_qs(parsed.query)
         rs = all_records()
+
         if path == "/health":
-            self.send_json({"ok": True, "service": "historian-os", "version": "0.2", "records": len(rs)}); return
+            self.send_json({"ok": True, "service": "historian-os", "version": "0.3", "records": len(rs)})
+            return
         if path == "/stats":
             from collections import Counter
-            self.send_json({"records": len(rs), "status": dict(Counter(r.get("status", "unknown") for r in rs)), "corpus": dict(Counter(r.get("corpus", "unknown") for r in rs)), "categories": dict(Counter(r.get("category", "unknown") for r in rs))}); return
+            self.send_json({"records": len(rs), "status": dict(Counter(r.get("status", "unknown") for r in rs)), "corpus": dict(Counter(r.get("corpus", "unknown") for r in rs)), "categories": dict(Counter(r.get("category", "unknown") for r in rs))})
+            return
+        if path == "/graph":
+            self.send_json(load_graph())
+            return
         if path == "/search":
             q = " ".join(query.get("q", [""])).strip().lower()
             if not q:
-                self.send_json({"error": "Parametr q jest wymagany."}, 400); return
+                self.send_json({"error": "Parametr q jest wymagany."}, 400)
+                return
             terms = q.split()
             hits = [r for r in rs if all(term in blob_text(r) for term in terms)]
-            self.send_json({"query": q, "count": len(hits), "results": hits}); return
+            self.send_json({"query": q, "count": len(hits), "results": hits})
+            return
         if path.startswith("/record/"):
             rid = unquote(path[len("/record/"):])
             obj = find_record(rs, rid)
-            self.send_json(obj if obj else {"error": "Nie znaleziono rekordu.", "id": rid}, 200 if obj else 404); return
+            self.send_json(obj if obj else {"error": "Nie znaleziono rekordu.", "id": rid}, 200 if obj else 404)
+            return
         if path.startswith("/related/"):
             rid = unquote(path[len("/related/"):])
             if not find_record(rs, rid):
-                self.send_json({"error": "Nie znaleziono rekordu.", "id": rid}, 404); return
+                self.send_json({"error": "Nie znaleziono rekordu.", "id": rid}, 404)
+                return
             related = [r for r in rs if r.get("id") in neighbors(rs, rid)]
-            self.send_json({"id": rid, "count": len(related), "results": related}); return
+            self.send_json({"id": rid, "count": len(related), "results": related})
+            return
         if path == "/path":
             start = query.get("from", [""])[0]
             target = query.get("to", [""])[0]
             result = shortest_path(rs, start, target)
             if result is None:
-                self.send_json({"error": "Brak ścieżki albo nieznany rekord.", "from": start, "to": target}, 404); return
-            self.send_json({"from": start, "to": target, "length": len(result) - 1, "path": result, "records": [find_record(rs, rid) for rid in result]}); return
-        self.send_json({"service": "Historian OS SKYNET API", "endpoints": ["/health", "/stats", "/search?q=...", "/record/<HOS-ID>", "/related/<HOS-ID>", "/path?from=<HOS-ID>&to=<HOS-ID>"]})
+                self.send_json({"error": "Brak ścieżki albo nieznany rekord.", "from": start, "to": target}, 404)
+                return
+            self.send_json({"from": start, "to": target, "length": len(result) - 1, "path": result, "records": [find_record(rs, rid) for rid in result]})
+            return
+
+        self.send_json({"service": "Historian OS SKYNET API", "endpoints": ["/health", "/stats", "/search?q=...", "/record/<HOS-ID>", "/related/<HOS-ID>", "/graph", "/path?from=<HOS-ID>&to=<HOS-ID>"]})
 
     def log_message(self, fmt, *args):
         print("[historian-api]", fmt % args)
+
 
 def main():
     import argparse
@@ -115,6 +150,7 @@ def main():
     server = ThreadingHTTPServer((args.host, args.port), Handler)
     print(f"Historian OS API: http://{args.host}:{args.port}")
     server.serve_forever()
+
 
 if __name__ == "__main__":
     main()
