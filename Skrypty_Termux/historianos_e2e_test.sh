@@ -12,18 +12,22 @@ DRIVE_PATH="${HISTORIAN_DRIVE_PATH:-}"
 
 log() { printf '\n[HOS-E2E] %s\n' "$*"; }
 fatal() { printf '\n[HOS-E2E][FAIL] %s\n' "$*" >&2; exit 1; }
-need() { command -v "$1" >/dev/null 2>&1 || fatal "Brak programu: $1"; }
 sha256() { sha256sum "$1" | awk '{print $1}'; }
 
-log "0/8 Sprawdzam zależności"
-need git
-need python
-need sha256sum
+log "0/8 Sprawdzam i przygotowuję zależności"
+if ! command -v git >/dev/null 2>&1; then
+  pkg install -y git || fatal "Nie udało się zainstalować git"
+fi
+if ! command -v python3 >/dev/null 2>&1; then
+  pkg install -y python || fatal "Nie udało się zainstalować Python"
+fi
+if ! command -v sha256sum >/dev/null 2>&1; then
+  pkg install -y coreutils || fatal "Nie udało się zainstalować coreutils"
+fi
 
 log "1/8 GitHub → lokalny Historian OS"
 if [ -d "$REPO_DIR/.git" ]; then
   git -C "$REPO_DIR" fetch origin main
-  git -C "$REPO_DIR" status --short
   if [ -n "$(git -C "$REPO_DIR" status --porcelain)" ]; then
     fatal "Lokalne zmiany w repozytorium. Nie nadpisuję ich."
   fi
@@ -52,7 +56,7 @@ if [ -z "$DRIVE_PATH" ]; then
   echo "Nie ustawiono HISTORIAN_DRIVE_PATH."
   echo "Jeśli Drive Sync tworzy lokalny folder, ustaw jego ścieżkę np.:"
   echo '  export HISTORIAN_DRIVE_PATH="/storage/emulated/0/NAZWA_FOLDERU"'
-  echo "Jeśli używasz rclone, ustaw HISTORIAN_DRIVE_REMOTE (np. gdrive:HistorianOS_Workspace)."
+  echo "Dla pełnego PASS skrypt musi widzieć lokalny mirror Drive."
 else
   [ -d "$DRIVE_PATH" ] || fatal "HISTORIAN_DRIVE_PATH nie istnieje: $DRIVE_PATH"
   DRIVE_FILE="$DRIVE_PATH/$TEST_NAME"
@@ -87,8 +91,7 @@ python3 scripts/build_graph.py
 python3 - <<'PY'
 import json
 from pathlib import Path
-p = Path('index/graph.json')
-g = json.loads(p.read_text(encoding='utf-8'))
+g = json.loads(Path('index/graph.json').read_text(encoding='utf-8'))
 ids = {n['id'] for n in g.get('nodes', [])}
 assert 'HOS-TEST-001' in ids, 'HOS-TEST-001 nie ma w grafie'
 assert g.get('edge_count', 0) >= 1, 'Graf nie ma relacji'
