@@ -3,6 +3,6 @@
   "version": "0.1.0",
   "records": [
     {"id":"HOS-PERSON-JAN-ZUMBACH","title":"Jan Zumbach","corpus":"HISTORIA/LOTNICTWO"},
-    {"id":"HOS-PERSON-JOCHEN-RINDT","title":"Jochen Rindt","corpus":"SPORT/MOTORSPORT/FORMULA-1"}
+    {"id":"HOS-F1-RINDT-001","title":"Jochen Rindt","corpus":"MOTORSPORT"}
   ]
 }
