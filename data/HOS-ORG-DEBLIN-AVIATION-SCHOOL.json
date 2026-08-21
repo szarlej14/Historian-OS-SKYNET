@@ -1,0 +1,14 @@
+{
+  "id": "HOS-ORG-DEBLIN-AVIATION-SCHOOL",
+  "title": "Szkoła Podchorążych Lotnictwa w Dęblinie — Szkoła Orląt",
+  "corpus": "HISTORIA/LOTNICTWO/POLSKA-SZKOLA-LOTNICZA-W-DEBLINIE",
+  "category": "instytucja",
+  "tags": ["Dęblin", "Szkoła Orląt", "lotnictwo polskie", "wychowankowie"],
+  "status": "verified",
+  "sources": ["https://ipn.gov.pl/pl/historia-z-ipn/216923,Jan-Zumbach-dowodca-slynnego-Dywizjonu-303.html"],
+  "relations": ["HOS-PERSON-JAN-ZUMBACH"],
+  "date": null,
+  "summary": "Polska szkoła lotnicza w Dęblinie, w której Jan Zumbach rozpoczął szkolenie w 1936 roku i którą ukończył w 1938 roku jako pilot.",
+  "created_at": "2026-08-21T04:31:00+02:00",
+  "updated_at": null
+}
