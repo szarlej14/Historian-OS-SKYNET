@@ -26,10 +26,13 @@ jobs:
       - name: Validate records and rebuild catalog
         run: python3 scripts/sync_catalog.py
 
-      - name: Validate Python engines
-        run: python3 -m py_compile scripts/sync_catalog.py scripts/historian_query.py scripts/historian_api.py
+      - name: Build automatic knowledge graph
+        run: python3 scripts/build_graph.py
 
-      - name: Smoke-test HTTP API
+      - name: Validate Python engines
+        run: python3 -m py_compile scripts/sync_catalog.py scripts/build_graph.py scripts/historian_query.py scripts/historian_api.py
+
+      - name: Smoke-test HTTP API and graph
         run: |
           python3 scripts/historian_api.py --host 127.0.0.1 --port 8787 > /tmp/historian-api.log 2>&1 &
           API_PID=$!
@@ -42,6 +45,10 @@ jobs:
           import json
           health = json.load(open('/tmp/health.json', encoding='utf-8'))
           assert health['ok'] is True
+          assert health['records'] >= 1
+          graph = json.load(open('index/graph.json', encoding='utf-8'))
+          assert graph['node_count'] >= 1
+          assert graph['edge_count'] >= 1
           PY
           curl --fail --silent 'http://127.0.0.1:8787/search?q=Zumbach' > /tmp/search.json
           python3 - <<'PY'
@@ -49,16 +56,22 @@ jobs:
           data = json.load(open('/tmp/search.json', encoding='utf-8'))
           assert data['count'] >= 1
           PY
+          curl --fail --silent 'http://127.0.0.1:8787/graph' > /tmp/graph.json
+          python3 - <<'PY'
+          import json
+          data = json.load(open('/tmp/graph.json', encoding='utf-8'))
+          assert data['node_count'] >= 1
+          PY
 
-      - name: Commit synchronized catalog
+      - name: Commit synchronized catalog and graph
         if: github.event_name != 'pull_request'
         run: |
           git config user.name "Historian OS Sync"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add index/catalog.json
+          git add index/catalog.json index/graph.json
           if git diff --cached --quiet; then
-            echo "Catalog already synchronized."
+            echo "Catalog and graph already synchronized."
           else
-            git commit -m "chore: synchronize Historian catalog"
+            git commit -m "chore: synchronize Historian catalog and graph"
             git push
           fi
