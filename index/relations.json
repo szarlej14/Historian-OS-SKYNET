@@ -1,0 +1,10 @@
+{
+  "type": "relations",
+  "version": "0.1.0",
+  "relations": [
+    {"from":"HOS-PERSON-JAN-ZUMBACH","to":"HOS-ORG-303-SQUADRON","type":"commanded"},
+    {"from":"HOS-PERSON-JAN-ZUMBACH","to":"HOS-ORG-DEBLIN-AVIATION-SCHOOL","type":"educated_at"},
+    {"from":"HOS-PERSON-JOCHEN-RINDT","to":"HOS-EVENT-F1-GERMAN-GP-1970","type":"won"},
+    {"from":"HOS-ORG-303-SQUADRON","to":"HOS-ORG-DEBLIN-AVIATION-SCHOOL","type":"personnel_pipeline"}
+  ]
+}
