@@ -1,4 +1,5 @@
 #!/usr/bin/env python3
+"""Validate and index both current and legacy Historian OS records."""
 import json
 import re
 from pathlib import Path
@@ -8,7 +9,8 @@ DATA = ROOT / "data"
 INDEX = ROOT / "index"
 CATALOG = INDEX / "catalog.json"
 
-REQUIRED = ("id", "title", "corpus", "status", "sources", "created_at")
+# These fields define the minimum identity of a usable Historian record.
+REQUIRED = ("id", "title", "corpus", "status")
 STATUSES = {"draft", "review", "verified", "archived"}
 ID_RE = re.compile(r"^HOS-[A-Z0-9-]+$")
 
@@ -46,8 +48,15 @@ for path in sorted(DATA.glob("*.json")):
     if obj["status"] not in STATUSES:
         errors.append(f"{path.name}: invalid status: {obj['status']!r}")
 
-    if not isinstance(obj["sources"], list):
+    sources = obj.get("sources", [])
+    if "sources" not in obj:
+        warnings.append(f"{path.name}: legacy record without sources; using []")
+    elif not isinstance(sources, list):
         errors.append(f"{path.name}: sources must be an array")
+        sources = []
+
+    if "created_at" not in obj:
+        warnings.append(f"{path.name}: legacy record without created_at; using null")
 
     relations = obj.get("relations", [])
     if not isinstance(relations, list):
@@ -61,8 +70,9 @@ for path in sorted(DATA.glob("*.json")):
         "category": obj.get("category", ""),
         "status": obj["status"],
         "date": obj.get("date"),
-        "source_count": len(obj["sources"]) if isinstance(obj["sources"], list) else 0,
+        "source_count": len(sources),
         "relation_count": len(relations),
+        "created_at": obj.get("created_at"),
         "file": f"data/{path.name}"
     })
 
@@ -71,7 +81,14 @@ for path in sorted(DATA.glob("*.json")):
         obj = json.loads(path.read_text(encoding="utf-8"))
     except Exception:
         continue
-    for target in obj.get("relations", []) if isinstance(obj, dict) else []:
+    if not isinstance(obj, dict):
+        continue
+    for relation in obj.get("relations", []):
+        target = None
+        if isinstance(relation, str):
+            target = relation
+        elif isinstance(relation, dict):
+            target = relation.get("target") or relation.get("to")
         if isinstance(target, str) and target not in ids:
             warnings.append(f"{path.name}: relation target not found: {target}")
 
@@ -79,7 +96,7 @@ records.sort(key=lambda item: item["id"])
 
 catalog = {
     "type": "catalog",
-    "version": "0.1.0",
+    "version": "0.2.0",
     "generated_by": "scripts/sync_catalog.py",
     "record_count": len(records),
     "records": records
@@ -98,4 +115,4 @@ if errors:
 print(f"OK: validated {len(records)} records")
 print(f"OK: catalog written to {CATALOG.relative_to(ROOT)}")
 if warnings:
-    print(f"WARNING: {len(warnings)} dangling relation(s)")
+    print(f"WARNING: {len(warnings)} warning(s)")

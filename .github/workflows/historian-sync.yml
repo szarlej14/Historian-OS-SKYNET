@@ -30,7 +30,10 @@ jobs:
         run: python3 scripts/build_graph.py
 
       - name: Validate Python engines
-        run: python3 -m py_compile scripts/sync_catalog.py scripts/build_graph.py scripts/historian_query.py scripts/historian_api.py
+        run: python3 -m py_compile scripts/sync_catalog.py scripts/build_graph.py scripts/historian_query.py scripts/historian_api.py scripts/skynet_graph_engine.py scripts/test_skynet_graph_engine.py
+
+      - name: Unit-test canonical graph engine
+        run: python3 -m unittest discover -s scripts -p 'test_*.py' -v
 
       - name: Smoke-test HTTP API and graph
         run: |
@@ -61,7 +64,85 @@ jobs:
           import json
           data = json.load(open('/tmp/graph.json', encoding='utf-8'))
           assert data['node_count'] >= 1
+          assert data['edge_count'] >= 1
           PY
+
+      - name: Global Integrity Matrix Test (Faza 6)
+        run: |
+          python3 - <<'PY'
+          import json
+          import sys
+          import urllib.parse
+          import urllib.request
+
+          BASE = 'http://127.0.0.1:8787'
+          EXPECTED_RECORDS = 48
+          EXPECTED_RELATIONS = 60
+          EXPECTED_SCHEMA = '1.0'
+          sys.path.insert(0, 'scripts')
+          from skynet_graph_engine import load_corpus
+
+          records, relations, files, corpus_diag = load_corpus()
+          print(f"CORPUS LOADED: RECORDS={len(records)} RELATIONS={len(relations)} FILES={len(files)} SOURCE={corpus_diag['source_state']}")
+
+          assert corpus_diag['source_state'] == 'REAL', corpus_diag.get('reason')
+          assert len(records) == EXPECTED_RECORDS, f"Expected {EXPECTED_RECORDS} records, got {len(records)}"
+          assert len(relations) == EXPECTED_RELATIONS, f"Expected {EXPECTED_RELATIONS} relations, got {len(relations)}"
+
+          matrix = [
+              {'id': 'HOS-PERSON-JAN-ZUMBACH', 'min_nodes': 15},
+              {'id': 'HOS-PERSON-STANISLAW-SKALSKI', 'min_nodes': 3},
+              {'id': 'HOS-PERSON-WITOLD-URBANOWICZ', 'min_nodes': 3},
+          ]
+
+          diagnostics = []
+          for case in matrix:
+              query = urllib.parse.urlencode({'id': case['id'], 'depth': 2, 'mode': 'undirected'})
+              with urllib.request.urlopen(f'{BASE}/graph?{query}', timeout=10) as response:
+                  payload = json.load(response)
+
+              diagnostic = payload.get('diagnostic', {})
+              nodes = payload.get('nodes', [])
+              edges = payload.get('edges', [])
+              nodes_count = payload.get('nodes_count')
+              edges_count = payload.get('edges_count')
+
+              assert payload.get('schema_version') == EXPECTED_SCHEMA, f"{case['id']}: invalid schema_version"
+              assert payload.get('source_state') == 'REAL', f"{case['id']}: source_state is not REAL"
+              assert diagnostic.get('status') == 'REAL', f"{case['id']}: status is not REAL"
+              assert len(nodes) == nodes_count, f"{case['id']}: nodes payload/count mismatch"
+              assert len(edges) == edges_count, f"{case['id']}: edges payload/count mismatch"
+              assert nodes_count >= case['min_nodes'], f"{case['id']}: {nodes_count} < {case['min_nodes']}"
+
+              diagnostics.append({
+                  'id': case['id'],
+                  'status': diagnostic.get('status'),
+                  'nodes_count': nodes_count,
+                  'edges_count': edges_count,
+                  'payload_nodes': len(nodes),
+                  'payload_edges': len(edges),
+              })
+              print(f"[PASS] {case['id']} | REAL | nodes={nodes_count}/{len(nodes)} edges={edges_count}/{len(edges)}")
+
+          with open('skynet-diagnostics-global-integrity.json', 'w', encoding='utf-8') as handle:
+              json.dump({
+                  'schema_version': EXPECTED_SCHEMA,
+                  'source_state': corpus_diag['source_state'],
+                  'records': len(records),
+                  'relations': len(relations),
+                  'matrix': diagnostics,
+              }, handle, ensure_ascii=False, indent=2)
+
+          print('ALL GLOBAL INTEGRITY TESTS PASSED - SKYNET FAZA 6 BASELINE.')
+
+      - name: Upload SKYNET diagnostics
+        if: success()
+        uses: actions/upload-artifact@v4
+        with:
+          name: skynet-diagnostics-${{ github.sha }}
+          path: skynet-diagnostics-global-integrity.json
+          retention-days: 90
+          if-no-files-found: error
 
       - name: Commit synchronized catalog and graph
         if: github.event_name != 'pull_request'

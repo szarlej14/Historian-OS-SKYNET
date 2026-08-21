@@ -1,0 +1,32 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://historian-os-skynet.github.io/schema/graph-canonical.schema.json",
+  "title": "Historian OS SKYNET Canonical Graph Record",
+  "type": "object",
+  "required": ["id", "title", "category", "relations"],
+  "properties": {
+    "id": {"type": "string", "minLength": 1},
+    "title": {"type": "string"},
+    "category": {"type": "string"},
+    "corpus": {"type": ["string", "null"]},
+    "status": {"type": ["string", "null"]},
+    "date": {"type": ["string", "null"]},
+    "summary": {"type": ["string", "null"]},
+    "sources": {"type": "array", "items": {"type": "string"}},
+    "relations": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "required": ["source", "target", "relation"],
+        "properties": {
+          "source": {"type": "string", "minLength": 1},
+          "target": {"type": "string", "minLength": 1},
+          "relation": {"type": "string", "minLength": 1}
+        },
+        "additionalProperties": false
+      }
+    },
+    "metadata": {"type": "object"}
+  },
+  "additionalProperties": true
+}
