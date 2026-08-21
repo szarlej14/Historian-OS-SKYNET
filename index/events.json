@@ -1,0 +1,7 @@
+{
+  "type": "events",
+  "version": "0.1.0",
+  "records": [
+    {"id":"HOS-EVENT-F1-GERMAN-GP-1970","title":"Grand Prix Niemiec 1970 — Hockenheimring","date":"1970-08-02","corpus":"SPORT/MOTORSPORT/FORMULA-1/WYDARZENIA"}
+  ]
+}
