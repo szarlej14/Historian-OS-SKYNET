@@ -1,0 +1,14 @@
+{
+  "id": "HOS-EVENT-F1-GERMAN-GP-1970",
+  "title": "Grand Prix Niemiec 1970 — Hockenheimring",
+  "corpus": "SPORT/MOTORSPORT/FORMULA-1/WYDARZENIA",
+  "category": "wydarzenie",
+  "tags": ["Formula 1", "Grand Prix Niemiec", "Hockenheimring", "Jochen Rindt", "1970"],
+  "status": "verified",
+  "sources": ["https://www.formula1.com/en/results/1970/races/285/germany/race-result"],
+  "relations": ["HOS-PERSON-JOCHEN-RINDT"],
+  "date": "1970-08-02",
+  "summary": "Runda sezonu Formuły 1 1970 rozegrana na Hockenheimring. Jochen Rindt zwyciężył dla Lotus-Ford, zdobywając 9 punktów.",
+  "created_at": "2026-08-21T04:32:00+02:00",
+  "updated_at": null
+}
