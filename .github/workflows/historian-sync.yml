@@ -30,7 +30,10 @@ jobs:
         run: python3 scripts/build_graph.py
 
       - name: Validate Python engines
-        run: python3 -m py_compile scripts/sync_catalog.py scripts/build_graph.py scripts/historian_query.py scripts/historian_api.py
+        run: python3 -m py_compile scripts/sync_catalog.py scripts/build_graph.py scripts/historian_query.py scripts/historian_api.py scripts/skynet_graph_engine.py scripts/test_skynet_graph_engine.py
+
+      - name: Unit-test canonical graph engine
+        run: python3 -m unittest discover -s scripts -p 'test_*.py' -v
 
       - name: Smoke-test HTTP API and graph
         run: |
@@ -61,6 +64,57 @@ jobs:
           import json
           data = json.load(open('/tmp/graph.json', encoding='utf-8'))
           assert data['node_count'] >= 1
+          PY
+
+      - name: Global Integrity Matrix Test (Faza 5)
+        run: |
+          python3 - <<'PY'
+          import sys
+          sys.path.insert(0, 'scripts')
+          from skynet_graph_engine import load_corpus, traverse
+
+          records, relations, files, corpus_diag = load_corpus()
+          print(f"CORPUS LOADED: RECORDS={len(records)} RELATIONS={len(relations)} FILES={len(files)} SOURCE={corpus_diag['source_state']}")
+
+          if corpus_diag['source_state'] != 'REAL':
+              print(f"[FAIL] Canonical corpus is not REAL: {corpus_diag.get('reason')}")
+              sys.exit(1)
+
+          test_matrix = [
+              {'id': 'HOS-PERSON-JAN-ZUMBACH', 'min_nodes': 15, 'mode': 'undirected'},
+              {'id': 'HOS-PERSON-STANISLAW-SKALSKI', 'min_nodes': 3, 'mode': 'undirected'},
+              {'id': 'HOS-PERSON-WITOLD-URBANOWICZ', 'min_nodes': 3, 'mode': 'undirected'},
+          ]
+
+          failed = False
+          for test in test_matrix:
+              node_id = test['id']
+              min_n = test['min_nodes']
+              mode = test['mode']
+
+              visited, edges = traverse(node_id, depth=2, records=records, relations=relations, mode=mode)
+              if not visited:
+                  status = 'NOT_FOUND' if node_id not in records else 'EMPTY'
+              elif len(visited) <= 1 and not edges:
+                  status = 'EMPTY'
+              else:
+                  status = 'REAL'
+
+              print(f"TEST NODE: {node_id} | Status: {status} | Nodes: {len(visited)} | Edges: {len(edges)}")
+
+              if status != 'REAL':
+                  print(f"[FAIL] Węzeł {node_id} nie powrócił ze statusem REAL.")
+                  failed = True
+              elif len(visited) < min_n:
+                  print(f"[FAIL] Węzeł {node_id} osiągnął {len(visited)} węzłów (wymagane min. {min_n})")
+                  failed = True
+              else:
+                  print(f"[PASS] Węzeł {node_id} zweryfikowany pomyślnie.")
+
+          if failed:
+              print('GLOBAL INTEGRITY CHECK FAILED.')
+              sys.exit(1)
+          print('ALL GLOBAL INTEGRITY TESTS PASSED - SKYNET FAZA 5 READY.')
           PY
 
       - name: Commit synchronized catalog and graph
