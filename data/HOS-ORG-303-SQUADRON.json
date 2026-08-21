@@ -1,0 +1,14 @@
+{
+  "id": "HOS-ORG-303-SQUADRON",
+  "title": "303 Dywizjon Myśliwski im. Tadeusza Kościuszki",
+  "corpus": "HISTORIA/LOTNICTWO/POLSKIE-SILY-POWIETRZNE/II-WOJNA-SWIATOWA",
+  "category": "jednostka",
+  "tags": ["Dywizjon 303", "Bitwa o Anglię", "Polskie Siły Powietrzne", "Tadeusz Kościuszko"],
+  "status": "verified",
+  "sources": ["https://ipn.gov.pl/pl/historia-z-ipn/216923,Jan-Zumbach-dowodca-slynnego-Dywizjonu-303.html"],
+  "relations": ["HOS-PERSON-JAN-ZUMBACH", "HOS-ORG-DEBLIN-AVIATION-SCHOOL"],
+  "date": null,
+  "summary": "Polski dywizjon myśliwski Polskich Sił Powietrznych na obczyźnie, związany z Bitwą o Anglię i karierą Jana Zumbacha.",
+  "created_at": "2026-08-21T04:31:00+02:00",
+  "updated_at": null
+}
