@@ -1,1 +1,16 @@
-{"id":"HOS-F1-ALEX-CAFFI-001","title":"Alex Caffi","corpus":"MOTORSPORT","category":"FORMUŁA 1/KIEROWCY","tags":["Alex Caffi","Dallara","Arrows","1990"],"status":"review","summary":"Włoski kierowca F1, startujący m.in. dla Dallary, Footwork/Arrows i Fondmetal."}
+{
+  "id": "HOS-F1-ALEX-CAFFI-001",
+  "title": "Alex Caffi",
+  "corpus": "MOTORSPORT",
+  "category": "FORMUŁA 1/KIEROWCY",
+  "tags": [
+    "Alex Caffi",
+    "Dallara",
+    "Arrows",
+    "1990"
+  ],
+  "status": "review",
+  "summary": "Włoski kierowca F1, startujący m.in. dla Dallary, Footwork/Arrows i Fondmetal.",
+  "sources": [],
+  "created_at": "2026-08-30T18:58:37+00:00"
+}

@@ -1,1 +1,18 @@
-{"id":"HOS-F1-MCLAREN-001","title":"McLaren","corpus":"MOTORSPORT","category":"FORMUŁA 1/ZESPOŁY I KONSTRUKTORZY","tags":["McLaren","Bruce McLaren","F1","Woking"],"status":"review","summary":"Brytyjski zespół i konstruktor F1 założony przez Bruce'a McLarena; jeden z historycznie najważniejszych zespołów mistrzostw świata.","sources":["https://www.formula1.com/en/teams/mclaren"]}
+{
+  "id": "HOS-F1-MCLAREN-001",
+  "title": "McLaren",
+  "corpus": "MOTORSPORT",
+  "category": "FORMUŁA 1/ZESPOŁY I KONSTRUKTORZY",
+  "tags": [
+    "McLaren",
+    "Bruce McLaren",
+    "F1",
+    "Woking"
+  ],
+  "status": "review",
+  "summary": "Brytyjski zespół i konstruktor F1 założony przez Bruce'a McLarena; jeden z historycznie najważniejszych zespołów mistrzostw świata.",
+  "sources": [
+    "https://www.formula1.com/en/teams/mclaren"
+  ],
+  "created_at": "2026-08-30T18:58:37+00:00"
+}

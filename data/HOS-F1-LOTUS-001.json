@@ -1,1 +1,17 @@
-{"id":"HOS-F1-LOTUS-001","title":"Team Lotus","corpus":"MOTORSPORT","category":"FORMUŁA 1/ZESPOŁY I KONSTRUKTORZY","tags":["Lotus","Team Lotus","Colin Chapman","Jim Clark","Jochen Rindt"],"status":"review","summary":"Legendarny brytyjski konstruktor i zespół F1, kluczowy dla historii innowacji technicznych oraz karier Jima Clarka i Jochenа Rindta."}
+{
+  "id": "HOS-F1-LOTUS-001",
+  "title": "Team Lotus",
+  "corpus": "MOTORSPORT",
+  "category": "FORMUŁA 1/ZESPOŁY I KONSTRUKTORZY",
+  "tags": [
+    "Lotus",
+    "Team Lotus",
+    "Colin Chapman",
+    "Jim Clark",
+    "Jochen Rindt"
+  ],
+  "status": "review",
+  "summary": "Legendarny brytyjski konstruktor i zespół F1, kluczowy dla historii innowacji technicznych oraz karier Jima Clarka i Jochenа Rindta.",
+  "sources": [],
+  "created_at": "2026-08-30T18:58:37+00:00"
+}

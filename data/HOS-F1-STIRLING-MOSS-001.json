@@ -1,3 +1,18 @@
 {
-  "id":"HOS-F1-STIRLING-MOSS-001","title":"Stirling Moss","corpus":"MOTORSPORT","category":"FORMUŁA 1/KIEROWCY/LEGENDY","tags":["Stirling Moss","Lotus","Mercedes","Maserati"],"status":"review","summary":"Jedna z największych legend F1; czterokrotny wicemistrz świata i symbol epoki powojennego motorsportu.","sources":["https://www.formula1.com/en/drivers/hall-of-fame/Stirling_Moss.html"]
+  "id": "HOS-F1-STIRLING-MOSS-001",
+  "title": "Stirling Moss",
+  "corpus": "MOTORSPORT",
+  "category": "FORMUŁA 1/KIEROWCY/LEGENDY",
+  "tags": [
+    "Stirling Moss",
+    "Lotus",
+    "Mercedes",
+    "Maserati"
+  ],
+  "status": "review",
+  "summary": "Jedna z największych legend F1; czterokrotny wicemistrz świata i symbol epoki powojennego motorsportu.",
+  "sources": [
+    "https://www.formula1.com/en/drivers/hall-of-fame/Stirling_Moss.html"
+  ],
+  "created_at": "2026-08-30T18:58:37+00:00"
 }

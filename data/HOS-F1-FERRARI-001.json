@@ -1,1 +1,18 @@
-{"id":"HOS-F1-FERRARI-001","title":"Scuderia Ferrari","corpus":"MOTORSPORT","category":"FORMUŁA 1/ZESPOŁY I KONSTRUKTORZY","tags":["Ferrari","Scuderia Ferrari","F1","Maranello"],"status":"review","summary":"Najstarszy i jeden z najbardziej utytułowanych zespołów w historii mistrzostw świata Formuły 1; centralny wątek archiwum Ferrari × kierowcy × konstruktorzy × endurance.","sources":["https://www.formula1.com/en/teams/ferrari"]}
+{
+  "id": "HOS-F1-FERRARI-001",
+  "title": "Scuderia Ferrari",
+  "corpus": "MOTORSPORT",
+  "category": "FORMUŁA 1/ZESPOŁY I KONSTRUKTORZY",
+  "tags": [
+    "Ferrari",
+    "Scuderia Ferrari",
+    "F1",
+    "Maranello"
+  ],
+  "status": "review",
+  "summary": "Najstarszy i jeden z najbardziej utytułowanych zespołów w historii mistrzostw świata Formuły 1; centralny wątek archiwum Ferrari × kierowcy × konstruktorzy × endurance.",
+  "sources": [
+    "https://www.formula1.com/en/teams/ferrari"
+  ],
+  "created_at": "2026-08-30T18:58:37+00:00"
+}

@@ -1,1 +1,23 @@
-{"id":"HOS-F1-JACKY-ICKX-001","title":"Jacky Ickx","corpus":"MOTORSPORT","category":"FORMUŁA 1/KIEROWCY/ENDURANCE","tags":["Jacky Ickx","Ferrari","Lotus","Le Mans","1969","1970"],"status":"review","summary":"Belgijski kierowca F1 i endurance, sześciokrotny zwycięzca 24 Hours of Le Mans; w F1 sześciokrotnie kończył sezon w pierwszej trójce klasyfikacji mistrzostw świata.","relations":["HOS-F1-1970-001"],"sources":["https://www.formula1.com/en/drivers/hall-of-fame/Jacky_Ickx.html"]}
+{
+  "id": "HOS-F1-JACKY-ICKX-001",
+  "title": "Jacky Ickx",
+  "corpus": "MOTORSPORT",
+  "category": "FORMUŁA 1/KIEROWCY/ENDURANCE",
+  "tags": [
+    "Jacky Ickx",
+    "Ferrari",
+    "Lotus",
+    "Le Mans",
+    "1969",
+    "1970"
+  ],
+  "status": "review",
+  "summary": "Belgijski kierowca F1 i endurance, sześciokrotny zwycięzca 24 Hours of Le Mans; w F1 sześciokrotnie kończył sezon w pierwszej trójce klasyfikacji mistrzostw świata.",
+  "relations": [
+    "HOS-F1-1970-001"
+  ],
+  "sources": [
+    "https://www.formula1.com/en/drivers/hall-of-fame/Jacky_Ickx.html"
+  ],
+  "created_at": "2026-08-30T18:58:37+00:00"
+}

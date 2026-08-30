@@ -1,1 +1,16 @@
-{"id":"HOS-F1-MARTIN-BRUNDLE-001","title":"Martin Brundle","corpus":"MOTORSPORT","category":"FORMUŁA 1/KIEROWCY/ENDURANCE","tags":["Martin Brundle","Jordan","Benetton","Le Mans"],"status":"review","summary":"Brytyjski kierowca F1, późniejszy komentator i analityk; zdobywca podium F1 i zwycięzca 24 Hours of Le Mans w 1990 roku."}
+{
+  "id": "HOS-F1-MARTIN-BRUNDLE-001",
+  "title": "Martin Brundle",
+  "corpus": "MOTORSPORT",
+  "category": "FORMUŁA 1/KIEROWCY/ENDURANCE",
+  "tags": [
+    "Martin Brundle",
+    "Jordan",
+    "Benetton",
+    "Le Mans"
+  ],
+  "status": "review",
+  "summary": "Brytyjski kierowca F1, późniejszy komentator i analityk; zdobywca podium F1 i zwycięzca 24 Hours of Le Mans w 1990 roku.",
+  "sources": [],
+  "created_at": "2026-08-30T18:58:37+00:00"
+}

@@ -1,1 +1,19 @@
-{"id":"HOS-F1-GRAHAM-HILL-001","title":"Graham Hill","corpus":"MOTORSPORT","category":"FORMUŁA 1/KIEROWCY/MISTRZOWIE ŚWIATA","tags":["Graham Hill","BRM","Lotus","1962","1968"],"status":"review","summary":"Dwukrotny mistrz świata Formuły 1, jedna z najbardziej rozpoznawalnych postaci brytyjskiego motorsportu. Zwycięzca Triple Crown of Motorsport." ,"sources":["https://www.formula1.com/en/drivers/hall-of-fame/Graham_Hill.html"]}
+{
+  "id": "HOS-F1-GRAHAM-HILL-001",
+  "title": "Graham Hill",
+  "corpus": "MOTORSPORT",
+  "category": "FORMUŁA 1/KIEROWCY/MISTRZOWIE ŚWIATA",
+  "tags": [
+    "Graham Hill",
+    "BRM",
+    "Lotus",
+    "1962",
+    "1968"
+  ],
+  "status": "review",
+  "summary": "Dwukrotny mistrz świata Formuły 1, jedna z najbardziej rozpoznawalnych postaci brytyjskiego motorsportu. Zwycięzca Triple Crown of Motorsport.",
+  "sources": [
+    "https://www.formula1.com/en/drivers/hall-of-fame/Graham_Hill.html"
+  ],
+  "created_at": "2026-08-30T18:58:37+00:00"
+}

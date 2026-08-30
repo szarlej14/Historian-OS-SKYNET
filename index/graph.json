@@ -1,0 +1,534 @@
+{
+  "type": "knowledge_graph",
+  "version": "0.1.0",
+  "generated_by": "scripts/build_graph.py",
+  "node_count": 38,
+  "edge_count": 17,
+  "nodes": [
+    {
+      "id": "HOS-F1-1970-001",
+      "label": "Sezon Formuły 1 1970",
+      "category": "FORMUŁA 1/SEZONY",
+      "corpus": "MOTORSPORT",
+      "status": "review"
+    },
+    {
+      "id": "HOS-F1-ALEX-CAFFI-001",
+      "label": "Alex Caffi",
+      "category": "FORMUŁA 1/KIEROWCY",
+      "corpus": "MOTORSPORT",
+      "status": "review"
+    },
+    {
+      "id": "HOS-F1-BRUCE-MCLAREN-001",
+      "label": "Bruce McLaren",
+      "category": "FORMUŁA 1/KIEROWCY/KONSTRUKTORZY/MEMORIAL",
+      "corpus": "MOTORSPORT",
+      "status": "review"
+    },
+    {
+      "id": "HOS-F1-CARLOS-REUTEMANN-001",
+      "label": "Carlos Reutemann",
+      "category": "FORMUŁA 1/KIEROWCY/LEGENDY",
+      "corpus": "MOTORSPORT",
+      "status": "review"
+    },
+    {
+      "id": "HOS-F1-CARS-INDEX-001",
+      "label": "Formuła 1 — samochody i konstrukcje",
+      "category": "FORMUŁA 1/SAMOCHODY",
+      "corpus": "MOTORSPORT",
+      "status": "review"
+    },
+    {
+      "id": "HOS-F1-CONSTRUCTORS-INDEX-001",
+      "label": "Formuła 1 — konstruktorzy i zespoły",
+      "category": "FORMUŁA 1/ZESPOŁY I KONSTRUKTORZY",
+      "corpus": "MOTORSPORT",
+      "status": "review"
+    },
+    {
+      "id": "HOS-F1-DEREK-WARWICK-001",
+      "label": "Derek Warwick",
+      "category": "FORMUŁA 1/KIEROWCY/ENDURANCE",
+      "corpus": "MOTORSPORT",
+      "status": "review"
+    },
+    {
+      "id": "HOS-F1-ERIK-COMAS-001",
+      "label": "Érik Comas",
+      "category": "FORMUŁA 1/KIEROWCY",
+      "corpus": "MOTORSPORT",
+      "status": "review"
+    },
+    {
+      "id": "HOS-F1-FERRARI-001",
+      "label": "Scuderia Ferrari",
+      "category": "FORMUŁA 1/ZESPOŁY I KONSTRUKTORZY",
+      "corpus": "MOTORSPORT",
+      "status": "review"
+    },
+    {
+      "id": "HOS-F1-GILLES-VILLENEUVE-001",
+      "label": "Gilles Villeneuve",
+      "category": "FORMUŁA 1/KIEROWCY/MEMORIAL",
+      "corpus": "MOTORSPORT",
+      "status": "review"
+    },
+    {
+      "id": "HOS-F1-GRAHAM-HILL-001",
+      "label": "Graham Hill",
+      "category": "FORMUŁA 1/KIEROWCY/MISTRZOWIE ŚWIATA",
+      "corpus": "MOTORSPORT",
+      "status": "review"
+    },
+    {
+      "id": "HOS-F1-GRAND-PRIX-INDEX-001",
+      "label": "Formuła 1 — indeks Grand Prix",
+      "category": "FORMUŁA 1/GRAND PRIX",
+      "corpus": "MOTORSPORT",
+      "status": "review"
+    },
+    {
+      "id": "HOS-F1-HOCKENHEIM-1970-001",
+      "label": "Grand Prix Niemiec 1970 — Hockenheimring",
+      "category": "FORMUŁA 1/WYŚCIGI/TORY",
+      "corpus": "MOTORSPORT",
+      "status": "verified"
+    },
+    {
+      "id": "HOS-F1-JACK-BRABHAM-001",
+      "label": "Jack Brabham",
+      "category": "FORMUŁA 1/KIEROWCY/MISTRZOWIE ŚWIATA",
+      "corpus": "MOTORSPORT",
+      "status": "review"
+    },
+    {
+      "id": "HOS-F1-JACKY-ICKX-001",
+      "label": "Jacky Ickx",
+      "category": "FORMUŁA 1/KIEROWCY/ENDURANCE",
+      "corpus": "MOTORSPORT",
+      "status": "review"
+    },
+    {
+      "id": "HOS-F1-JIM-CLARK-001",
+      "label": "Jim Clark",
+      "category": "FORMUŁA 1/KIEROWCY/MISTRZOWIE ŚWIATA/MEMORIAL",
+      "corpus": "MOTORSPORT",
+      "status": "review"
+    },
+    {
+      "id": "HOS-F1-KIMI-RAIKKONEN-001",
+      "label": "Kimi Räikkönen",
+      "category": "FORMUŁA 1/KIEROWCY/MISTRZOWIE ŚWIATA",
+      "corpus": "MOTORSPORT",
+      "status": "review"
+    },
+    {
+      "id": "HOS-F1-LEGENDS-001",
+      "label": "Formuła 1 — kanon legend",
+      "category": "FORMUŁA 1/LEGENDY",
+      "corpus": "MOTORSPORT",
+      "status": "review"
+    },
+    {
+      "id": "HOS-F1-LOTUS-001",
+      "label": "Team Lotus",
+      "category": "FORMUŁA 1/ZESPOŁY I KONSTRUKTORZY",
+      "corpus": "MOTORSPORT",
+      "status": "review"
+    },
+    {
+      "id": "HOS-F1-MARIO-ANDRETTI-001",
+      "label": "Mario Andretti",
+      "category": "FORMUŁA 1/KIEROWCY/MISTRZOWIE ŚWIATA",
+      "corpus": "MOTORSPORT",
+      "status": "review"
+    },
+    {
+      "id": "HOS-F1-MARTIN-BRUNDLE-001",
+      "label": "Martin Brundle",
+      "category": "FORMUŁA 1/KIEROWCY/ENDURANCE",
+      "corpus": "MOTORSPORT",
+      "status": "review"
+    },
+    {
+      "id": "HOS-F1-MCLAREN-001",
+      "label": "McLaren",
+      "category": "FORMUŁA 1/ZESPOŁY I KONSTRUKTORZY",
+      "corpus": "MOTORSPORT",
+      "status": "review"
+    },
+    {
+      "id": "HOS-F1-MEMORIAL-001",
+      "label": "Formuła 1 — Memorial / In Memoriam",
+      "category": "FORMUŁA 1/MEMORIAL",
+      "corpus": "MOTORSPORT",
+      "status": "review"
+    },
+    {
+      "id": "HOS-F1-PHIL-HILL-001",
+      "label": "Phil Hill",
+      "category": "FORMUŁA 1/KIEROWCY/MISTRZOWIE ŚWIATA",
+      "corpus": "MOTORSPORT",
+      "status": "review"
+    },
+    {
+      "id": "HOS-F1-REGULATIONS-001",
+      "label": "Formuła 1 — ewolucja regulaminów",
+      "category": "FORMUŁA 1/REGULAMINY/TECHNIKA",
+      "corpus": "MOTORSPORT",
+      "status": "review"
+    },
+    {
+      "id": "HOS-F1-RINDT-001",
+      "label": "Jochen Rindt",
+      "category": "FORMUŁA 1/KIEROWCY/MISTRZOWIE ŚWIATA/MEMORIAL",
+      "corpus": "MOTORSPORT",
+      "status": "review"
+    },
+    {
+      "id": "HOS-F1-ROBERT-KUBICA-001",
+      "label": "Robert Kubica",
+      "category": "FORMUŁA 1/KIEROWCY/POLSKA",
+      "corpus": "MOTORSPORT",
+      "status": "review"
+    },
+    {
+      "id": "HOS-F1-SAFETY-001",
+      "label": "Formuła 1 — Wypadki i bezpieczeństwo",
+      "category": "FORMUŁA 1/WYPADKI I BEZPIECZEŃSTWO",
+      "corpus": "MOTORSPORT",
+      "status": "review"
+    },
+    {
+      "id": "HOS-F1-SEASONS-INDEX-001",
+      "label": "Formuła 1 — indeks sezonów",
+      "category": "FORMUŁA 1/SEZONY",
+      "corpus": "MOTORSPORT",
+      "status": "review"
+    },
+    {
+      "id": "HOS-F1-STEPHANE-SARRAZIN-001",
+      "label": "Stéphane Sarrazin",
+      "category": "FORMUŁA 1/KIEROWCY/ENDURANCE",
+      "corpus": "MOTORSPORT",
+      "status": "review"
+    },
+    {
+      "id": "HOS-F1-STIRLING-MOSS-001",
+      "label": "Stirling Moss",
+      "category": "FORMUŁA 1/KIEROWCY/LEGENDY",
+      "corpus": "MOTORSPORT",
+      "status": "review"
+    },
+    {
+      "id": "HOS-F1-TRACKS-INDEX-001",
+      "label": "Formuła 1 — indeks torów",
+      "category": "FORMUŁA 1/TORY",
+      "corpus": "MOTORSPORT",
+      "status": "review"
+    },
+    {
+      "id": "HOS-F1-WILLIAMS-001",
+      "label": "Williams Racing",
+      "category": "FORMUŁA 1/ZESPOŁY I KONSTRUKTORZY",
+      "corpus": "MOTORSPORT",
+      "status": "review"
+    },
+    {
+      "id": "HOS-LOT-ZUMBACH-001",
+      "label": "Jan Zumbach",
+      "category": "LOTNICTWO/POLSKA SZKOŁA LOTNICZA W DĘBLINIE/WYCHOWANKOWIE",
+      "corpus": "HISTORIA",
+      "status": "draft"
+    },
+    {
+      "id": "HOS-ORG-303-SQUADRON",
+      "label": "303 Dywizjon Myśliwski im. Tadeusza Kościuszki",
+      "category": "jednostka",
+      "corpus": "HISTORIA/LOTNICTWO/POLSKIE-SILY-POWIETRZNE/II-WOJNA-SWIATOWA",
+      "status": "verified"
+    },
+    {
+      "id": "HOS-ORG-DEBLIN-AVIATION-SCHOOL",
+      "label": "Szkoła Podchorążych Lotnictwa w Dęblinie — Szkoła Orląt",
+      "category": "instytucja",
+      "corpus": "HISTORIA/LOTNICTWO/POLSKA-SZKOLA-LOTNICZA-W-DEBLINIE",
+      "status": "verified"
+    },
+    {
+      "id": "HOS-PERSON-JAN-ZUMBACH",
+      "label": "Jan Zumbach",
+      "category": "osoba",
+      "corpus": "HISTORIA/LOTNICTWO/POLSKA-SZKOLA-LOTNICZA-W-DEBLINIE/WYCHOWANKOWIE",
+      "status": "verified"
+    },
+    {
+      "id": "HOS-TEST-001",
+      "label": "Historian OS E2E synchronization test",
+      "category": "test",
+      "corpus": "SYSTEM/TEST/E2E",
+      "status": "draft"
+    }
+  ],
+  "edges": [
+    {
+      "from": "HOS-F1-1970-001",
+      "to": "HOS-F1-RINDT-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-F1-1970-001",
+      "to": "HOS-F1-HOCKENHEIM-1970-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-F1-BRUCE-MCLAREN-001",
+      "to": "HOS-F1-MEMORIAL-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-F1-GILLES-VILLENEUVE-001",
+      "to": "HOS-F1-MEMORIAL-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-F1-HOCKENHEIM-1970-001",
+      "to": "HOS-F1-RINDT-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-F1-HOCKENHEIM-1970-001",
+      "to": "HOS-F1-1970-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-F1-JACKY-ICKX-001",
+      "to": "HOS-F1-1970-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-F1-JIM-CLARK-001",
+      "to": "HOS-F1-MEMORIAL-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-F1-RINDT-001",
+      "to": "HOS-F1-1970-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-F1-RINDT-001",
+      "to": "HOS-F1-HOCKENHEIM-1970-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-F1-RINDT-001",
+      "to": "HOS-F1-MEMORIAL-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-ORG-303-SQUADRON",
+      "to": "HOS-PERSON-JAN-ZUMBACH",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-ORG-303-SQUADRON",
+      "to": "HOS-ORG-DEBLIN-AVIATION-SCHOOL",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-ORG-DEBLIN-AVIATION-SCHOOL",
+      "to": "HOS-PERSON-JAN-ZUMBACH",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-PERSON-JAN-ZUMBACH",
+      "to": "HOS-ORG-303-SQUADRON",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-PERSON-JAN-ZUMBACH",
+      "to": "HOS-ORG-DEBLIN-AVIATION-SCHOOL",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-TEST-001",
+      "to": "HOS-PERSON-JAN-ZUMBACH",
+      "type": "relation"
+    }
+  ],
+  "traversal_edges": [
+    {
+      "from": "HOS-F1-1970-001",
+      "to": "HOS-F1-RINDT-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-F1-1970-001",
+      "to": "HOS-F1-HOCKENHEIM-1970-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-F1-BRUCE-MCLAREN-001",
+      "to": "HOS-F1-MEMORIAL-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-F1-GILLES-VILLENEUVE-001",
+      "to": "HOS-F1-MEMORIAL-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-F1-HOCKENHEIM-1970-001",
+      "to": "HOS-F1-RINDT-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-F1-HOCKENHEIM-1970-001",
+      "to": "HOS-F1-1970-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-F1-JACKY-ICKX-001",
+      "to": "HOS-F1-1970-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-F1-JIM-CLARK-001",
+      "to": "HOS-F1-MEMORIAL-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-F1-RINDT-001",
+      "to": "HOS-F1-1970-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-F1-RINDT-001",
+      "to": "HOS-F1-HOCKENHEIM-1970-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-F1-RINDT-001",
+      "to": "HOS-F1-MEMORIAL-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-ORG-303-SQUADRON",
+      "to": "HOS-PERSON-JAN-ZUMBACH",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-ORG-303-SQUADRON",
+      "to": "HOS-ORG-DEBLIN-AVIATION-SCHOOL",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-ORG-DEBLIN-AVIATION-SCHOOL",
+      "to": "HOS-PERSON-JAN-ZUMBACH",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-PERSON-JAN-ZUMBACH",
+      "to": "HOS-ORG-303-SQUADRON",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-PERSON-JAN-ZUMBACH",
+      "to": "HOS-ORG-DEBLIN-AVIATION-SCHOOL",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-TEST-001",
+      "to": "HOS-PERSON-JAN-ZUMBACH",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-F1-RINDT-001",
+      "to": "HOS-F1-1970-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-F1-HOCKENHEIM-1970-001",
+      "to": "HOS-F1-1970-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-F1-MEMORIAL-001",
+      "to": "HOS-F1-BRUCE-MCLAREN-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-F1-MEMORIAL-001",
+      "to": "HOS-F1-GILLES-VILLENEUVE-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-F1-RINDT-001",
+      "to": "HOS-F1-HOCKENHEIM-1970-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-F1-1970-001",
+      "to": "HOS-F1-HOCKENHEIM-1970-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-F1-1970-001",
+      "to": "HOS-F1-JACKY-ICKX-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-F1-MEMORIAL-001",
+      "to": "HOS-F1-JIM-CLARK-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-F1-1970-001",
+      "to": "HOS-F1-RINDT-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-F1-HOCKENHEIM-1970-001",
+      "to": "HOS-F1-RINDT-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-F1-MEMORIAL-001",
+      "to": "HOS-F1-RINDT-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-PERSON-JAN-ZUMBACH",
+      "to": "HOS-ORG-303-SQUADRON",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-ORG-DEBLIN-AVIATION-SCHOOL",
+      "to": "HOS-ORG-303-SQUADRON",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-PERSON-JAN-ZUMBACH",
+      "to": "HOS-ORG-DEBLIN-AVIATION-SCHOOL",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-ORG-303-SQUADRON",
+      "to": "HOS-PERSON-JAN-ZUMBACH",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-ORG-DEBLIN-AVIATION-SCHOOL",
+      "to": "HOS-PERSON-JAN-ZUMBACH",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-PERSON-JAN-ZUMBACH",
+      "to": "HOS-TEST-001",
+      "type": "reverse_relation"
+    }
+  ]
+}

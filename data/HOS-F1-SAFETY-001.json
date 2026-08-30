@@ -1,1 +1,15 @@
-{"id":"HOS-F1-SAFETY-001","title":"Formuła 1 — Wypadki i bezpieczeństwo","corpus":"MOTORSPORT","category":"FORMUŁA 1/WYPADKI I BEZPIECZEŃSTWO","status":"review","scope":"Korpus zdarzeń dotyczących wypadków, śmierci kierowców, zmian konstrukcyjnych, medycznych, torowych i regulaminowych oraz rozwoju bezpieczeństwa F1.","key_relations":["HOS-F1-RINDT-001","HOS-F1-JIM-CLARK-001","HOS-F1-GILLES-VILLENEUVE-001"]}
+{
+  "id": "HOS-F1-SAFETY-001",
+  "title": "Formuła 1 — Wypadki i bezpieczeństwo",
+  "corpus": "MOTORSPORT",
+  "category": "FORMUŁA 1/WYPADKI I BEZPIECZEŃSTWO",
+  "status": "review",
+  "scope": "Korpus zdarzeń dotyczących wypadków, śmierci kierowców, zmian konstrukcyjnych, medycznych, torowych i regulaminowych oraz rozwoju bezpieczeństwa F1.",
+  "key_relations": [
+    "HOS-F1-RINDT-001",
+    "HOS-F1-JIM-CLARK-001",
+    "HOS-F1-GILLES-VILLENEUVE-001"
+  ],
+  "sources": [],
+  "created_at": "2026-08-30T18:58:37+00:00"
+}

@@ -1,1 +1,14 @@
-{"id":"HOS-F1-SEASONS-INDEX-001","title":"Formuła 1 — indeks sezonów","corpus":"MOTORSPORT","category":"FORMUŁA 1/SEZONY","status":"review","scope":"Indeks sezonów Mistrzostw Świata F1, kierowców, konstruktorów, kalendarzy, wyników i zmian regulaminowych.","seed_records":["HOS-F1-1970-001"],"next_rebuild":"pełna chronologia sezonów od 1950 do współczesności"}
+{
+  "id": "HOS-F1-SEASONS-INDEX-001",
+  "title": "Formuła 1 — indeks sezonów",
+  "corpus": "MOTORSPORT",
+  "category": "FORMUŁA 1/SEZONY",
+  "status": "review",
+  "scope": "Indeks sezonów Mistrzostw Świata F1, kierowców, konstruktorów, kalendarzy, wyników i zmian regulaminowych.",
+  "seed_records": [
+    "HOS-F1-1970-001"
+  ],
+  "next_rebuild": "pełna chronologia sezonów od 1950 do współczesności",
+  "sources": [],
+  "created_at": "2026-08-30T18:58:37+00:00"
+}

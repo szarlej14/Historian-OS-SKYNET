@@ -1,1 +1,20 @@
-{"id":"HOS-F1-ROBERT-KUBICA-001","title":"Robert Kubica","corpus":"MOTORSPORT","category":"FORMUŁA 1/KIEROWCY/POLSKA","tags":["Robert Kubica","BMW Sauber","Renault","Williams","Polska","2008"],"status":"review","summary":"Pierwszy i jak dotąd jedyny polski kierowca, który wygrał Grand Prix Formuły 1; zwycięzca Grand Prix Kanady 2008.","sources":["https://www.formula1.com/en/drivers/robert-kubica"]}
+{
+  "id": "HOS-F1-ROBERT-KUBICA-001",
+  "title": "Robert Kubica",
+  "corpus": "MOTORSPORT",
+  "category": "FORMUŁA 1/KIEROWCY/POLSKA",
+  "tags": [
+    "Robert Kubica",
+    "BMW Sauber",
+    "Renault",
+    "Williams",
+    "Polska",
+    "2008"
+  ],
+  "status": "review",
+  "summary": "Pierwszy i jak dotąd jedyny polski kierowca, który wygrał Grand Prix Formuły 1; zwycięzca Grand Prix Kanady 2008.",
+  "sources": [
+    "https://www.formula1.com/en/drivers/robert-kubica"
+  ],
+  "created_at": "2026-08-30T18:58:37+00:00"
+}
