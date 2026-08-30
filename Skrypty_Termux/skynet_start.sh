@@ -5,8 +5,17 @@ REPO_URL="https://github.com/szarlej14/Historian-OS-SKYNET.git"
 REPO_DIR="${HISTORIAN_REPO_DIR:-$HOME/Historian-OS-SKYNET}"
 WORKSPACE="${HISTORIAN_WORKSPACE:-/storage/emulated/0/HistorianOS_Workspace}"
 
-printf '\n[SKYNET] Przygotowanie Termuxa i dostępu do pamięci...\n'
-command -v termux-setup-storage >/dev/null 2>&1 && termux-setup-storage || true
+printf '\n[SKYNET] Przygotowanie Termuxa...\n'
+
+# Nie uruchamiaj termux-setup-storage ponownie, jeżeli dostęp już istnieje.
+if [ ! -d "$HOME/storage/shared" ]; then
+  printf '\n[SKYNET] Brak aktywnego dostępu do pamięci Androida.\n'
+  printf '[SKYNET] Uruchamiam konfigurację pamięci tylko raz.\n'
+  termux-setup-storage || true
+  printf '\n[SKYNET] Po przyznaniu uprawnienia uruchom ten sam starter ponownie.\n'
+  exit 0
+fi
+
 pkg install -y git python coreutils >/dev/null
 
 printf '\n[SKYNET] Synchronizacja repozytorium...\n'
