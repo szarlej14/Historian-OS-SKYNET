@@ -7,13 +7,18 @@ WORKSPACE="${HISTORIAN_WORKSPACE:-/storage/emulated/0/HistorianOS_Workspace}"
 
 printf '\n[SKYNET] Przygotowanie Termuxa...\n'
 
-# Nie uruchamiaj termux-setup-storage ponownie, jeżeli dostęp już istnieje.
+# Napraw tylko strukturę skrótów Termuxa, jeśli jest niepełna.
+# Usunięcie $HOME/storage nie kasuje danych z pamięci telefonu — to tylko lokalne skróty/symlinki Termuxa.
 if [ ! -d "$HOME/storage/shared" ]; then
-  printf '\n[SKYNET] Brak aktywnego dostępu do pamięci Androida.\n'
-  printf '[SKYNET] Uruchamiam konfigurację pamięci tylko raz.\n'
+  printf '[SKYNET] Naprawiam dostęp do pamięci Androida...\n'
+  rm -rf "$HOME/storage"
   termux-setup-storage || true
-  printf '\n[SKYNET] Po przyznaniu uprawnienia uruchom ten sam starter ponownie.\n'
-  exit 0
+  sleep 2
+  if [ ! -d "$HOME/storage/shared" ]; then
+    printf '\n[SKYNET][STOP] Android nie udostępnił jeszcze pamięci Termuxowi.\n'
+    printf 'Nadaj Termuxowi dostęp do plików i uruchom starter ponownie.\n'
+    exit 0
+  fi
 fi
 
 pkg install -y git python coreutils >/dev/null
