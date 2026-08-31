@@ -1,0 +1,22 @@
+{
+  "id": "HOS-MOTORSPORT-GRAHAM-HILL-TRIPLE-CROWN-001",
+  "title": "Graham Hill – jedyny w historii: Triple Crown of Motorsport",
+  "corpus": "MOTORSPORT",
+  "category": "KIEROWCY/LEGENDY/TRIPLE CROWN",
+  "tags": ["Graham Hill", "Triple Crown", "Monaco Grand Prix", "Indianapolis 500", "Le Mans", "Matra-Simca MS670", "Lola T90", "Henri Pescarolo", "1963", "1964", "1965", "1966", "1968", "1969", "1972"],
+  "status": "review",
+  "summary": "Materiał archiwalny użytkownika poświęcony Grahamowi Hillowi jako jedynemu kierowcy, który skompletował klasyczną Potrójną Koronę Motorsportu: zwycięstwo w Grand Prix Monako, Indianapolis 500 i 24 Hours of Le Mans.",
+  "facts": {
+    "monaco_wins": [1963, 1964, 1965, 1968, 1969],
+    "indianapolis_500_win": 1966,
+    "le_mans_win": 1972,
+    "le_mans_car": "Matra-Simca MS670",
+    "le_mans_co_driver": "Henri Pescarolo",
+    "f1_world_championships": [1962, 1968]
+  },
+  "relations": ["HOS-MOTORSPORT-LE-MANS-001", "HOS-F1-GRAHAM-HILL-001"],
+  "media": [{"type": "image", "description": "Autorska grafika archiwalna Graham Hill – Triple Crown, z fotografią Hilla z szampanem w prawym górnym rogu; wygenerowana/edytowana w rozmowie 2026-08-31.", "conversation_file": "/mnt/data/a_graphic_poster_infographic_style_image_on_a_dark.png"}],
+  "user_text": "GRAHAM HILL - JEDYNY W HISTORII\n\nPotrójna Korona Motorsportu to najbardziej ekskluzywny klub na świecie. Trzeba wygrać trzy zupełnie różne wyścigi, na trzech różnych kontynentach, trzema różnymi typami samochodów.\n\nDo dziś dokonał tego tylko jeden człowiek.\n\nGraham Hill (1929-1975)\n\nMONACO GRAND PRIX - 5 zwycięstw: 1963, 1964, 1965, 1968, 1969. Mr. Monaco. Król ulic, gdzie nie ma miejsca na błąd.\n\nINDIANAPOLIS 500 - 1966. Wygrał jako debiutant, w Loli T90 z numerem 24. Amerykanie do dziś mówią, że to był najbardziej szalony rookie w historii Brickyard.\n\n24 GODZINY LE MANS - 1972. Matra-Simca MS670 razem z Henri Pescarolo. Niebieska rakieta, która domknęła dzieło.\n\nDwukrotny mistrz świata F1 (1962, 1968), ojciec Damona Hilla, facet z wąsem, który zawsze miał czas na żart. Zginął w 1975 w katastrofie lotniczej, wracając z testów.\n\nDziś wielu goni za Triple Crown - Alonso, Montoya, ale klub wciąż ma jednego członka.\n\nRóżne tory. Ten sam ból. Nigdy nie zostaną zapomniani.",
+  "sources": ["https://www.formula1.com/", "https://www.lemans.org/"],
+  "created_at": "2026-08-31T07:19:00+02:00"
+}
