@@ -2,8 +2,8 @@
   "type": "knowledge_graph",
   "version": "0.1.0",
   "generated_by": "scripts/build_graph.py",
-  "node_count": 52,
-  "edge_count": 69,
+  "node_count": 53,
+  "edge_count": 73,
   "nodes": [
     {
       "id": "HOS-F1-1970-001",
@@ -258,6 +258,13 @@
       "status": "review"
     },
     {
+      "id": "HOS-FOOT-POLAND-PERU-1982-001",
+      "label": "Polska – Peru 5:1, MŚ 1982",
+      "category": "MECZE/REPREZENTACJA POLSKI/MŚ 1982",
+      "corpus": "PIŁKA NOŻNA",
+      "status": "review"
+    },
+    {
       "id": "HOS-FOOT-PZPN-001",
       "label": "Polski Związek Piłki Nożnej",
       "category": "ORGANIZACJE/POLSKA",
@@ -507,6 +514,21 @@
       "type": "relation"
     },
     {
+      "from": "HOS-FOOT-POLAND-PERU-1982-001",
+      "to": "HOS-FOOT-ZBIGNIEW-BONIEK-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-FOOT-POLAND-PERU-1982-001",
+      "to": "HOS-FOOT-WC-1982-POLAND-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-FOOT-POLAND-PERU-1982-001",
+      "to": "HOS-FOOT-POLAND-NT-001",
+      "type": "relation"
+    },
+    {
       "from": "HOS-FOOT-PZPN-001",
       "to": "HOS-FOOT-POLAND-NT-001",
       "type": "relation"
@@ -549,6 +571,11 @@
     {
       "from": "HOS-FOOT-ZBIGNIEW-BONIEK-001",
       "to": "HOS-FOOT-WC-1982-POLAND-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-FOOT-ZBIGNIEW-BONIEK-001",
+      "to": "HOS-FOOT-POLAND-PERU-1982-001",
       "type": "relation"
     },
     {
@@ -854,6 +881,21 @@
       "type": "relation"
     },
     {
+      "from": "HOS-FOOT-POLAND-PERU-1982-001",
+      "to": "HOS-FOOT-ZBIGNIEW-BONIEK-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-FOOT-POLAND-PERU-1982-001",
+      "to": "HOS-FOOT-WC-1982-POLAND-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-FOOT-POLAND-PERU-1982-001",
+      "to": "HOS-FOOT-POLAND-NT-001",
+      "type": "relation"
+    },
+    {
       "from": "HOS-FOOT-PZPN-001",
       "to": "HOS-FOOT-POLAND-NT-001",
       "type": "relation"
@@ -896,6 +938,11 @@
     {
       "from": "HOS-FOOT-ZBIGNIEW-BONIEK-001",
       "to": "HOS-FOOT-WC-1982-POLAND-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-FOOT-ZBIGNIEW-BONIEK-001",
+      "to": "HOS-FOOT-POLAND-PERU-1982-001",
       "type": "relation"
     },
     {
@@ -1199,6 +1246,21 @@
       "type": "reverse_relation"
     },
     {
+      "from": "HOS-FOOT-ZBIGNIEW-BONIEK-001",
+      "to": "HOS-FOOT-POLAND-PERU-1982-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-FOOT-WC-1982-POLAND-001",
+      "to": "HOS-FOOT-POLAND-PERU-1982-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-FOOT-POLAND-NT-001",
+      "to": "HOS-FOOT-POLAND-PERU-1982-001",
+      "type": "reverse_relation"
+    },
+    {
       "from": "HOS-FOOT-POLAND-NT-001",
       "to": "HOS-FOOT-PZPN-001",
       "type": "reverse_relation"
@@ -1240,6 +1302,11 @@
     },
     {
       "from": "HOS-FOOT-WC-1982-POLAND-001",
+      "to": "HOS-FOOT-ZBIGNIEW-BONIEK-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-FOOT-POLAND-PERU-1982-001",
       "to": "HOS-FOOT-ZBIGNIEW-BONIEK-001",
       "type": "reverse_relation"
     },

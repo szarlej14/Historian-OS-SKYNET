@@ -2,7 +2,7 @@
   "type": "catalog",
   "version": "0.1.0",
   "generated_by": "scripts/sync_catalog.py",
-  "record_count": 52,
+  "record_count": 53,
   "records": [
     {
       "id": "HOS-F1-1970-001",
@@ -401,6 +401,17 @@
       "file": "data/HOS-FOOT-POLAND-NT-001.json"
     },
     {
+      "id": "HOS-FOOT-POLAND-PERU-1982-001",
+      "title": "Polska – Peru 5:1, MŚ 1982",
+      "corpus": "PIŁKA NOŻNA",
+      "category": "MECZE/REPREZENTACJA POLSKI/MŚ 1982",
+      "status": "review",
+      "date": null,
+      "source_count": 2,
+      "relation_count": 3,
+      "file": "data/HOS-FOOT-POLAND-PERU-1982-001.json"
+    },
+    {
       "id": "HOS-FOOT-PZPN-001",
       "title": "Polski Związek Piłki Nożnej",
       "corpus": "PIŁKA NOŻNA",
@@ -451,8 +462,8 @@
       "category": "PIŁKARZE/POLSKA/LEGENDY",
       "status": "review",
       "date": null,
-      "source_count": 2,
-      "relation_count": 3,
+      "source_count": 3,
+      "relation_count": 4,
       "file": "data/HOS-FOOT-ZBIGNIEW-BONIEK-001.json"
     },
     {
