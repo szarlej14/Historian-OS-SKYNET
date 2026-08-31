@@ -1,0 +1,12 @@
+{
+  "id": "HOS-FOOT-WIDZEW-LODZ-001",
+  "title": "Widzew Łódź",
+  "corpus": "PIŁKA NOŻNA",
+  "category": "KLUBY/POLSKA/ŁÓDŹ",
+  "tags": ["Widzew Łódź", "Łódź", "Ekstraklasa", "puchary europejskie"],
+  "status": "review",
+  "summary": "Łódzki klub piłkarski i jeden z ważnych węzłów historii polskiej piłki klubowej, szczególnie w kontekście mistrzostw Polski i występów w europejskich pucharach.",
+  "relations": ["HOS-FOOT-ZBIGNIEW-BONIEK-001"],
+  "sources": ["https://widzew.com/"],
+  "created_at": "2026-08-31T00:00:00+00:00"
+}
