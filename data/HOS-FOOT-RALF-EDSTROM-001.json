@@ -1,0 +1,15 @@
+{
+  "id": "HOS-FOOT-RALF-EDSTROM-001",
+  "title": "Ralf Edström",
+  "corpus": "PIŁKA NOŻNA",
+  "category": "PIŁKARZE/SZWECJA/LEGENDY",
+  "tags": ["Ralf Edström", "Szwecja", "Degerfors", "Åtvidabergs FF", "PSV Eindhoven", "IFK Göteborg", "Standard Liège", "AS Monaco", "Mundial 1974", "Mundial 1978"],
+  "status": "review",
+  "summary": "Ralf Sigvard Edström, ur. 7 października 1952 w Degerfors, szwedzki napastnik i reprezentant kraju. Grał m.in. w Åtvidabergs FF i PSV Eindhoven, a także IFK Göteborg, Standard Liège i AS Monaco. Uczestnik mistrzostw świata 1974 i 1978; na mundialu 1974 zdobył cztery bramki.",
+  "user_text": "- Urodził się 7 października 1952 roku w szwedzkim miasteczku Degerfors.\n- W czasie swojej kariery grał na pozycji napastnika.\n- Reprezentował barwy m.in. szwedzkiego klubu Åtvidabergs FF oraz holenderskiego PSV Eindhoven.\n- Występował w reprezentacji Szwecji, z którą wziął udział m.in. w Mistrzostwach Świata w Piłce Nożnej w 1974 i 1978 roku.",
+  "media": [{"type":"image","conversation_file":"1000011070.jpg","description":"Archiwalny portret piłkarza z piłką, przekazany wraz z notą biograficzną Ralfa Edströma.","archive_status":"referenced_from_conversation"}],
+  "relations": ["Szwecja", "Åtvidabergs FF", "PSV Eindhoven", "IFK Göteborg", "Standard Liège", "AS Monaco", "Mistrzostwa Świata 1974", "Mistrzostwa Świata 1978"],
+  "sources": ["https://www.bolletinen.se/sfs/pdf/hof_2011.pdf", "https://ifkdb.se/spelare/Ralf-Edstr%C3%B6m_171"],
+  "verification_notes": "Podstawowe dane biograficzne i udział w mundialach 1974 oraz 1978 zweryfikowane. Rekord pozostaje review do czasu utworzenia i spięcia kanonicznych węzłów klubów, reprezentacji Szwecji i turniejów.",
+  "created_at": "2026-08-31T11:20:00+00:00"
+}
