@@ -1,0 +1,23 @@
+{
+  "id": "HOS-FOOT-MARCIN-WASILEWSKI-001",
+  "title": "Marcin Wasilewski – kontuzja 2009 i powrót do futbolu",
+  "corpus": "PIŁKA NOŻNA",
+  "category": "PIŁKARZE/POLSKA/HISTORIE/POWROTY",
+  "tags": ["Marcin Wasilewski", "Anderlecht", "Standard Liege", "Axel Witsel", "30 sierpnia 2009", "kontuzja", "rehabilitacja", "Leicester City", "Premier League"],
+  "status": "review",
+  "summary": "30 sierpnia 2009 w meczu RSC Anderlecht – Standard Liege Marcin Wasilewski doznał ciężkiego otwartego podwójnego złamania prawej nogi po faulu Axela Witsela. Uraz wymagał wielu operacji i długiej rehabilitacji. Wasilewski wrócił do gry w maju 2010, a później kontynuował karierę m.in. w Leicester City. Węzeł dokumentuje wypadek, rehabilitację, wsparcie kibiców i sportowy powrót.",
+  "relations": ["HOS-FOOT-POLAND-NT-001"],
+  "archive_material": {
+    "type": "photo+text",
+    "conversation_file": "1000011046.jpg",
+    "caption": "Marcin Wasilewski po ciężkiej kontuzji odniesionej w meczu Anderlecht – Standard Liege, 30.08.2009; materiał przekazany do archiwum wraz z rozbudowanym tekstem narracyjnym.",
+    "user_text_archived": true
+  },
+  "sources": [
+    "https://www.uefa.com/uefaeuropaleague/news/01dc-0e72bb5d6dd2-f364a87a2bed-1000--anderlecht-struck-by-double-injury-blow/",
+    "https://www.uefa.com/news-media/news/01dd-0e72c3bce68e-ff25fa5a6a5a-1000--witsel-banned-for-eight-games/",
+    "https://www.uefa.com/news-media/news/0254-0d7cd6332ba0-1e49fe2b7525-1000--wasilewski-grateful-for-anderlecht-return/",
+    "https://www.uefa.com/uefaeuropaleague/news/01ee-0e121f1becee-820340e7dd24-1000--anderlecht-reward-wasilewski-for-winning-battle/"
+  ],
+  "created_at": "2026-08-31T07:19:00+02:00"
+}
