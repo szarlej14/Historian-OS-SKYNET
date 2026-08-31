@@ -1,0 +1,13 @@
+{
+  "id": "HOS-FOOT-POLAND-PERU-1982-001",
+  "title": "Polska – Peru 5:1, MŚ 1982",
+  "corpus": "PIŁKA NOŻNA",
+  "category": "MECZE/REPREZENTACJA POLSKI/MŚ 1982",
+  "tags": ["Polska", "Peru", "Zbigniew Boniek", "Mundial 1982", "La Coruña", "Estadio Riazor", "22 czerwca 1982", "nieuznany gol"],
+  "status": "review",
+  "summary": "22 czerwca 1982 roku na Estadio Riazor w La Coruña Polska pokonała Peru 5:1 w fazie grupowej mistrzostw świata. Zbigniew Boniek zdobył uznaną bramkę na 3:0 w 61. minucie, a wcześniej trafił także do siatki, lecz gol nie został uznany. Archiwum PZPN/Łączy Nas Piłka dokumentuje osobno sekwencję 'Nieuznany gol Z. Bońka'. Mecz zapewnił Polsce awans do drugiej rundy mundialu.",
+  "relations": ["HOS-FOOT-ZBIGNIEW-BONIEK-001", "HOS-FOOT-WC-1982-POLAND-001", "HOS-FOOT-POLAND-NT-001"],
+  "media": [{"type": "image", "local_source": "conversation_upload", "filename": "1000011030.jpg", "description": "Fotografia z meczu Polska–Peru 5:1 na MŚ 1982, przekazana do archiwum przez użytkownika."}],
+  "sources": ["https://www.laczynaspilka.pl/biblioteka/mecze/polska-peru-51-22061982", "https://www.laczynaspilka.pl/biblioteka/wideoteka/zbigniew-boniek"],
+  "created_at": "2026-08-31T00:00:00+00:00"
+}
