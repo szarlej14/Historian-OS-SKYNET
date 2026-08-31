@@ -6,16 +6,20 @@
   "tags": [
     "Gilles Villeneuve",
     "Ferrari",
-    "Memorial",
-    "1982"
+    "Imola 1982",
+    "Zolder 1982",
+    "Memorial"
   ],
   "status": "review",
-  "summary": "Kanadyjski kierowca Ferrari, jedna z najbardziej pamiętnych postaci Formuły 1. Jego kariera i śmierć w 1982 roku należą do kluczowych historii bezpieczeństwa i pamięci F1.",
+  "summary": "Kanadyjski kierowca Ferrari, jedna z najbardziej pamiętnych postaci Formuły 1. Jego rywalizacja w Imoli 1982 i śmierć podczas kwalifikacji w Zolder należą do kluczowych historii pamięci F1.",
   "relations": [
-    "HOS-F1-MEMORIAL-001"
+    "HOS-F1-MEMORIAL-001",
+    "HOS-F1-FERRARI-001",
+    "HOS-MOTOR-LORENZO-BANDINI-001"
   ],
   "sources": [
-    "https://www.formula1.com/en/drivers/hall-of-fame/Gilles_Villeneuve.html"
+    "https://www.formula1.com/en/drivers/hall-of-fame/Gilles_Villeneuve.html",
+    "https://www.ferrari.com/en-EN/formula1/1000-gp-belgian-gp-1982"
   ],
   "created_at": "2026-08-30T18:58:37+00:00"
 }
