@@ -1,0 +1,21 @@
+{
+  "id": "HOS-MOTOR-LE-MANS-1966-001",
+  "title": "24 Hours of Le Mans 1966",
+  "corpus": "MOTORSPORT",
+  "category": "ENDURANCE/WYDARZENIA/LE MANS",
+  "tags": ["Le Mans", "1966", "Ford", "Ferrari", "GT40", "McLaren", "Amon", "Miles"],
+  "status": "review",
+  "summary": "24-godzinny wyścig Le Mans z 1966 roku zakończył się historycznym triumfem Forda i zajęciem trzech pierwszych miejsc przez GT40 Mk II. Zwyciężyli Bruce McLaren i Chris Amon, przed Kenem Milesem i Dennym Hulme'em.",
+  "relations": [
+    "HOS-MOTOR-FORD-GT40-MKII-001",
+    "HOS-F1-BRUCE-MCLAREN-001",
+    "HOS-MOTOR-CHRIS-AMON-001",
+    "HOS-MOTOR-KEN-MILES-001",
+    "HOS-MOTOR-CARROLL-SHELBY-001"
+  ],
+  "sources": [
+    "https://corporate.ford.com/articles/history/ford-gt40-origins-le-mans-committee-victory.html",
+    "https://media.ford.com/content/dam/fordmedia/history/products/fordgt-gt40/1966-LeMans-Summary-Press-Release-noting-123-Finish-07-05-1966.pdf"
+  ],
+  "created_at": "2026-08-31T00:00:00+00:00"
+}
