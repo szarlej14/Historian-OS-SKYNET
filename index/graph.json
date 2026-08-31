@@ -2,8 +2,8 @@
   "type": "knowledge_graph",
   "version": "0.1.0",
   "generated_by": "scripts/build_graph.py",
-  "node_count": 54,
-  "edge_count": 74,
+  "node_count": 55,
+  "edge_count": 75,
   "nodes": [
     {
       "id": "HOS-F1-1970-001",
@@ -352,6 +352,13 @@
       "id": "HOS-MOTOR-LORENZO-BANDINI-001",
       "label": "Lorenzo Bandini",
       "category": "FORMUŁA 1/KIEROWCY/MEMORIAL",
+      "corpus": "MOTORSPORT",
+      "status": "review"
+    },
+    {
+      "id": "HOS-MOTORSPORT-GRAHAM-HILL-TRIPLE-CROWN-001",
+      "label": "Graham Hill – jedyny w historii: Triple Crown of Motorsport",
+      "category": "KIEROWCY/LEGENDY/TRIPLE CROWN",
       "corpus": "MOTORSPORT",
       "status": "review"
     },
@@ -723,6 +730,11 @@
     {
       "from": "HOS-MOTOR-LORENZO-BANDINI-001",
       "to": "HOS-F1-GILLES-VILLENEUVE-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTORSPORT-GRAHAM-HILL-TRIPLE-CROWN-001",
+      "to": "HOS-F1-GRAHAM-HILL-001",
       "type": "relation"
     },
     {
@@ -1098,6 +1110,11 @@
       "type": "relation"
     },
     {
+      "from": "HOS-MOTORSPORT-GRAHAM-HILL-TRIPLE-CROWN-001",
+      "to": "HOS-F1-GRAHAM-HILL-001",
+      "type": "relation"
+    },
+    {
       "from": "HOS-ORG-303-SQUADRON",
       "to": "HOS-PERSON-JAN-ZUMBACH",
       "type": "relation"
@@ -1465,6 +1482,11 @@
     {
       "from": "HOS-F1-GILLES-VILLENEUVE-001",
       "to": "HOS-MOTOR-LORENZO-BANDINI-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-F1-GRAHAM-HILL-001",
+      "to": "HOS-MOTORSPORT-GRAHAM-HILL-TRIPLE-CROWN-001",
       "type": "reverse_relation"
     },
     {

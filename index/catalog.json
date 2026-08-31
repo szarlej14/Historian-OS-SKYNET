@@ -2,7 +2,7 @@
   "type": "catalog",
   "version": "0.1.0",
   "generated_by": "scripts/sync_catalog.py",
-  "record_count": 54,
+  "record_count": 55,
   "records": [
     {
       "id": "HOS-F1-1970-001",
@@ -553,6 +553,17 @@
       "source_count": 2,
       "relation_count": 3,
       "file": "data/HOS-MOTOR-LORENZO-BANDINI-001.json"
+    },
+    {
+      "id": "HOS-MOTORSPORT-GRAHAM-HILL-TRIPLE-CROWN-001",
+      "title": "Graham Hill – jedyny w historii: Triple Crown of Motorsport",
+      "corpus": "MOTORSPORT",
+      "category": "KIEROWCY/LEGENDY/TRIPLE CROWN",
+      "status": "review",
+      "date": null,
+      "source_count": 2,
+      "relation_count": 2,
+      "file": "data/HOS-MOTORSPORT-GRAHAM-HILL-TRIPLE-CROWN-001.json"
     },
     {
       "id": "HOS-ORG-303-SQUADRON",
