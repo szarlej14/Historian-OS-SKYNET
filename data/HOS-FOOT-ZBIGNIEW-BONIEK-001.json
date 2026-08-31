@@ -5,8 +5,8 @@
   "category": "PIŁKARZE/POLSKA/LEGENDY",
   "tags": ["Zbigniew Boniek", "Widzew Łódź", "Polska", "Juventus", "Roma", "1982"],
   "status": "review",
-  "summary": "Polski piłkarz, reprezentant kraju i jedna z najważniejszych postaci polskiego futbolu przełomu lat 70. i 80.; istotny węzeł łączący Widzew Łódź, reprezentację Polski, Mundial 1982 oraz włoską piłkę klubową.",
-  "relations": ["HOS-FOOT-WIDZEW-LODZ-001", "HOS-FOOT-POLAND-NT-001", "HOS-FOOT-WC-1982-POLAND-001"],
-  "sources": ["https://www.uefa.com/", "https://www.laczynaspilka.pl/"],
+  "summary": "Polski piłkarz, reprezentant kraju i jedna z najważniejszych postaci polskiego futbolu przełomu lat 70. i 80.; istotny węzeł łączący Widzew Łódź, reprezentację Polski, Mundial 1982 oraz włoską piłkę klubową. W meczu Polska–Peru 5:1 na MŚ 1982 zdobył uznaną bramkę na 3:0, a wcześniej trafił również do siatki w akcji zakończonej nieuznanym golem.",
+  "relations": ["HOS-FOOT-WIDZEW-LODZ-001", "HOS-FOOT-POLAND-NT-001", "HOS-FOOT-WC-1982-POLAND-001", "HOS-FOOT-POLAND-PERU-1982-001"],
+  "sources": ["https://www.uefa.com/", "https://www.laczynaspilka.pl/", "https://www.laczynaspilka.pl/biblioteka/mecze/polska-peru-51-22061982"],
   "created_at": "2026-08-31T00:00:00+00:00"
 }
