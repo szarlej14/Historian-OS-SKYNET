@@ -2,8 +2,8 @@
   "type": "knowledge_graph",
   "version": "0.1.0",
   "generated_by": "scripts/build_graph.py",
-  "node_count": 44,
-  "edge_count": 52,
+  "node_count": 52,
+  "edge_count": 69,
   "nodes": [
     {
       "id": "HOS-F1-1970-001",
@@ -237,6 +237,62 @@
       "status": "review"
     },
     {
+      "id": "HOS-FOOT-IGOR-SYPNIEWSKI-001",
+      "label": "Igor Sypniewski",
+      "category": "PIŁKARZE/POLSKA/BIOGRAFIE",
+      "corpus": "PIŁKA NOŻNA",
+      "status": "review"
+    },
+    {
+      "id": "HOS-FOOT-KAZIMIERZ-DEYNA-001",
+      "label": "Kazimierz Deyna",
+      "category": "PIŁKARZE/POLSKA/LEGENDY",
+      "corpus": "PIŁKA NOŻNA",
+      "status": "review"
+    },
+    {
+      "id": "HOS-FOOT-POLAND-NT-001",
+      "label": "Reprezentacja Polski w piłce nożnej",
+      "category": "REPREZENTACJE/POLSKA",
+      "corpus": "PIŁKA NOŻNA",
+      "status": "review"
+    },
+    {
+      "id": "HOS-FOOT-PZPN-001",
+      "label": "Polski Związek Piłki Nożnej",
+      "category": "ORGANIZACJE/POLSKA",
+      "corpus": "PIŁKA NOŻNA",
+      "status": "review"
+    },
+    {
+      "id": "HOS-FOOT-WC-1974-POLAND-001",
+      "label": "Polska na Mistrzostwach Świata 1974",
+      "category": "TURNIEJE/MISTRZOSTWA ŚWIATA/1974",
+      "corpus": "PIŁKA NOŻNA",
+      "status": "review"
+    },
+    {
+      "id": "HOS-FOOT-WC-1982-POLAND-001",
+      "label": "Polska na Mistrzostwach Świata 1982",
+      "category": "TURNIEJE/MISTRZOSTWA ŚWIATA/1982",
+      "corpus": "PIŁKA NOŻNA",
+      "status": "review"
+    },
+    {
+      "id": "HOS-FOOT-WIDZEW-LODZ-001",
+      "label": "Widzew Łódź",
+      "category": "KLUBY/POLSKA/ŁÓDŹ",
+      "corpus": "PIŁKA NOŻNA",
+      "status": "review"
+    },
+    {
+      "id": "HOS-FOOT-ZBIGNIEW-BONIEK-001",
+      "label": "Zbigniew Boniek",
+      "category": "PIŁKARZE/POLSKA/LEGENDY",
+      "corpus": "PIŁKA NOŻNA",
+      "status": "review"
+    },
+    {
       "id": "HOS-LOT-ZUMBACH-001",
       "label": "Jan Zumbach",
       "category": "LOTNICTWO/POLSKA SZKOŁA LOTNICZA W DĘBLINIE/WYCHOWANKOWIE",
@@ -408,6 +464,91 @@
     {
       "from": "HOS-F1-RINDT-001",
       "to": "HOS-F1-MEMORIAL-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-FOOT-IGOR-SYPNIEWSKI-001",
+      "to": "HOS-FOOT-POLAND-NT-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-FOOT-KAZIMIERZ-DEYNA-001",
+      "to": "HOS-FOOT-POLAND-NT-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-FOOT-KAZIMIERZ-DEYNA-001",
+      "to": "HOS-FOOT-WC-1974-POLAND-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-FOOT-POLAND-NT-001",
+      "to": "HOS-FOOT-PZPN-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-FOOT-POLAND-NT-001",
+      "to": "HOS-FOOT-WC-1974-POLAND-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-FOOT-POLAND-NT-001",
+      "to": "HOS-FOOT-WC-1982-POLAND-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-FOOT-POLAND-NT-001",
+      "to": "HOS-FOOT-ZBIGNIEW-BONIEK-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-FOOT-POLAND-NT-001",
+      "to": "HOS-FOOT-KAZIMIERZ-DEYNA-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-FOOT-PZPN-001",
+      "to": "HOS-FOOT-POLAND-NT-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-FOOT-WC-1974-POLAND-001",
+      "to": "HOS-FOOT-POLAND-NT-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-FOOT-WC-1974-POLAND-001",
+      "to": "HOS-FOOT-KAZIMIERZ-DEYNA-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-FOOT-WC-1982-POLAND-001",
+      "to": "HOS-FOOT-POLAND-NT-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-FOOT-WC-1982-POLAND-001",
+      "to": "HOS-FOOT-ZBIGNIEW-BONIEK-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-FOOT-WIDZEW-LODZ-001",
+      "to": "HOS-FOOT-ZBIGNIEW-BONIEK-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-FOOT-ZBIGNIEW-BONIEK-001",
+      "to": "HOS-FOOT-WIDZEW-LODZ-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-FOOT-ZBIGNIEW-BONIEK-001",
+      "to": "HOS-FOOT-POLAND-NT-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-FOOT-ZBIGNIEW-BONIEK-001",
+      "to": "HOS-FOOT-WC-1982-POLAND-001",
       "type": "relation"
     },
     {
@@ -673,6 +814,91 @@
       "type": "relation"
     },
     {
+      "from": "HOS-FOOT-IGOR-SYPNIEWSKI-001",
+      "to": "HOS-FOOT-POLAND-NT-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-FOOT-KAZIMIERZ-DEYNA-001",
+      "to": "HOS-FOOT-POLAND-NT-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-FOOT-KAZIMIERZ-DEYNA-001",
+      "to": "HOS-FOOT-WC-1974-POLAND-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-FOOT-POLAND-NT-001",
+      "to": "HOS-FOOT-PZPN-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-FOOT-POLAND-NT-001",
+      "to": "HOS-FOOT-WC-1974-POLAND-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-FOOT-POLAND-NT-001",
+      "to": "HOS-FOOT-WC-1982-POLAND-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-FOOT-POLAND-NT-001",
+      "to": "HOS-FOOT-ZBIGNIEW-BONIEK-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-FOOT-POLAND-NT-001",
+      "to": "HOS-FOOT-KAZIMIERZ-DEYNA-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-FOOT-PZPN-001",
+      "to": "HOS-FOOT-POLAND-NT-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-FOOT-WC-1974-POLAND-001",
+      "to": "HOS-FOOT-POLAND-NT-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-FOOT-WC-1974-POLAND-001",
+      "to": "HOS-FOOT-KAZIMIERZ-DEYNA-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-FOOT-WC-1982-POLAND-001",
+      "to": "HOS-FOOT-POLAND-NT-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-FOOT-WC-1982-POLAND-001",
+      "to": "HOS-FOOT-ZBIGNIEW-BONIEK-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-FOOT-WIDZEW-LODZ-001",
+      "to": "HOS-FOOT-ZBIGNIEW-BONIEK-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-FOOT-ZBIGNIEW-BONIEK-001",
+      "to": "HOS-FOOT-WIDZEW-LODZ-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-FOOT-ZBIGNIEW-BONIEK-001",
+      "to": "HOS-FOOT-POLAND-NT-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-FOOT-ZBIGNIEW-BONIEK-001",
+      "to": "HOS-FOOT-WC-1982-POLAND-001",
+      "type": "relation"
+    },
+    {
       "from": "HOS-MOTOR-CARROLL-SHELBY-001",
       "to": "HOS-MOTOR-KEN-MILES-001",
       "type": "relation"
@@ -930,6 +1156,91 @@
     {
       "from": "HOS-F1-MEMORIAL-001",
       "to": "HOS-F1-RINDT-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-FOOT-POLAND-NT-001",
+      "to": "HOS-FOOT-IGOR-SYPNIEWSKI-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-FOOT-POLAND-NT-001",
+      "to": "HOS-FOOT-KAZIMIERZ-DEYNA-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-FOOT-WC-1974-POLAND-001",
+      "to": "HOS-FOOT-KAZIMIERZ-DEYNA-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-FOOT-PZPN-001",
+      "to": "HOS-FOOT-POLAND-NT-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-FOOT-WC-1974-POLAND-001",
+      "to": "HOS-FOOT-POLAND-NT-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-FOOT-WC-1982-POLAND-001",
+      "to": "HOS-FOOT-POLAND-NT-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-FOOT-ZBIGNIEW-BONIEK-001",
+      "to": "HOS-FOOT-POLAND-NT-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-FOOT-KAZIMIERZ-DEYNA-001",
+      "to": "HOS-FOOT-POLAND-NT-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-FOOT-POLAND-NT-001",
+      "to": "HOS-FOOT-PZPN-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-FOOT-POLAND-NT-001",
+      "to": "HOS-FOOT-WC-1974-POLAND-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-FOOT-KAZIMIERZ-DEYNA-001",
+      "to": "HOS-FOOT-WC-1974-POLAND-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-FOOT-POLAND-NT-001",
+      "to": "HOS-FOOT-WC-1982-POLAND-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-FOOT-ZBIGNIEW-BONIEK-001",
+      "to": "HOS-FOOT-WC-1982-POLAND-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-FOOT-ZBIGNIEW-BONIEK-001",
+      "to": "HOS-FOOT-WIDZEW-LODZ-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-FOOT-WIDZEW-LODZ-001",
+      "to": "HOS-FOOT-ZBIGNIEW-BONIEK-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-FOOT-POLAND-NT-001",
+      "to": "HOS-FOOT-ZBIGNIEW-BONIEK-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-FOOT-WC-1982-POLAND-001",
+      "to": "HOS-FOOT-ZBIGNIEW-BONIEK-001",
       "type": "reverse_relation"
     },
     {

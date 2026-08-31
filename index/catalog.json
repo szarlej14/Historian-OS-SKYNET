@@ -2,7 +2,7 @@
   "type": "catalog",
   "version": "0.1.0",
   "generated_by": "scripts/sync_catalog.py",
-  "record_count": 44,
+  "record_count": 52,
   "records": [
     {
       "id": "HOS-F1-1970-001",
@@ -366,6 +366,94 @@
       "source_count": 1,
       "relation_count": 0,
       "file": "data/HOS-F1-WILLIAMS-001.json"
+    },
+    {
+      "id": "HOS-FOOT-IGOR-SYPNIEWSKI-001",
+      "title": "Igor Sypniewski",
+      "corpus": "PIŁKA NOŻNA",
+      "category": "PIŁKARZE/POLSKA/BIOGRAFIE",
+      "status": "review",
+      "date": null,
+      "source_count": 1,
+      "relation_count": 1,
+      "file": "data/HOS-FOOT-IGOR-SYPNIEWSKI-001.json"
+    },
+    {
+      "id": "HOS-FOOT-KAZIMIERZ-DEYNA-001",
+      "title": "Kazimierz Deyna",
+      "corpus": "PIŁKA NOŻNA",
+      "category": "PIŁKARZE/POLSKA/LEGENDY",
+      "status": "review",
+      "date": null,
+      "source_count": 1,
+      "relation_count": 2,
+      "file": "data/HOS-FOOT-KAZIMIERZ-DEYNA-001.json"
+    },
+    {
+      "id": "HOS-FOOT-POLAND-NT-001",
+      "title": "Reprezentacja Polski w piłce nożnej",
+      "corpus": "PIŁKA NOŻNA",
+      "category": "REPREZENTACJE/POLSKA",
+      "status": "review",
+      "date": null,
+      "source_count": 1,
+      "relation_count": 5,
+      "file": "data/HOS-FOOT-POLAND-NT-001.json"
+    },
+    {
+      "id": "HOS-FOOT-PZPN-001",
+      "title": "Polski Związek Piłki Nożnej",
+      "corpus": "PIŁKA NOŻNA",
+      "category": "ORGANIZACJE/POLSKA",
+      "status": "review",
+      "date": null,
+      "source_count": 1,
+      "relation_count": 1,
+      "file": "data/HOS-FOOT-PZPN-001.json"
+    },
+    {
+      "id": "HOS-FOOT-WC-1974-POLAND-001",
+      "title": "Polska na Mistrzostwach Świata 1974",
+      "corpus": "PIŁKA NOŻNA",
+      "category": "TURNIEJE/MISTRZOSTWA ŚWIATA/1974",
+      "status": "review",
+      "date": null,
+      "source_count": 1,
+      "relation_count": 2,
+      "file": "data/HOS-FOOT-WC-1974-POLAND-001.json"
+    },
+    {
+      "id": "HOS-FOOT-WC-1982-POLAND-001",
+      "title": "Polska na Mistrzostwach Świata 1982",
+      "corpus": "PIŁKA NOŻNA",
+      "category": "TURNIEJE/MISTRZOSTWA ŚWIATA/1982",
+      "status": "review",
+      "date": null,
+      "source_count": 1,
+      "relation_count": 2,
+      "file": "data/HOS-FOOT-WC-1982-POLAND-001.json"
+    },
+    {
+      "id": "HOS-FOOT-WIDZEW-LODZ-001",
+      "title": "Widzew Łódź",
+      "corpus": "PIŁKA NOŻNA",
+      "category": "KLUBY/POLSKA/ŁÓDŹ",
+      "status": "review",
+      "date": null,
+      "source_count": 1,
+      "relation_count": 1,
+      "file": "data/HOS-FOOT-WIDZEW-LODZ-001.json"
+    },
+    {
+      "id": "HOS-FOOT-ZBIGNIEW-BONIEK-001",
+      "title": "Zbigniew Boniek",
+      "corpus": "PIŁKA NOŻNA",
+      "category": "PIŁKARZE/POLSKA/LEGENDY",
+      "status": "review",
+      "date": null,
+      "source_count": 2,
+      "relation_count": 3,
+      "file": "data/HOS-FOOT-ZBIGNIEW-BONIEK-001.json"
     },
     {
       "id": "HOS-LOT-ZUMBACH-001",
