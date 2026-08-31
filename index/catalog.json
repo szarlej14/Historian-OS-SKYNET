@@ -2,7 +2,7 @@
   "type": "catalog",
   "version": "0.1.0",
   "generated_by": "scripts/sync_catalog.py",
-  "record_count": 53,
+  "record_count": 54,
   "records": [
     {
       "id": "HOS-F1-1970-001",
@@ -388,6 +388,17 @@
       "source_count": 1,
       "relation_count": 2,
       "file": "data/HOS-FOOT-KAZIMIERZ-DEYNA-001.json"
+    },
+    {
+      "id": "HOS-FOOT-MARCIN-WASILEWSKI-001",
+      "title": "Marcin Wasilewski – kontuzja 2009 i powrót do futbolu",
+      "corpus": "PIŁKA NOŻNA",
+      "category": "PIŁKARZE/POLSKA/HISTORIE/POWROTY",
+      "status": "review",
+      "date": null,
+      "source_count": 4,
+      "relation_count": 1,
+      "file": "data/HOS-FOOT-MARCIN-WASILEWSKI-001.json"
     },
     {
       "id": "HOS-FOOT-POLAND-NT-001",

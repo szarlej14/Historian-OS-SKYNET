@@ -2,8 +2,8 @@
   "type": "knowledge_graph",
   "version": "0.1.0",
   "generated_by": "scripts/build_graph.py",
-  "node_count": 53,
-  "edge_count": 73,
+  "node_count": 54,
+  "edge_count": 74,
   "nodes": [
     {
       "id": "HOS-F1-1970-001",
@@ -251,6 +251,13 @@
       "status": "review"
     },
     {
+      "id": "HOS-FOOT-MARCIN-WASILEWSKI-001",
+      "label": "Marcin Wasilewski – kontuzja 2009 i powrót do futbolu",
+      "category": "PIŁKARZE/POLSKA/HISTORIE/POWROTY",
+      "corpus": "PIŁKA NOŻNA",
+      "status": "review"
+    },
+    {
       "id": "HOS-FOOT-POLAND-NT-001",
       "label": "Reprezentacja Polski w piłce nożnej",
       "category": "REPREZENTACJE/POLSKA",
@@ -486,6 +493,11 @@
     {
       "from": "HOS-FOOT-KAZIMIERZ-DEYNA-001",
       "to": "HOS-FOOT-WC-1974-POLAND-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-FOOT-MARCIN-WASILEWSKI-001",
+      "to": "HOS-FOOT-POLAND-NT-001",
       "type": "relation"
     },
     {
@@ -856,6 +868,11 @@
       "type": "relation"
     },
     {
+      "from": "HOS-FOOT-MARCIN-WASILEWSKI-001",
+      "to": "HOS-FOOT-POLAND-NT-001",
+      "type": "relation"
+    },
+    {
       "from": "HOS-FOOT-POLAND-NT-001",
       "to": "HOS-FOOT-PZPN-001",
       "type": "relation"
@@ -1218,6 +1235,11 @@
     {
       "from": "HOS-FOOT-WC-1974-POLAND-001",
       "to": "HOS-FOOT-KAZIMIERZ-DEYNA-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-FOOT-POLAND-NT-001",
+      "to": "HOS-FOOT-MARCIN-WASILEWSKI-001",
       "type": "reverse_relation"
     },
     {
