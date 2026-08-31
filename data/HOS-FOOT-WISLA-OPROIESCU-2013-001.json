@@ -1,0 +1,15 @@
+{
+  "id": "HOS-FOOT-WISLA-OPROIESCU-2013-001",
+  "title": "Wisła Kraków i przypadek 'Sorina Oproiescu' (2013)",
+  "corpus": "PIŁKA NOŻNA",
+  "category": "CIEKAWOSTKI/OSZUSTWA/TESTY PIŁKARSKIE/POLSKA",
+  "tags": ["Wisła Kraków", "Sorin Oproiescu", "2013", "Franciszek Smuda", "testy piłkarskie", "fałszywe CV", "fałszywe wideo", "Zawisza Bydgoszcz", "Gorzów Wielkopolski", "Weszło"],
+  "status": "review",
+  "tone": "z przymrużeniem oka",
+  "summary": "Historia z 2013 roku opisywana jako przypadek rumuńskiego studenta posługującego się nazwiskiem Sorin Oproiescu, który miał przygotować fałszywy materiał wideo z zagraniami innych zawodników i dzięki niemu trafić na testy związane z Wisłą Kraków. Materiał zachowany jako futbolowa ciekawostka wymagająca dalszej weryfikacji szczegółów źródłowych.",
+  "user_text": "Z serii \"To nie miało prawa się wydarzyć\" chyba coś takiego najbardziej nie miało prawa i to w 2013 roku! Technologia przecież nie była nam już obca 📽️🎥💿\n\nWisła Kraków dała się nabrać… rumuńskiemu studentowi \"Sorinowi Oproiescu\", który skleił klip z zagraniami (nawet nieswoimi) i został zaproszony na testy do Gorzowa Wielkopolskiego. Musiał się zdziwić, że profesjonalny klub łyknął wideo, na którym co chwilę ma inny kolor koszulek i inną budowę ciała. Były to klipy z zagrań piłkarzy z ligi serbskiej. Zrobił z siebie \"byłego młodzieżowego reprezentanta Rumunii\".\n\nDopiero użytkownik strony internetowej Wisły odkrył, że na tych filmikach to kopią różni ludzie. Trener Franciszek Smuda postanowił jednak wystawić go w sparingu z Zawiszą Bydgoszcz. No i... chłop nie miał za bardzo pojęcia o piłce. Nikt mu nie podawał, bo nawet nie umiał się wystawić.",
+  "media": [{"type":"image","conversation_file":"1000011052.jpg","description":"Grafika Weszło z hasłem 'To nie miało prawa się wydarzyć!' dotycząca przypadku Sorina Oproiescu i Wisły Kraków.","archive_status":"referenced_from_conversation"}],
+  "relations": ["Wisła Kraków", "Franciszek Smuda", "Zawisza Bydgoszcz", "Gorzów Wielkopolski"],
+  "verification_notes": "Rekord celowo oznaczony review. Narracyjny tekst użytkownika zachowano w oryginalnym brzmieniu; przed użyciem jako kanoniczny rekord historyczny należy zweryfikować tożsamość, przebieg testów, miejsce oraz szczegóły sparingu w źródłach z 2013 roku.",
+  "created_at": "2026-08-31T05:19:00+00:00"
+}
