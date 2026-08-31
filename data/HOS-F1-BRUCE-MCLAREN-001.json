@@ -7,15 +7,25 @@
     "Bruce McLaren",
     "McLaren",
     "1960",
+    "Le Mans",
+    "Can-Am",
     "Memorial"
   ],
   "status": "review",
-  "summary": "Nowozelandzki kierowca, konstruktor i założyciel McLaren. Kluczowa postać historii F1, której dziedzictwo obejmuje zarówno kierowanie samochodami, jak i rozwój zespołu McLaren.",
+  "summary": "Nowozelandzki kierowca, konstruktor i założyciel McLaren. Zwycięzca 24h Le Mans 1966 z Chrisem Amonem oraz kluczowa postać historii F1 i Can-Am. Zginął 2 czerwca 1970 podczas testów McLarena M8D na Goodwood.",
   "relations": [
-    "HOS-F1-MEMORIAL-001"
+    "HOS-F1-MEMORIAL-001",
+    "HOS-F1-MCLAREN-001",
+    "HOS-MOTOR-CHRIS-AMON-001",
+    "HOS-MOTOR-KEN-MILES-001",
+    "HOS-MOTOR-FORD-GT40-MKII-001",
+    "HOS-MOTOR-LE-MANS-1966-001",
+    "HOS-MOTOR-CARROLL-SHELBY-001"
   ],
   "sources": [
-    "https://www.formula1.com/en/teams/mclaren"
+    "https://www.formula1.com/en/teams/mclaren",
+    "https://www.mclaren.com/racing/heritage/the-day-two-heroes-were-made/",
+    "https://corporate.ford.com/articles/history/ford-gt40-origins-le-mans-committee-victory.html"
   ],
   "created_at": "2026-08-30T18:58:37+00:00"
 }
