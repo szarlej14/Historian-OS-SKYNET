@@ -2,7 +2,7 @@
   "type": "catalog",
   "version": "0.1.0",
   "generated_by": "scripts/sync_catalog.py",
-  "record_count": 38,
+  "record_count": 44,
   "records": [
     {
       "id": "HOS-F1-1970-001",
@@ -33,8 +33,8 @@
       "category": "FORMUŁA 1/KIEROWCY/KONSTRUKTORZY/MEMORIAL",
       "status": "review",
       "date": null,
-      "source_count": 1,
-      "relation_count": 1,
+      "source_count": 3,
+      "relation_count": 7,
       "file": "data/HOS-F1-BRUCE-MCLAREN-001.json"
     },
     {
@@ -110,8 +110,8 @@
       "category": "FORMUŁA 1/KIEROWCY/MEMORIAL",
       "status": "review",
       "date": null,
-      "source_count": 1,
-      "relation_count": 1,
+      "source_count": 2,
+      "relation_count": 3,
       "file": "data/HOS-F1-GILLES-VILLENEUVE-001.json"
     },
     {
@@ -377,6 +377,72 @@
       "source_count": 1,
       "relation_count": 0,
       "file": "data/HOS-LOT-ZUMBACH-001.json"
+    },
+    {
+      "id": "HOS-MOTOR-CARROLL-SHELBY-001",
+      "title": "Carroll Shelby",
+      "corpus": "MOTORSPORT",
+      "category": "ENDURANCE/KIEROWCY/KONSTRUKTORZY/ZARZĄDZANIE",
+      "status": "review",
+      "date": null,
+      "source_count": 2,
+      "relation_count": 5,
+      "file": "data/HOS-MOTOR-CARROLL-SHELBY-001.json"
+    },
+    {
+      "id": "HOS-MOTOR-CHRIS-AMON-001",
+      "title": "Chris Amon",
+      "corpus": "MOTORSPORT",
+      "category": "FORMUŁA 1/ENDURANCE/KIEROWCY",
+      "status": "review",
+      "date": null,
+      "source_count": 2,
+      "relation_count": 5,
+      "file": "data/HOS-MOTOR-CHRIS-AMON-001.json"
+    },
+    {
+      "id": "HOS-MOTOR-FORD-GT40-MKII-001",
+      "title": "Ford GT40 Mk II",
+      "corpus": "MOTORSPORT",
+      "category": "ENDURANCE/SAMOCHODY/LE MANS",
+      "status": "review",
+      "date": null,
+      "source_count": 2,
+      "relation_count": 5,
+      "file": "data/HOS-MOTOR-FORD-GT40-MKII-001.json"
+    },
+    {
+      "id": "HOS-MOTOR-KEN-MILES-001",
+      "title": "Ken Miles",
+      "corpus": "MOTORSPORT",
+      "category": "ENDURANCE/KIEROWCY/TESTERZY/MEMORIAL",
+      "status": "review",
+      "date": null,
+      "source_count": 2,
+      "relation_count": 4,
+      "file": "data/HOS-MOTOR-KEN-MILES-001.json"
+    },
+    {
+      "id": "HOS-MOTOR-LE-MANS-1966-001",
+      "title": "24 Hours of Le Mans 1966",
+      "corpus": "MOTORSPORT",
+      "category": "ENDURANCE/WYDARZENIA/LE MANS",
+      "status": "review",
+      "date": null,
+      "source_count": 2,
+      "relation_count": 5,
+      "file": "data/HOS-MOTOR-LE-MANS-1966-001.json"
+    },
+    {
+      "id": "HOS-MOTOR-LORENZO-BANDINI-001",
+      "title": "Lorenzo Bandini",
+      "corpus": "MOTORSPORT",
+      "category": "FORMUŁA 1/KIEROWCY/MEMORIAL",
+      "status": "review",
+      "date": null,
+      "source_count": 2,
+      "relation_count": 3,
+      "file": "data/HOS-MOTOR-LORENZO-BANDINI-001.json"
     },
     {
       "id": "HOS-ORG-303-SQUADRON",

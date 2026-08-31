@@ -2,8 +2,8 @@
   "type": "knowledge_graph",
   "version": "0.1.0",
   "generated_by": "scripts/build_graph.py",
-  "node_count": 38,
-  "edge_count": 17,
+  "node_count": 44,
+  "edge_count": 52,
   "nodes": [
     {
       "id": "HOS-F1-1970-001",
@@ -244,6 +244,48 @@
       "status": "draft"
     },
     {
+      "id": "HOS-MOTOR-CARROLL-SHELBY-001",
+      "label": "Carroll Shelby",
+      "category": "ENDURANCE/KIEROWCY/KONSTRUKTORZY/ZARZĄDZANIE",
+      "corpus": "MOTORSPORT",
+      "status": "review"
+    },
+    {
+      "id": "HOS-MOTOR-CHRIS-AMON-001",
+      "label": "Chris Amon",
+      "category": "FORMUŁA 1/ENDURANCE/KIEROWCY",
+      "corpus": "MOTORSPORT",
+      "status": "review"
+    },
+    {
+      "id": "HOS-MOTOR-FORD-GT40-MKII-001",
+      "label": "Ford GT40 Mk II",
+      "category": "ENDURANCE/SAMOCHODY/LE MANS",
+      "corpus": "MOTORSPORT",
+      "status": "review"
+    },
+    {
+      "id": "HOS-MOTOR-KEN-MILES-001",
+      "label": "Ken Miles",
+      "category": "ENDURANCE/KIEROWCY/TESTERZY/MEMORIAL",
+      "corpus": "MOTORSPORT",
+      "status": "review"
+    },
+    {
+      "id": "HOS-MOTOR-LE-MANS-1966-001",
+      "label": "24 Hours of Le Mans 1966",
+      "category": "ENDURANCE/WYDARZENIA/LE MANS",
+      "corpus": "MOTORSPORT",
+      "status": "review"
+    },
+    {
+      "id": "HOS-MOTOR-LORENZO-BANDINI-001",
+      "label": "Lorenzo Bandini",
+      "category": "FORMUŁA 1/KIEROWCY/MEMORIAL",
+      "corpus": "MOTORSPORT",
+      "status": "review"
+    },
+    {
       "id": "HOS-ORG-303-SQUADRON",
       "label": "303 Dywizjon Myśliwski im. Tadeusza Kościuszki",
       "category": "jednostka",
@@ -289,8 +331,48 @@
       "type": "relation"
     },
     {
+      "from": "HOS-F1-BRUCE-MCLAREN-001",
+      "to": "HOS-F1-MCLAREN-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-F1-BRUCE-MCLAREN-001",
+      "to": "HOS-MOTOR-CHRIS-AMON-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-F1-BRUCE-MCLAREN-001",
+      "to": "HOS-MOTOR-KEN-MILES-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-F1-BRUCE-MCLAREN-001",
+      "to": "HOS-MOTOR-FORD-GT40-MKII-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-F1-BRUCE-MCLAREN-001",
+      "to": "HOS-MOTOR-LE-MANS-1966-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-F1-BRUCE-MCLAREN-001",
+      "to": "HOS-MOTOR-CARROLL-SHELBY-001",
+      "type": "relation"
+    },
+    {
       "from": "HOS-F1-GILLES-VILLENEUVE-001",
       "to": "HOS-F1-MEMORIAL-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-F1-GILLES-VILLENEUVE-001",
+      "to": "HOS-F1-FERRARI-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-F1-GILLES-VILLENEUVE-001",
+      "to": "HOS-MOTOR-LORENZO-BANDINI-001",
       "type": "relation"
     },
     {
@@ -326,6 +408,141 @@
     {
       "from": "HOS-F1-RINDT-001",
       "to": "HOS-F1-MEMORIAL-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTOR-CARROLL-SHELBY-001",
+      "to": "HOS-MOTOR-KEN-MILES-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTOR-CARROLL-SHELBY-001",
+      "to": "HOS-MOTOR-FORD-GT40-MKII-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTOR-CARROLL-SHELBY-001",
+      "to": "HOS-MOTOR-LE-MANS-1966-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTOR-CARROLL-SHELBY-001",
+      "to": "HOS-F1-BRUCE-MCLAREN-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTOR-CARROLL-SHELBY-001",
+      "to": "HOS-MOTOR-CHRIS-AMON-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTOR-CHRIS-AMON-001",
+      "to": "HOS-F1-BRUCE-MCLAREN-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTOR-CHRIS-AMON-001",
+      "to": "HOS-MOTOR-FORD-GT40-MKII-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTOR-CHRIS-AMON-001",
+      "to": "HOS-MOTOR-LE-MANS-1966-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTOR-CHRIS-AMON-001",
+      "to": "HOS-F1-FERRARI-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTOR-CHRIS-AMON-001",
+      "to": "HOS-MOTOR-CARROLL-SHELBY-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTOR-FORD-GT40-MKII-001",
+      "to": "HOS-MOTOR-LE-MANS-1966-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTOR-FORD-GT40-MKII-001",
+      "to": "HOS-MOTOR-KEN-MILES-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTOR-FORD-GT40-MKII-001",
+      "to": "HOS-F1-BRUCE-MCLAREN-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTOR-FORD-GT40-MKII-001",
+      "to": "HOS-MOTOR-CHRIS-AMON-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTOR-FORD-GT40-MKII-001",
+      "to": "HOS-MOTOR-CARROLL-SHELBY-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTOR-KEN-MILES-001",
+      "to": "HOS-MOTOR-CARROLL-SHELBY-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTOR-KEN-MILES-001",
+      "to": "HOS-MOTOR-FORD-GT40-MKII-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTOR-KEN-MILES-001",
+      "to": "HOS-MOTOR-LE-MANS-1966-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTOR-KEN-MILES-001",
+      "to": "HOS-F1-BRUCE-MCLAREN-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTOR-LE-MANS-1966-001",
+      "to": "HOS-MOTOR-FORD-GT40-MKII-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTOR-LE-MANS-1966-001",
+      "to": "HOS-F1-BRUCE-MCLAREN-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTOR-LE-MANS-1966-001",
+      "to": "HOS-MOTOR-CHRIS-AMON-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTOR-LE-MANS-1966-001",
+      "to": "HOS-MOTOR-KEN-MILES-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTOR-LE-MANS-1966-001",
+      "to": "HOS-MOTOR-CARROLL-SHELBY-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTOR-LORENZO-BANDINI-001",
+      "to": "HOS-F1-FERRARI-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTOR-LORENZO-BANDINI-001",
+      "to": "HOS-F1-MEMORIAL-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTOR-LORENZO-BANDINI-001",
+      "to": "HOS-F1-GILLES-VILLENEUVE-001",
       "type": "relation"
     },
     {
@@ -376,8 +593,48 @@
       "type": "relation"
     },
     {
+      "from": "HOS-F1-BRUCE-MCLAREN-001",
+      "to": "HOS-F1-MCLAREN-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-F1-BRUCE-MCLAREN-001",
+      "to": "HOS-MOTOR-CHRIS-AMON-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-F1-BRUCE-MCLAREN-001",
+      "to": "HOS-MOTOR-KEN-MILES-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-F1-BRUCE-MCLAREN-001",
+      "to": "HOS-MOTOR-FORD-GT40-MKII-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-F1-BRUCE-MCLAREN-001",
+      "to": "HOS-MOTOR-LE-MANS-1966-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-F1-BRUCE-MCLAREN-001",
+      "to": "HOS-MOTOR-CARROLL-SHELBY-001",
+      "type": "relation"
+    },
+    {
       "from": "HOS-F1-GILLES-VILLENEUVE-001",
       "to": "HOS-F1-MEMORIAL-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-F1-GILLES-VILLENEUVE-001",
+      "to": "HOS-F1-FERRARI-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-F1-GILLES-VILLENEUVE-001",
+      "to": "HOS-MOTOR-LORENZO-BANDINI-001",
       "type": "relation"
     },
     {
@@ -413,6 +670,141 @@
     {
       "from": "HOS-F1-RINDT-001",
       "to": "HOS-F1-MEMORIAL-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTOR-CARROLL-SHELBY-001",
+      "to": "HOS-MOTOR-KEN-MILES-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTOR-CARROLL-SHELBY-001",
+      "to": "HOS-MOTOR-FORD-GT40-MKII-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTOR-CARROLL-SHELBY-001",
+      "to": "HOS-MOTOR-LE-MANS-1966-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTOR-CARROLL-SHELBY-001",
+      "to": "HOS-F1-BRUCE-MCLAREN-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTOR-CARROLL-SHELBY-001",
+      "to": "HOS-MOTOR-CHRIS-AMON-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTOR-CHRIS-AMON-001",
+      "to": "HOS-F1-BRUCE-MCLAREN-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTOR-CHRIS-AMON-001",
+      "to": "HOS-MOTOR-FORD-GT40-MKII-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTOR-CHRIS-AMON-001",
+      "to": "HOS-MOTOR-LE-MANS-1966-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTOR-CHRIS-AMON-001",
+      "to": "HOS-F1-FERRARI-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTOR-CHRIS-AMON-001",
+      "to": "HOS-MOTOR-CARROLL-SHELBY-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTOR-FORD-GT40-MKII-001",
+      "to": "HOS-MOTOR-LE-MANS-1966-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTOR-FORD-GT40-MKII-001",
+      "to": "HOS-MOTOR-KEN-MILES-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTOR-FORD-GT40-MKII-001",
+      "to": "HOS-F1-BRUCE-MCLAREN-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTOR-FORD-GT40-MKII-001",
+      "to": "HOS-MOTOR-CHRIS-AMON-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTOR-FORD-GT40-MKII-001",
+      "to": "HOS-MOTOR-CARROLL-SHELBY-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTOR-KEN-MILES-001",
+      "to": "HOS-MOTOR-CARROLL-SHELBY-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTOR-KEN-MILES-001",
+      "to": "HOS-MOTOR-FORD-GT40-MKII-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTOR-KEN-MILES-001",
+      "to": "HOS-MOTOR-LE-MANS-1966-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTOR-KEN-MILES-001",
+      "to": "HOS-F1-BRUCE-MCLAREN-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTOR-LE-MANS-1966-001",
+      "to": "HOS-MOTOR-FORD-GT40-MKII-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTOR-LE-MANS-1966-001",
+      "to": "HOS-F1-BRUCE-MCLAREN-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTOR-LE-MANS-1966-001",
+      "to": "HOS-MOTOR-CHRIS-AMON-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTOR-LE-MANS-1966-001",
+      "to": "HOS-MOTOR-KEN-MILES-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTOR-LE-MANS-1966-001",
+      "to": "HOS-MOTOR-CARROLL-SHELBY-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTOR-LORENZO-BANDINI-001",
+      "to": "HOS-F1-FERRARI-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTOR-LORENZO-BANDINI-001",
+      "to": "HOS-F1-MEMORIAL-001",
+      "type": "relation"
+    },
+    {
+      "from": "HOS-MOTOR-LORENZO-BANDINI-001",
+      "to": "HOS-F1-GILLES-VILLENEUVE-001",
       "type": "relation"
     },
     {
@@ -461,7 +853,47 @@
       "type": "reverse_relation"
     },
     {
+      "from": "HOS-F1-MCLAREN-001",
+      "to": "HOS-F1-BRUCE-MCLAREN-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-MOTOR-CHRIS-AMON-001",
+      "to": "HOS-F1-BRUCE-MCLAREN-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-MOTOR-KEN-MILES-001",
+      "to": "HOS-F1-BRUCE-MCLAREN-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-MOTOR-FORD-GT40-MKII-001",
+      "to": "HOS-F1-BRUCE-MCLAREN-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-MOTOR-LE-MANS-1966-001",
+      "to": "HOS-F1-BRUCE-MCLAREN-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-MOTOR-CARROLL-SHELBY-001",
+      "to": "HOS-F1-BRUCE-MCLAREN-001",
+      "type": "reverse_relation"
+    },
+    {
       "from": "HOS-F1-MEMORIAL-001",
+      "to": "HOS-F1-GILLES-VILLENEUVE-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-F1-FERRARI-001",
+      "to": "HOS-F1-GILLES-VILLENEUVE-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-MOTOR-LORENZO-BANDINI-001",
       "to": "HOS-F1-GILLES-VILLENEUVE-001",
       "type": "reverse_relation"
     },
@@ -498,6 +930,141 @@
     {
       "from": "HOS-F1-MEMORIAL-001",
       "to": "HOS-F1-RINDT-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-MOTOR-KEN-MILES-001",
+      "to": "HOS-MOTOR-CARROLL-SHELBY-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-MOTOR-FORD-GT40-MKII-001",
+      "to": "HOS-MOTOR-CARROLL-SHELBY-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-MOTOR-LE-MANS-1966-001",
+      "to": "HOS-MOTOR-CARROLL-SHELBY-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-F1-BRUCE-MCLAREN-001",
+      "to": "HOS-MOTOR-CARROLL-SHELBY-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-MOTOR-CHRIS-AMON-001",
+      "to": "HOS-MOTOR-CARROLL-SHELBY-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-F1-BRUCE-MCLAREN-001",
+      "to": "HOS-MOTOR-CHRIS-AMON-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-MOTOR-FORD-GT40-MKII-001",
+      "to": "HOS-MOTOR-CHRIS-AMON-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-MOTOR-LE-MANS-1966-001",
+      "to": "HOS-MOTOR-CHRIS-AMON-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-F1-FERRARI-001",
+      "to": "HOS-MOTOR-CHRIS-AMON-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-MOTOR-CARROLL-SHELBY-001",
+      "to": "HOS-MOTOR-CHRIS-AMON-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-MOTOR-LE-MANS-1966-001",
+      "to": "HOS-MOTOR-FORD-GT40-MKII-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-MOTOR-KEN-MILES-001",
+      "to": "HOS-MOTOR-FORD-GT40-MKII-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-F1-BRUCE-MCLAREN-001",
+      "to": "HOS-MOTOR-FORD-GT40-MKII-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-MOTOR-CHRIS-AMON-001",
+      "to": "HOS-MOTOR-FORD-GT40-MKII-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-MOTOR-CARROLL-SHELBY-001",
+      "to": "HOS-MOTOR-FORD-GT40-MKII-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-MOTOR-CARROLL-SHELBY-001",
+      "to": "HOS-MOTOR-KEN-MILES-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-MOTOR-FORD-GT40-MKII-001",
+      "to": "HOS-MOTOR-KEN-MILES-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-MOTOR-LE-MANS-1966-001",
+      "to": "HOS-MOTOR-KEN-MILES-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-F1-BRUCE-MCLAREN-001",
+      "to": "HOS-MOTOR-KEN-MILES-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-MOTOR-FORD-GT40-MKII-001",
+      "to": "HOS-MOTOR-LE-MANS-1966-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-F1-BRUCE-MCLAREN-001",
+      "to": "HOS-MOTOR-LE-MANS-1966-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-MOTOR-CHRIS-AMON-001",
+      "to": "HOS-MOTOR-LE-MANS-1966-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-MOTOR-KEN-MILES-001",
+      "to": "HOS-MOTOR-LE-MANS-1966-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-MOTOR-CARROLL-SHELBY-001",
+      "to": "HOS-MOTOR-LE-MANS-1966-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-F1-FERRARI-001",
+      "to": "HOS-MOTOR-LORENZO-BANDINI-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-F1-MEMORIAL-001",
+      "to": "HOS-MOTOR-LORENZO-BANDINI-001",
+      "type": "reverse_relation"
+    },
+    {
+      "from": "HOS-F1-GILLES-VILLENEUVE-001",
+      "to": "HOS-MOTOR-LORENZO-BANDINI-001",
       "type": "reverse_relation"
     },
     {
