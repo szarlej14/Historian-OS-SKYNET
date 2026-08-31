@@ -1,0 +1,16 @@
+{
+  "id": "HOS-MOTORSPORT-JAMES-HUNT-BIRTHDAY-MANSELL-001",
+  "title": "James Hunt – 29 sierpnia, pamięć i inspiracja dla Nigela Mansella",
+  "corpus": "MOTORSPORT",
+  "category": "FORMUŁA 1/LUDZIE/PAMIĘĆ",
+  "tags": ["James Hunt", "Nigel Mansell", "29 sierpnia", "1947", "1976", "McLaren", "komentator", "pamięć"],
+  "status": "review",
+  "summary": "Archiwalny wpis upamiętniający Jamesa Hunta, urodzonego 29 sierpnia 1947 roku, mistrza świata Formuły 1 z 1976 roku i późniejszego komentatora BBC. Wpis podkreśla również wskazywany przez Nigela Mansella wpływ Hunta jako jednej z inspiracji w jego drodze w motorsporcie.",
+  "user_text": "TegoDnia, 29 sierpnia, James Hunt skończyłby 79 lat.\n\nPomimo swojego kontrowersyjnego i bezkompromisowego temperamentu, był jedną z największych gwiazd sportów motorowych, zarówno za kierownicą, jak i później jako komentator. Był również ważną inspiracją dla Nigela, jak wspomina sam Our Nige w swojej autobiografii.\n\nWszystkiego najlepszego, James, i spoczywaj w pokoju. Twoja pamięć będzie żyła wiecznie wśród tych z nas, którzy kochają sport motorowy.",
+  "date_note": "29 sierpnia 2026 przypadałaby 79. rocznica urodzin Jamesa Hunta (ur. 29 sierpnia 1947).",
+  "relations": ["James Hunt", "Nigel Mansell", "McLaren", "Mistrzostwa Świata F1 1976", "BBC Formula 1"],
+  "media": [{"type":"image","conversation_file":"1000011069.jpg","description":"Fotografia przedstawiająca Jamesa Hunta i Nigela Mansella, z oznaczeniem Nigel Mansell Fanpage.","archive_status":"referenced_from_conversation"}],
+  "sources": ["https://www.formula1.com/en/information/drivers-hall-of-fame-mike-hawthorn.4vRKjActuXEjrFBR9hzo2A"],
+  "verification_notes": "Data urodzenia Hunta, tytuł mistrza świata 1976 i późniejsza działalność komentatorska są potwierdzone przez Formula1.com. Szczegółowe twierdzenie o roli Hunta jako inspiracji opisanej w autobiografii Nigela Mansella pozostawiono do osobnej weryfikacji w źródle książkowym.",
+  "created_at": "2026-08-31T11:20:00+00:00"
+}
