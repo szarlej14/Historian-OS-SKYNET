@@ -209,9 +209,13 @@ def share_html(vault_id, base):
     body = f"""
     <h1>SHARE — {html.escape(vault_id)}</h1>
     <div class='card'><span class='muted'>SHOWCASE</span><h2>{html.escape(p['name'])}</h2>
-    <div class='code'>{html.escape(full)}</div>
-    <div class='actions'><a class='btn amber' href='{p['dashboard_url']}'>Open Dashboard</a>
-    <a class='btn' href='{p['export_url']}'>Download ZIP</a><a class='btn' href='{p['api_stats_url']}'>API Stats</a></div></div>
+    <div class='code' id='share-url'>{html.escape(full)}</div>
+    <div class='actions'><button class='btn cyan' type='button' onclick='copyShare()'>Copy Link</button>
+    <a class='btn amber' href='{p['dashboard_url']}'>Open Dashboard</a>
+    <a class='btn' href='{p['export_url']}'>Download ZIP</a><a class='btn' href='{p['api_stats_url']}'>API Stats</a></div>
+    <p id='copy-state' class='muted'></p>
+    <div class='card'><img alt='QR code for this vault' width='180' height='180'
+      src='https://quickchart.io/qr?size=180&text={html.escape(full, quote=True)}'></div></div>
     {render_stats(p['counts'])}
     <h2>Embed</h2>
     <p class='muted'>Wklej iframe na stronę WWW, bloga lub WordPressa.</p>
@@ -220,6 +224,17 @@ def share_html(vault_id, base):
     <div class='card'><strong>Mapa</strong><pre class='code'>{html.escape(iframe_map)}</pre></div>
     <h2>Live preview</h2><div class='card'>{render_timeline(timeline(base))}</div>
     <div class='card'>{render_map(map_items(base))}</div>
+    <script>
+    async function copyShare() {
+      const url = document.getElementById('share-url').textContent;
+      try { await navigator.clipboard.writeText(url); }
+      catch (_) {
+        const area = document.createElement('textarea'); area.value = url;
+        document.body.appendChild(area); area.select(); document.execCommand('copy'); area.remove();
+      }
+      document.getElementById('copy-state').textContent = 'Copied!';
+    }
+    </script>
     """
     return html_page(f"Share — {p['name']}", body)
 
@@ -281,7 +296,10 @@ class Handler(BaseHTTPRequestHandler):
                 return self.send_json({"error": "vault_not_found"}, 404)
             embed = (qs.get("embed", [None])[0] or "").lower()
             if embed:
-                return self.send_bytes(embed_html(vid, base, embed if embed in {"timeline","map","stats","true","full"} else "full").encode())
+                return self.send_bytes(
+                    embed_html(vid, base, embed if embed in {"timeline","map","stats","true","full"} else "full").encode(),
+                    headers={"Content-Security-Policy": "frame-ancestors *"},
+                )
             return self.send_bytes(share_html(vid, base).encode())
 
         m = re.fullmatch(r"/dashboard", path)
@@ -421,7 +439,7 @@ class Handler(BaseHTTPRequestHandler):
             f"<a class='btn' href='/api/stats?vault={html.escape(vid)}'>Stats</a></div></div>"
             for vid, name in vaults
         )
-        body = f"<h1>Historian OS SKYNET</h1><p>Evidence-first historical research engine.</p><div class='grid'>{cards}</div><h2>Upload</h2><p class='muted'>POST /api/vaults/upload z plikiem ZIP.</p>"
+        body = f"<h1>Historian OS SKYNET</h1><p>Evidence-first historical research engine.</p><div class='grid'>{cards}</div><h2>Upload</h2><form action='/api/vaults/upload' method='post' enctype='multipart/form-data'><input type='file' name='file' accept='.zip' required><button class='btn cyan' type='submit'>Upload ZIP</button></form><p class='muted'>ZIP jest rozpakowywany do osobnego vaulta; pliki ukryte i większe niż 5 MB są pomijane.</p>"
         return html_page("Historian OS SKYNET", body)
 
     def log_message(self, *args):
