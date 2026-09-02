@@ -1,21 +1,27 @@
 #!/usr/bin/env python3
-"""HistorianOS integration smoke test. Uses only stdlib and a temporary vault."""
-import json,sqlite3,tempfile,subprocess,sys
+"""HistorianOS catalog integration smoke test.
+Validates the current repository data contract and generated catalog.
+Run from historianos-toolkit: python tests/test_selection_integration.py
+"""
+import json
+import subprocess
+import sys
 from pathlib import Path
-ROOT=Path(__file__).resolve().parents[1]
-APP=ROOT/"app"
+
+ROOT = Path(__file__).resolve().parents[2]
+SCRIPT = ROOT / "scripts" / "sync_catalog.py"
+CATALOG = ROOT / "index" / "catalog.json"
+
 def run():
- with tempfile.TemporaryDirectory() as td:
-  v=Path(td)/"vault";v.mkdir();(v/"40 Fakty").mkdir()
-  (v/"40 Fakty"/"supported.md").write_text('---\ntype: fakt\nnazwa: Test fakt\nzrodlo: "[[Source A]]"\n---\n',encoding="utf8")
-  (v/"40 Fakty"/"orphan.md").write_text('---\ntype: fakt\nnazwa: Orphan fact\n---\n',encoding="utf8")
-  (v/"person.md").write_text('---\ntype: osoba\nnazwa: Test Person\nzrodlo: "[[Source A]]"\n---\n',encoding="utf8")
-  cmd=[sys.executable,str(APP/"selection_engine.py"),str(v)]
-  p=subprocess.run(cmd,capture_output=True,text=True,timeout=30)
-  report=v/"selection_report.json"
-  assert p.returncode==0,("selection_engine failed",p.stdout,p.stderr)
-  assert report.exists(),"selection_report.json missing"
-  data=json.loads(report.read_text(encoding="utf8")); assert "stats" in data and "gaps" in data
-  gaps=json.dumps(data["gaps"]); assert "ORPHAN_FACT" in gaps,"orphan fact was not detected"
-  print("PASS selection pipeline:",data["stats"])
-if __name__=="__main__": run()
+    p = subprocess.run([sys.executable, str(SCRIPT)], cwd=ROOT, capture_output=True, text=True, timeout=30)
+    assert p.returncode == 0, ("sync_catalog failed", p.stdout, p.stderr)
+    assert CATALOG.exists(), "index/catalog.json missing"
+    data = json.loads(CATALOG.read_text(encoding="utf-8"))
+    assert data["type"] == "catalog"
+    assert data["record_count"] > 0
+    ids = {item["id"] for item in data["records"]}
+    assert "HOS-FOOT-WISLA-OPROIESCU-2013-001" in ids
+    print("PASS catalog pipeline:", data["record_count"], "records")
+
+if __name__ == "__main__":
+    run()
