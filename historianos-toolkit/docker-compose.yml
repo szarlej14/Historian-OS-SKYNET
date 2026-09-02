@@ -9,5 +9,7 @@ services:
       HISTORIANOS_VAULT: /vault
       PORT: 8080
     volumes:
-      - ..:/vault:ro
+      - ./example-vaults/zjazd-gnieznienski:/vault:ro
+      # Override for a personal vault:
+      # - ../HistorianOS-Vault:/vault:ro
     restart: unless-stopped
