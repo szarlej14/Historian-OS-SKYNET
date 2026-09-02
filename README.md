@@ -1,24 +1,49 @@
 # Historian OS SKYNET
 
-Centralny szkielet projektu **Historian OS SKYNET** — modularnego archiwum wiedzy, indeksowania źródeł i powiązań między rekordami.
+**Evidence-first historical research engine:** corpus → provenance → selection → conflicts → human decisions → reproducible releases.
 
-## Status
+## Live status
 
-**FAZA 1 — korpus + indeks + graf + silnik zapytań + synchronizacja**
+[![Mega Test](https://github.com/szarlej14/Historian-OS-SKYNET/actions/workflows/historianos-mega-test.yml/badge.svg)](https://github.com/szarlej14/Historian-OS-SKYNET/actions/workflows/historianos-mega-test.yml)
+[![Docker Release](https://github.com/szarlej14/Historian-OS-SKYNET/actions/workflows/docker-release.yml/badge.svg)](https://github.com/szarlej14/Historian-OS-SKYNET/actions/workflows/docker-release.yml)
 
-Repozytorium posiada kanoniczne rekordy JSON, indeksy, relacje między rekordami, automatyczną walidację oraz lokalny silnik zapytań.
+**Deployment:** Fly.io / Railway / GHCR — configured by release workflow.
 
-## Architektura
+## Core architecture
 
-- `data/` — kanoniczne rekordy HOS.
-- `index/` — indeksy osób, wydarzeń, relacji i katalog.
-- `scripts/historian_query.py` — lokalny silnik wyszukiwania, odczytu i nawigacji po relacjach.
-- `scripts/sync_catalog.py` — walidacja i synchronizacja katalogu.
-- `.github/workflows/historian-sync.yml` — automatyczna walidacja i synchronizacja.
-- `docs/QUERY_ENGINE.md` — instrukcja silnika zapytań.
-- `schemas/` — schematy danych.
+- `data/` — canonical HOS records.
+- `index/` — searchable indexes and relationships.
+- `historianos-toolkit/app/` — Selection Engine + Command Center.
+- `historianos-toolkit/tests/` — integration and end-to-end tests.
+- `schemas/` — data contracts.
+- `.github/workflows/` — automated validation and release automation.
+- `docs/` — architecture and operational documentation.
 
-## Szybki start
+## Research loop
+
+```
+IMPORT
+  ↓
+QUALITY SCORE
+  ↓
+ENTITY RESOLUTION
+  ↓
+PROVENANCE
+  ↓
+CONFLICT / GAP
+  ↓
+HUMAN DECISION
+  ↓
+CANONICAL KNOWLEDGE
+  ↓
+GRAPH / TIMELINE / ANALYSIS
+```
+
+## Security & reproducibility
+
+Release images should publish an SBOM and SLSA provenance. Deployment credentials belong only in GitHub Actions secrets; never commit tokens to the repository.
+
+## Quick start
 
 ```bash
 python3 scripts/historian_query.py search Zumbach
@@ -27,16 +52,4 @@ python3 scripts/historian_query.py related HOS-ORG-303-SQUADRON
 python3 scripts/historian_query.py stats
 ```
 
-## Założenia
-
-- modularna struktura wiedzy,
-- jednoznaczne identyfikatory rekordów,
-- indeksowanie tematyczne i chronologiczne,
-- powiązania krzyżowe między rekordami,
-- oddzielenie danych źródłowych od warstwy indeksu,
-- automatyczna walidacja i synchronizacja,
-- możliwość uruchomienia lokalnie bez dodatkowych zależności.
-
-## Zasada główna
-
-Najpierw stabilny fundament i schemat danych, potem rozbudowa korpusu wiedzy. Każdy kolejny moduł ma być możliwy do jednoznacznego indeksowania, wyszukania i powiązania z innymi rekordami.
+See the workflow files and `historianos-toolkit/DEPLOYMENT.md` for deployment instructions.
