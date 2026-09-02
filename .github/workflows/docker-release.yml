@@ -79,7 +79,9 @@ jobs:
 
       - name: Start container
         run: |
-          docker run -d --name historianos-test -p 8080:8080             -e PORT=8080             "${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}@${{ needs.build.outputs.digest }}"
+          docker run -d --name historianos-test -p 8080:8080 \
+            -e PORT=8080 \
+            "${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}@${{ needs.build.outputs.digest }}"
 
       - name: Health check
         run: |
@@ -103,7 +105,7 @@ jobs:
         run: docker rm -f historianos-test || true
 
   security:
-    name: SBOM and provenance
+    name: SBOM provenance and signing
     needs: [build, smoke-test]
     runs-on: ubuntu-latest
     timeout-minutes: 15
@@ -115,6 +117,8 @@ jobs:
           registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: sigstore/cosign-installer@v3.8.1
 
       - name: Generate SBOM
         uses: anchore/sbom-action@v0
@@ -138,17 +142,36 @@ jobs:
           sbom-path: sbom.spdx.json
           push-to-registry: true
 
+      - name: Sign image with Sigstore keyless signing
+        env:
+          COSIGN_YES: "true"
+        run: |
+          cosign sign \
+            "${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}@${{ needs.build.outputs.digest }}"
+
       - name: Verify provenance
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh attestation verify             oci://${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}@${{ needs.build.outputs.digest }}             -R ${{ github.repository }}
+          gh attestation verify \
+            oci://${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}@${{ needs.build.outputs.digest }} \
+            -R ${{ github.repository }}
 
       - name: Verify SBOM attestation
         env:
           GH_TOKEN: ${{ github.token }}
         run: |
-          gh attestation verify             oci://${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}@${{ needs.build.outputs.digest }}             -R ${{ github.repository }}             --predicate-type https://spdx.dev/Document/v2.3
+          gh attestation verify \
+            oci://${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}@${{ needs.build.outputs.digest }} \
+            -R ${{ github.repository }} \
+            --predicate-type https://spdx.dev/Document/v2.3
+
+      - name: Verify image signature
+        run: |
+          cosign verify \
+            --certificate-oidc-issuer https://token.actions.githubusercontent.com \
+            --certificate-identity-regexp '^https://github.com/szarlej14/Historian-OS-SKYNET/.github/workflows/.*@refs/(heads/main|tags/v.*)$' \
+            "${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}@${{ needs.build.outputs.digest }}"
 
       - name: Validate SBOM
         run: |
