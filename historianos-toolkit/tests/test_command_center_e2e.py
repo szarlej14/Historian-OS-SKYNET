@@ -3,7 +3,7 @@
 Verifies: selection report -> SQLite ledger -> API decision -> Decision Log -> RESOLVED.
 Run from historianos-toolkit: python tests/test_command_center_e2e.py
 """
-import json,sqlite3,tempfile,subprocess,sys,time,urllib.request
+import json,os,sqlite3,tempfile,subprocess,sys,time,urllib.request
 from pathlib import Path
 ROOT=Path(__file__).resolve().parents[1]
 SERVER=ROOT/"app"/"command_center_server.py"
@@ -16,7 +16,8 @@ def main():
  with tempfile.TemporaryDirectory() as td:
   work=Path(td); db=work/"historianos.sqlite3"
   # Isolate server DB by launching from temp working directory while importing server by absolute path.
-  p=subprocess.Popen([sys.executable,str(SERVER),"--host","127.0.0.1","--port","8765"],cwd=work,stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
+  env=dict(os.environ, HISTORIANOS_DB=str(db))
+  p=subprocess.Popen([sys.executable,str(SERVER),"--host","127.0.0.1","--port","8765"],cwd=work,env=env,stdout=subprocess.PIPE,stderr=subprocess.PIPE,text=True)
   try:
    for _ in range(30):
     try:
