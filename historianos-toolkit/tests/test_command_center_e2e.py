@@ -28,7 +28,7 @@ def main():
    c.execute("CREATE TABLE decision_log(decision_id TEXT PRIMARY KEY,conflict_id TEXT,action TEXT,author TEXT,justification TEXT,golden_value TEXT,created_at TEXT)")
    c.execute("INSERT INTO conflict_ledger(conflict_id,entity_id,attribute,source_a_val,source_b_val,status,golden_value,decision_note,created_at,updated_at,resolved_at) VALUES(?,?,?,?,?,?,?,?,?,?,?)", ("E2E-001","Test Person","birth_year","1762","1763","OPEN","","","","",""))
    c.commit();c.close()
-    q=req("http://127.0.0.1:8765/api/queue"); assert any(x.get("conflict_id")=="E2E-001" for x in q)
+   q=req("http://127.0.0.1:8765/api/queue"); assert any(x.get("conflict_id")=="E2E-001" for x in q)
    bad=None
    try:req("http://127.0.0.1:8765/api/decision/E2E-001","POST",{"action":"APPROVE","author":"Piotr Florczyk","justification":"missing golden"})
    except urllib.error.HTTPError as e:bad=e.code
