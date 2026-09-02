@@ -1,0 +1,19 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"historian-os-skynet/temporal.schema.json",
+  "title":"Historian OS SKYNET Temporal State",
+  "type":"object",
+  "required":["id","precision"],
+  "properties":{
+    "id":{"type":"string"},
+    "narrative_date":{"type":["string","null"]},
+    "tpq":{"type":["string","null"],"format":"date"},
+    "taq":{"type":["string","null"],"format":"date"},
+    "precision":{"enum":["day","month","year","decade","range","unknown"]},
+    "temporal_relations":{"type":"array","items":{"type":"object","required":["type","target"],"properties":{
+      "type":{"enum":["before","after","during","overlaps","meets"]},"target":{"type":"string"}
+    },"additionalProperties":false}},
+    "confidence":{"enum":["A1","A2","B1","B2","C1","C2","D"]}
+  },
+  "additionalProperties":false
+}
