@@ -1,0 +1,18 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "$id":"historian-os-skynet/entity-candidate.schema.json",
+  "title":"Historian OS SKYNET Entity Candidate",
+  "type":"object",
+  "required":["id","entity_type","canonical_id","candidate_id","score","status"],
+  "properties":{
+    "id":{"type":"string","pattern":"^ERC-[A-Z0-9-]+$"},
+    "entity_type":{"enum":["person","place","institution","event","unknown"]},
+    "canonical_id":{"type":"string"},
+    "candidate_id":{"type":"string"},
+    "score":{"type":"number","minimum":0,"maximum":1},
+    "signals":{"type":"array","items":{"type":"string"}},
+    "status":{"enum":["candidate","accepted","rejected","needs_review"]},
+    "review_note":{"type":["string","null"]}
+  },
+  "additionalProperties":false
+}
