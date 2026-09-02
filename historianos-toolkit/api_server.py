@@ -418,6 +418,7 @@ class Handler(BaseHTTPRequestHandler):
             if not base:
                 return self.send_json({"error": "vault_not_found"}, 404)
             routes = {
+                "/api/skynet/status": lambda: {"status": "ONLINE", "mode": "SKYNET", "vault": vid, "counts": stats(base), "endpoints": ["/api/skynet/status", "/api/stats", "/api/timeline", "/api/map"]},
                 "/api/stats": lambda: stats(base),
                 "/api/timeline": lambda: {"items": timeline(base)},
                 "/api/map": lambda: {"items": map_items(base)},
