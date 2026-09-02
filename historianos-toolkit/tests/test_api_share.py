@@ -33,6 +33,9 @@ def main():
         assert "https://historianos.fly.dev/vault/test-vault?embed=true" in share
         embed = api_server.embed_html("test-vault", base, "timeline")
         assert "Timeline" in embed
+        skynet = api_server.skynet_html("test-vault", base)
+        assert "HISTORIAN OS SKYNET" in skynet
+        assert "ZJAZD GNIEŹNIEŃSKI 1000" in skynet
 
     print("HistorianOS API share/embed unit smoke: PASS")
 
