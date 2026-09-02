@@ -186,6 +186,83 @@ def render_map(items):
     ) + "</div>"
 
 
+def skynet_html(vault_id, base):
+    st = stats(base)
+    places = map_items(base)
+    events = timeline(base)
+    sources = records(base, "zrodlo")
+    years = []
+    for event in events:
+        start = str(event.get("start", ""))
+        if start[:4].isdigit():
+            years.append(start[:4])
+    years = sorted(set(years))[:8]
+    if not years:
+        years = ["997", "1000", "1025"]
+
+    timeline_buttons = "".join(
+        f"<button class='event' data-index='{i}'><b>● {html.escape(y)}</b></button>"
+        for i, y in enumerate(years)
+    )
+    source_lines = "".join(
+        f"<div class='source' title='Źródło historyczne'>&gt; {html.escape(str(x.get('name') or x.get('title') or x.get('file','')))} "
+        f"<span>[{html.escape(str(x.get('grade','A')))}]</span></div>"
+        for x in sources[:8]
+    ) or "<div class='source'>&gt; brak źródeł</div>"
+    place_lines = "".join(
+        f"<div class='place' data-lat='{p['lat']}' data-lon='{p['lon']}'>{html.escape(str(p.get('name') or p.get('file','')))} "
+        f"<span>{p['lat']:.4f},{p['lon']:.4f}</span></div>"
+        for p in places[:8]
+    )
+    body = f"""
+<style>
+*{{box-sizing:border-box}} body{{margin:0;background:#000;color:#fff;font-family:"Courier New",monospace;max-width:none;padding:18px;line-height:1.35}}
+a{{color:#fff}} .sky{{min-height:100vh;border-top:4px solid #fff;position:relative;overflow:hidden}}
+.sky:before{{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,transparent 0 3px,rgba(255,255,255,.025) 4px)}}
+.hdr{{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid #fff;padding:8px 0;font-size:12px;letter-spacing:1px}}
+.status{{color:#ff0000}} .layout{{display:grid;grid-template-columns:3fr 2fr;gap:18px;margin-top:24px}}
+h1{{font-size:32px;margin:0 0 20px;text-transform:uppercase;letter-spacing:-1px}}
+h1:hover{{text-shadow:3px 0 #f00,-3px 0 #0ff}} h2{{font-size:14px;border-bottom:1px solid #fff;padding-bottom:7px;letter-spacing:2px}}
+.stats{{display:grid;grid-template-columns:repeat(4,1fr);gap:8px}} .box,.panel{{border:1px solid #fff;padding:12px;background:#000}}
+.box:hover,.panel:hover{{background:#fff;color:#000}} .num{{font-size:24px;font-weight:bold}}
+.timeline{{display:flex;align-items:stretch;border-bottom:1px solid #fff;margin:10px 0 0;overflow:auto}}
+.event{{appearance:none;background:#000;color:#fff;border:0;border-right:1px solid #fff;padding:12px 18px;font:inherit;cursor:pointer;white-space:nowrap}}
+.event:hover{{background:#fff;color:#000}} .event:first-child{{border-left:1px solid #fff}}
+.event.active b{{color:#f00;text-shadow:0 0 8px #f00}} .detail{{margin-top:10px;min-height:100px}}
+.place{{padding:8px 0;border-bottom:1px dotted #555}} .place span,.source span{{float:right;color:#aaa}} .source{{padding:8px 0;border-bottom:1px dotted #555}} 
+.map{{height:250px;border:1px solid #fff;position:relative;background:linear-gradient(135deg,#050505,#111)}}
+.dot{{position:absolute;width:9px;height:9px;background:#fff;border-radius:50%;transform:translate(-50%,-50%);cursor:crosshair}} .dot.center{{background:#f00;box-shadow:0 0 14px #f00}}
+.footer{{margin-top:18px}} .open{{display:block;border:1px solid #fff;padding:16px;text-align:center;text-decoration:none;font-weight:bold}} .open:hover{{background:#fff;color:#000}}
+@media(max-width:800px){{.layout{{grid-template-columns:1fr}}.stats{{grid-template-columns:repeat(2,1fr)}}}}
+</style>
+<div class='sky'>
+<header class='hdr'><b>HISTORIAN OS SKYNET</b><span>tracking ───────── SYSTEM <span class='status'>ONLINE</span> | VAULT: {html.escape(vault_id)} | {st['files']} DOCUMENTS | {st['fakt']} FACTS | {len(events)} EVENTS | {len(places)} LOCATIONS</span></header>
+<div class='layout'><main>
+<h1>ZJAZD GNIEŹNIEŃSKI 1000</h1>
+<div class='stats'><div class='box'><div>DOCUMENTS</div><div class='num'>{st['files']}</div></div><div class='box'><div>FACTS</div><div class='num'>{st['fakt']}</div></div><div class='box'><div>EVENTS</div><div class='num'>{len(events)}</div></div><div class='box'><div>PLACES</div><div class='num'>{len(places)}</div></div></div>
+<h2>TIMELINE</h2><div class='timeline'>{timeline_buttons}</div><div id='detail' class='panel detail'>SELECT EVENT // LIVE VAULT DATA</div>
+<h2>DECISION LOG</h2><div class='panel'>GAPS REVIEW: {st['gaps_review']} // HUMAN DECISION LAYER ACTIVE</div>
+</main><aside>
+<h2>MAPA [ RELACJE ]</h2><div class='map' id='map'>
+{''.join(f"<span class='dot {'center' if 'Gniezno' in str(p.get('name')) else ''}' style='left:{10+i*18}%;top:{35+(i%3)*22}%' title='{html.escape(str(p.get('name') or p.get('file','')))} WGS84 {p['lat']:.4f},{p['lon']:.4f}'></span>" for i,p in enumerate(places[:5]))}
+</div><div class='panel'>{place_lines}</div>
+<h2>ŹRÓDŁA [ DOKUMENTY ]</h2><div class='panel'>{source_lines}</div>
+</aside></div>
+<footer class='footer'><a class='open' href='/dashboard?vault={html.escape(vault_id)}'>[ OPEN FULL SKYNET ] →</a></footer>
+</div>
+<script>
+const events = {json.dumps(events, ensure_ascii=False)};
+document.querySelectorAll('.event').forEach((b,i)=>b.addEventListener('click',()=>{{
+ document.querySelectorAll('.event').forEach(x=>x.classList.remove('active')); b.classList.add('active');
+ const e=events[i]||{{}}; document.getElementById('detail').innerHTML =
+ '<b>TYPE:</b> '+(e.type||'wydarzenie')+'<br><b>DATE:</b> '+(e.start||'—')+
+ '<br><b>TITLE:</b> '+(e.name||e.title||e.file||'—')+'<br><b>SOURCES:</b> '+(e.zrodlo||e.sources||'—');
+}}));
+</script>
+"""
+    return html_page("SKYNET — " + vault_name(vault_id, base), body, embed=True)
+
+
 def dashboard_html(vault_id, base):
     st = stats(base)
     body = f"""
@@ -301,6 +378,14 @@ class Handler(BaseHTTPRequestHandler):
                     headers={"Content-Security-Policy": "frame-ancestors *"},
                 )
             return self.send_bytes(share_html(vid, base).encode())
+
+        m = re.fullmatch(r"/skynet", path)
+        if m:
+            vid = qs.get("vault", [DEFAULT_VAULT_ID])[0]
+            base = vault_path(vid)
+            if not base:
+                return self.send_json({"error": "vault_not_found"}, 404)
+            return self.send_bytes(skynet_html(vid, base).encode(), headers={"Content-Security-Policy": "frame-ancestors *"})
 
         m = re.fullmatch(r"/dashboard", path)
         if m:
