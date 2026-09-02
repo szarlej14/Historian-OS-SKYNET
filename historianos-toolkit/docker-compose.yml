@@ -1,5 +1,5 @@
 services:
-  command-center:
+  historianos:
     build:
       context: ..
       dockerfile: historianos-toolkit/Dockerfile
@@ -7,9 +7,12 @@ services:
       - "8080:8080"
     environment:
       HISTORIANOS_VAULT: /vault
+      HISTORIANOS_SHOWCASE: /showcase/zjazd-gnieznienski
+      HISTORIANOS_DEFAULT_VAULT: gniezno
+      HISTORIANOS_DEFAULT_NAME: "Zjazd Gnieźnieński 1000"
+      PUBLIC_HOST: localhost:8080
       PORT: 8080
     volumes:
-      - ./example-vaults/zjazd-gnieznienski:/vault:ro
-      # Override for a personal vault:
-      # - ../HistorianOS-Vault:/vault:ro
+      - ../.local-vaults:/vault:rw
+      - ./example-vaults:/showcase:ro
     restart: unless-stopped
