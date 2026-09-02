@@ -3,7 +3,6 @@
 from http.server import BaseHTTPRequestHandler, ThreadingHTTPServer
 from pathlib import Path
 import json, os, re
-from datetime import date
 
 ROOT=Path(os.environ.get("HISTORIANOS_VAULT","/vault")).resolve()
 
@@ -26,15 +25,20 @@ def records(kind=None):
     return xs
 
 def stats():
+    facts=records("fakt")
+    fact_count=sum(int(r.get("fact_count","1")) for r in facts)
+    gaps=sum(1 for r in facts if r.get("status")=="REVIEW_REQUIRED")
     return {
         "files":len(files()),
         "osoba":len(records("osoba")),
         "miejsce":len(records("miejsce")),
         "wydarzenie":len(records("wydarzenie")),
         "zrodlo":len(records("zrodlo")),
-        "fakt":len(records("fakt")),
+        "fakt":fact_count,
+        "fact_files":len(facts),
         "relacja":len(records("relacja")),
         "seria":len(records("seria")),
+        "gaps_review":gaps,
     }
 
 def timeline():
@@ -53,6 +57,9 @@ def map_items():
                 out.append(r)
         except ValueError: pass
     return out
+
+def gaps():
+    return [{"type":"REVIEW_REQUIRED","file":r["file"],"name":r.get("name",""),"decision_log":r.get("decision_log","")} for r in records("fakt") if r.get("status")=="REVIEW_REQUIRED"]
 
 class Handler(BaseHTTPRequestHandler):
     def send_json(self,o,c=200):
@@ -74,7 +81,7 @@ class Handler(BaseHTTPRequestHandler):
           "/api/sources":lambda:{"items":records("zrodlo")},
           "/api/relations":lambda:{"items":records("relacja")},
           "/api/series":lambda:{"items":records("seria")},
-          "/api/gaps":lambda:{"items":[{"type":"ORPHAN_FACT","file":r["file"]} for r in records("fakt") if not any(k in r for k in ("zrodlo","źródło","zrodla","sources"))]},
+          "/api/gaps":lambda:{"items":gaps()},
           "/api/provenance":lambda:{"items":[r for r in records() if any(k in r for k in ("zrodlo","źródło","zrodla","sources"))]},
         }
         if path in routes: return self.send_json(routes[path]())
