@@ -2,7 +2,7 @@
   "type": "catalog",
   "version": "0.1.0",
   "generated_by": "scripts/sync_catalog.py",
-  "record_count": 55,
+  "record_count": 58,
   "records": [
     {
       "id": "HOS-F1-1970-001",
@@ -434,6 +434,17 @@
       "file": "data/HOS-FOOT-PZPN-001.json"
     },
     {
+      "id": "HOS-FOOT-RALF-EDSTROM-001",
+      "title": "Ralf Edström",
+      "corpus": "PIŁKA NOŻNA",
+      "category": "PIŁKARZE/SZWECJA/LEGENDY",
+      "status": "review",
+      "date": null,
+      "source_count": 2,
+      "relation_count": 8,
+      "file": "data/HOS-FOOT-RALF-EDSTROM-001.json"
+    },
+    {
       "id": "HOS-FOOT-WC-1974-POLAND-001",
       "title": "Polska na Mistrzostwach Świata 1974",
       "corpus": "PIŁKA NOŻNA",
@@ -465,6 +476,17 @@
       "source_count": 1,
       "relation_count": 1,
       "file": "data/HOS-FOOT-WIDZEW-LODZ-001.json"
+    },
+    {
+      "id": "HOS-FOOT-WISLA-OPROIESCU-2013-001",
+      "title": "Wisła Kraków i przypadek 'Sorina Oproiescu' (2013)",
+      "corpus": "PIŁKA NOŻNA",
+      "category": "CIEKAWOSTKI/OSZUSTWA/TESTY PIŁKARSKIE/POLSKA",
+      "status": "review",
+      "date": null,
+      "source_count": 3,
+      "relation_count": 4,
+      "file": "data/HOS-FOOT-WISLA-OPROIESCU-2013-001.json"
     },
     {
       "id": "HOS-FOOT-ZBIGNIEW-BONIEK-001",
@@ -564,6 +586,17 @@
       "source_count": 2,
       "relation_count": 2,
       "file": "data/HOS-MOTORSPORT-GRAHAM-HILL-TRIPLE-CROWN-001.json"
+    },
+    {
+      "id": "HOS-MOTORSPORT-JAMES-HUNT-BIRTHDAY-MANSELL-001",
+      "title": "James Hunt – 29 sierpnia, pamięć i inspiracja dla Nigela Mansella",
+      "corpus": "MOTORSPORT",
+      "category": "FORMUŁA 1/LUDZIE/PAMIĘĆ",
+      "status": "review",
+      "date": null,
+      "source_count": 1,
+      "relation_count": 5,
+      "file": "data/HOS-MOTORSPORT-JAMES-HUNT-BIRTHDAY-MANSELL-001.json"
     },
     {
       "id": "HOS-ORG-303-SQUADRON",

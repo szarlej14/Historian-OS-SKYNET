@@ -2,7 +2,7 @@
   "type": "knowledge_graph",
   "version": "0.1.0",
   "generated_by": "scripts/build_graph.py",
-  "node_count": 55,
+  "node_count": 58,
   "edge_count": 75,
   "nodes": [
     {
@@ -279,6 +279,13 @@
       "status": "review"
     },
     {
+      "id": "HOS-FOOT-RALF-EDSTROM-001",
+      "label": "Ralf Edström",
+      "category": "PIŁKARZE/SZWECJA/LEGENDY",
+      "corpus": "PIŁKA NOŻNA",
+      "status": "review"
+    },
+    {
       "id": "HOS-FOOT-WC-1974-POLAND-001",
       "label": "Polska na Mistrzostwach Świata 1974",
       "category": "TURNIEJE/MISTRZOSTWA ŚWIATA/1974",
@@ -296,6 +303,13 @@
       "id": "HOS-FOOT-WIDZEW-LODZ-001",
       "label": "Widzew Łódź",
       "category": "KLUBY/POLSKA/ŁÓDŹ",
+      "corpus": "PIŁKA NOŻNA",
+      "status": "review"
+    },
+    {
+      "id": "HOS-FOOT-WISLA-OPROIESCU-2013-001",
+      "label": "Wisła Kraków i przypadek 'Sorina Oproiescu' (2013)",
+      "category": "CIEKAWOSTKI/OSZUSTWA/TESTY PIŁKARSKIE/POLSKA",
       "corpus": "PIŁKA NOŻNA",
       "status": "review"
     },
@@ -359,6 +373,13 @@
       "id": "HOS-MOTORSPORT-GRAHAM-HILL-TRIPLE-CROWN-001",
       "label": "Graham Hill – jedyny w historii: Triple Crown of Motorsport",
       "category": "KIEROWCY/LEGENDY/TRIPLE CROWN",
+      "corpus": "MOTORSPORT",
+      "status": "review"
+    },
+    {
+      "id": "HOS-MOTORSPORT-JAMES-HUNT-BIRTHDAY-MANSELL-001",
+      "label": "James Hunt – 29 sierpnia, pamięć i inspiracja dla Nigela Mansella",
+      "category": "FORMUŁA 1/LUDZIE/PAMIĘĆ",
       "corpus": "MOTORSPORT",
       "status": "review"
     },
