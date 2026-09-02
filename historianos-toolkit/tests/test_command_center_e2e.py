@@ -26,7 +26,7 @@ def main():
    c=sqlite3.connect(db)
    c.execute("CREATE TABLE conflict_ledger(conflict_id TEXT PRIMARY KEY,entity_id TEXT,attribute TEXT,source_a_val TEXT,source_b_val TEXT,status TEXT,golden_value TEXT,decision_note TEXT,created_at TEXT,updated_at TEXT,resolved_at TEXT)")
    c.execute("CREATE TABLE decision_log(decision_id TEXT PRIMARY KEY,conflict_id TEXT,action TEXT,author TEXT,justification TEXT,golden_value TEXT,created_at TEXT)")
-   c.execute("INSERT INTO conflict_ledger VALUES('E2E-001','Test Person','birth_year','1762','1763','OPEN','','','','','','')")
+   c.execute("INSERT INTO conflict_ledger(conflict_id,entity_id,attribute,source_a_val,source_b_val,status,golden_value,decision_note,created_at,updated_at,resolved_at) VALUES(?,?,?,?,?,?,?,?,?,?,?)", ("E2E-001","Test Person","birth_year","1762","1763","OPEN","","","","",""))
    c.commit();c.close()
    q=req("http://127.0.0.1:8765/api/queue");assert len(q)==1 and q[0]["conflict_id"]=="E2E-001"
    bad=None
