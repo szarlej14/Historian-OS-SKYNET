@@ -171,10 +171,25 @@ def series(rs):
                      "record_ids":sorted(ids)})
     return save("series.json", {"type":"series_index","version":"1.0","count":len(rows),"series":rows})
 
+def evidence(rs):
+    items=[]
+    status=Counter()
+    for rid,o in rs.items():
+        evs=o.get("evidence", [])
+        if not isinstance(evs,list): evs=[]
+        for e in evs:
+            if not isinstance(e,dict): continue
+            row={"record_id":rid,"evidence_id":e.get("id"),"source":e.get("source",""),
+                 "status":e.get("status","unassessed"),"quality":e.get("quality")}
+            items.append(row)
+            status[row["status"]]+=1
+    return save("evidence.json", {"type":"evidence_index","version":"1.0",
+        "evidence_count":len(items),"status_counts":dict(status),"evidence":items})
+
 def command_center(rs):
     outputs={}
     for fn,name in ((relations,"relations"),(places,"places"),(events,"events"),
-                    (sources,"sources"),(timeline,"timeline"),(gap_detector,"gaps"),(series,"series")):
+                    (sources,"sources"),(timeline,"timeline"),(gap_detector,"gaps"),(series,"series"),(evidence,"evidence")):
         p=fn(rs); outputs[name]=str(p.relative_to(ROOT))
     return save("command_center.json", {
         "type":"command_center","version":"1.0","generated":"derived",
