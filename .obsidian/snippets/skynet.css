@@ -1,72 +1,99 @@
-/* Historian OS SKYNET — visual layer
-   Install: copy into <vault>/.obsidian/snippets/ and enable in Settings > Appearance > CSS snippets.
-*/
+/* Historian OS SKYNET — Command Center visual system */
 :root {
-  --skynet-radius: 10px;
+  --skynet-radius: 12px;
+  --skynet-gap: 1rem;
 }
 
-.workspace-tab-header-container,
-.workspace-ribbon,
-.status-bar {
-  font-size: 0.9em;
+.skynet-dashboard {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 1rem 2rem 3rem;
 }
 
-.markdown-preview-view h1,
-.markdown-source-view.mod-cm6 .cm-header-1 {
-  letter-spacing: -0.02em;
+.skynet-dashboard h1 {
+  font-size: 2.15rem;
+  letter-spacing: -.04em;
+  margin-bottom: .15rem;
 }
 
-.markdown-preview-view h2,
-.markdown-source-view.mod-cm6 .cm-header-2 {
+.skynet-dashboard h2 {
+  margin-top: 2rem;
+  padding-bottom: .45rem;
   border-bottom: 1px solid var(--background-modifier-border);
-  padding-bottom: 0.25em;
+}
+
+.skynet-kpi-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(150px,1fr));
+  gap: var(--skynet-gap);
+  margin: 1rem 0 1.5rem;
+}
+
+.skynet-kpi {
+  padding: 1rem 1.1rem;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--skynet-radius);
+  background: var(--background-secondary);
+  box-shadow: 0 2px 10px rgba(0,0,0,.06);
+}
+
+.skynet-kpi .value {
+  display:block;
+  font-size:1.7rem;
+  font-weight:700;
+  line-height:1.1;
+}
+
+.skynet-kpi .label {
+  display:block;
+  margin-top:.3rem;
+  color:var(--text-muted);
+  font-size:.78rem;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+
+.callout[data-callout="gap"] { --callout-color: 210, 65, 55; --callout-icon: alert-triangle; }
+.callout[data-callout="evidence"] { --callout-color: 70, 125, 190; --callout-icon: library; }
+.callout[data-callout="decision"] { --callout-color: 145, 105, 185; --callout-icon: check-circle; }
+.callout[data-callout="uncertainty"] { --callout-color: 190, 145, 60; --callout-icon: help-circle; }
+.callout[data-callout="abstract"] { --callout-color: 95, 105, 120; --callout-icon: cpu; }
+.callout[data-callout="success"] { --callout-color: 70, 150, 105; --callout-icon: shield-check; }
+
+.skynet-alert {
+  border-left: 4px solid var(--text-error);
+  padding-left: .85rem;
 }
 
 .markdown-preview-view table {
+  border: 1px solid var(--background-modifier-border);
   border-radius: var(--skynet-radius);
   overflow: hidden;
 }
 
-.markdown-preview-view blockquote {
-  border-left-width: 3px;
+.markdown-preview-view th {
+  font-size: .76rem;
+  text-transform: uppercase;
+  letter-spacing: .07em;
 }
 
-.callout[data-callout="gap"] {
-  --callout-color: 220, 80, 70;
-  --callout-icon: alert-triangle;
-}
+.markdown-preview-view td,
+.markdown-preview-view th { padding: .55rem .7rem; }
 
-.callout[data-callout="evidence"] {
-  --callout-color: 70, 130, 200;
-  --callout-icon: library;
-}
-
-.callout[data-callout="decision"] {
-  --callout-color: 150, 100, 190;
-  --callout-icon: check-circle;
-}
-
-.callout[data-callout="uncertainty"] {
-  --callout-color: 190, 140, 60;
-  --callout-icon: help-circle;
-}
-
-.skynet-dashboard {
-  max-width: 1200px;
-  margin: 0 auto;
-}
-
-.skynet-kpi {
-  display: inline-block;
-  min-width: 150px;
-  margin: 0.4em;
-  padding: 0.8em 1em;
+.skynet-pipeline {
+  padding: .9rem 1rem;
   border: 1px solid var(--background-modifier-border);
   border-radius: var(--skynet-radius);
   background: var(--background-secondary);
+  font-weight: 600;
+  overflow-x: auto;
+  white-space: nowrap;
 }
 
-.skynet-alert {
-  border-left: 4px solid var(--text-error);
-  padding-left: 0.8em;
+.skynet-footer {
+  margin-top: 2rem;
+  padding-top: 1rem;
+  border-top: 1px solid var(--background-modifier-border);
+  color: var(--text-muted);
+  font-size: .82rem;
 }
