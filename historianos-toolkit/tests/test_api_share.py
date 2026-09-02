@@ -23,6 +23,12 @@ def main():
         assert payload["share_url"] == "/vault/test-vault"
         assert payload["dashboard_url"].endswith("?vault=test-vault")
         assert payload["export_url"].endswith("/export")
+        share = api_server.share_html("test-vault", base)
+        assert "Copy Link" in share
+        assert "quickchart.io/qr" in share
+        assert "https://historianos.fly.dev/vault/test-vault?embed=true" in share
+        embed = api_server.embed_html("test-vault", base, "timeline")
+        assert "Timeline" in embed
 
     print("HistorianOS API share/embed unit smoke: PASS")
 
