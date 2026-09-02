@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
-import json,sqlite3,subprocess,sys
+import json,os,sqlite3,subprocess,sys
 from http.server import BaseHTTPRequestHandler,ThreadingHTTPServer
 from pathlib import Path
-ROOT=Path(__file__).resolve().parents[1]; DB=ROOT/"historianos.sqlite3"; UI=Path(__file__).with_name("command_center.html")
+ROOT=Path(__file__).resolve().parents[1]; DB=Path(os.environ.get("HISTORIANOS_DB", str(ROOT/"historianos.sqlite3"))).resolve(); UI=Path(__file__).with_name("command_center.html")
 SCHEMA="CREATE TABLE IF NOT EXISTS conflict_ledger(conflict_id TEXT PRIMARY KEY,entity_id TEXT,attribute TEXT,source_a_val TEXT,source_b_val TEXT,status TEXT NOT NULL DEFAULT 'OPEN',golden_value TEXT,decision_note TEXT,created_at TEXT DEFAULT CURRENT_TIMESTAMP,updated_at TEXT DEFAULT CURRENT_TIMESTAMP,resolved_at TEXT)"
 DECISIONS="CREATE TABLE IF NOT EXISTS decision_log(decision_id TEXT PRIMARY KEY,conflict_id TEXT,action TEXT NOT NULL,author TEXT NOT NULL,justification TEXT NOT NULL,golden_value TEXT,created_at TEXT DEFAULT CURRENT_TIMESTAMP)"
 def db():
