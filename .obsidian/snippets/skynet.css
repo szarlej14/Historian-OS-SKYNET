@@ -1,0 +1,72 @@
+/* Historian OS SKYNET — visual layer
+   Install: copy into <vault>/.obsidian/snippets/ and enable in Settings > Appearance > CSS snippets.
+*/
+:root {
+  --skynet-radius: 10px;
+}
+
+.workspace-tab-header-container,
+.workspace-ribbon,
+.status-bar {
+  font-size: 0.9em;
+}
+
+.markdown-preview-view h1,
+.markdown-source-view.mod-cm6 .cm-header-1 {
+  letter-spacing: -0.02em;
+}
+
+.markdown-preview-view h2,
+.markdown-source-view.mod-cm6 .cm-header-2 {
+  border-bottom: 1px solid var(--background-modifier-border);
+  padding-bottom: 0.25em;
+}
+
+.markdown-preview-view table {
+  border-radius: var(--skynet-radius);
+  overflow: hidden;
+}
+
+.markdown-preview-view blockquote {
+  border-left-width: 3px;
+}
+
+.callout[data-callout="gap"] {
+  --callout-color: 220, 80, 70;
+  --callout-icon: alert-triangle;
+}
+
+.callout[data-callout="evidence"] {
+  --callout-color: 70, 130, 200;
+  --callout-icon: library;
+}
+
+.callout[data-callout="decision"] {
+  --callout-color: 150, 100, 190;
+  --callout-icon: check-circle;
+}
+
+.callout[data-callout="uncertainty"] {
+  --callout-color: 190, 140, 60;
+  --callout-icon: help-circle;
+}
+
+.skynet-dashboard {
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.skynet-kpi {
+  display: inline-block;
+  min-width: 150px;
+  margin: 0.4em;
+  padding: 0.8em 1em;
+  border: 1px solid var(--background-modifier-border);
+  border-radius: var(--skynet-radius);
+  background: var(--background-secondary);
+}
+
+.skynet-alert {
+  border-left: 4px solid var(--text-error);
+  padding-left: 0.8em;
+}
