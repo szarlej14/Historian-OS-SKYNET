@@ -1,35 +1,57 @@
-# Roadmap
+# Roadmap — Historian OS SKYNET
 
-## Faza 0 — Fundament
+## FAZA 0 — Fundament
+- [x] Repozytorium, README, architektura, schemat rekordu
+- [x] DATA + INDEX
+- [x] Walidacja i synchronizacja katalogu
 
-- [x] Utworzenie repozytorium
-- [x] README
-- [x] Architektura
-- [x] Schemat rekordu
-- [x] Konfiguracja
-- [x] Warstwa DATA
-- [x] Warstwa INDEX
+## FAZA 1 — Korpus + graf
+- [x] Rekordy historyczne
+- [x] Indeksy osób i kategorii
+- [x] Powiązania krzyżowe
+- [x] Silnik zapytań
+- [x] Graf relacji
 
-## Faza 1 — Korpus
+## FAZA 2 — Warstwy analityczne
+- [x] RELATIONS
+- [x] MIEJSCA
+- [x] WYDARZENIA
+- [x] SOURCES
+- [x] TIMELINE
+- [x] GAP DETECTOR
+- [x] SERIE
+- [x] COMMAND CENTER
+- [x] Pipeline `validate_skynet.py`
 
-- [x] Pierwsze rekordy historyczne
-- [x] Indeks osób
-- [ ] Indeks miejsc
-- [ ] Indeks wydarzeń
-- [ ] Indeks źródeł
-- [ ] Powiązania krzyżowe
+## FAZA 3 — Evidence
+- [ ] Oddzielenie istnienia źródła od potwierdzenia faktu
+- [ ] Typ i jakość źródła
+- [ ] Dowody sprzeczne / konflikt faktów
+- [ ] Ślad audytowy zmian
 
-## Faza 2 — Automatyzacja
+## FAZA 4 — Entity + Time
+- [ ] Wykrywanie możliwych duplikatów
+- [ ] Bezpieczne rozpoznawanie encji
+- [ ] Zakresy dat i daty niepewne
+- [ ] Relacje temporalne: przed / po / w trakcie
 
-- [ ] Walidacja rekordów
-- [ ] Automatyczne indeksowanie
-- [ ] Wyszukiwanie
-- [ ] Narzędzia importu
-- [ ] Synchronizacja
+## FAZA 5 — Intelligence
+- [ ] Priorytetyzacja luk
+- [ ] Wykrywanie osieroconych rekordów
+- [ ] Ranking najważniejszych węzłów
+- [ ] Konflikty i anomalie jako osobna warstwa
 
-## Faza 3 — SKYNET
+## FAZA 6 — Command Center
+- [ ] Jeden raport stanu całego archiwum
+- [ ] Health score
+- [ ] Ostatnie zmiany
+- [ ] Lista problemów wymagających decyzji
 
-- [ ] Warstwa zapytań
-- [ ] Graf relacji
-- [ ] Automatyczne wykrywanie powiązań
-- [ ] Rozbudowane mechanizmy archiwizacji
+## FAZA 7 — Obsidian Bridge
+- [ ] Eksport rekordów do Markdown
+- [ ] Stabilne linki między encjami
+- [ ] Widoki timeline / places / series
+- [ ] GitHub jako źródło kanoniczne, Obsidian jako warstwa pracy i wizualizacji
+
+## Zasada nadrzędna
+SKYNET może wykrywać hipotezy, luki i konflikty, ale nie może zamieniać niepewności w fakt. Automatyczne scalanie rekordów wymaga wystarczających dowodów.
