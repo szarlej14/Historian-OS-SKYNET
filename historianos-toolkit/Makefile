@@ -22,3 +22,12 @@ dashboard:; $(PYTHON) api_server.py
 backup:; bash scripts/backup.sh
 smart-commit:; bash scripts/smart_commit.sh
 release:; $(PYTHON) scripts/release.py $(VAULT)
+
+ledger:
+	$(PYTHON) scripts/conflict_ledger.py $(DB) list
+triage:
+	$(PYTHON) scripts/triage.py $(DB)
+export-triage:
+	$(PYTHON) scripts/export_triage.py $(DB) $(TRIAGE)
+sync-obsidian:
+	$(PYTHON) scripts/sync_obsidian.py $(DB) $(TRIAGE)
