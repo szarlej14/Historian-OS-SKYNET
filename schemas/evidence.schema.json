@@ -1,0 +1,20 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "historian-os-skynet/evidence.schema.json",
+  "title": "Historian OS SKYNET Evidence",
+  "type": "object",
+  "required": ["id", "claim_id", "source", "status"],
+  "properties": {
+    "id": {"type":"string","pattern":"^EVD-[A-Z0-9-]+$"},
+    "claim_id": {"type":"string","pattern":"^HOS-[A-Z0-9-]+$"},
+    "source": {"type":"string","minLength":1},
+    "status": {"enum":["supports","contradicts","contextual","unassessed"]},
+    "quality": {"enum":["A1","A2","B1","B2","C1","C2","D"]},
+    "quote": {"type":["string","null"]},
+    "locator": {"type":["string","null"]},
+    "assessed_by": {"type":["string","null"]},
+    "assessed_at": {"type":["string","null"],"format":"date-time"},
+    "notes": {"type":"string"}
+  },
+  "additionalProperties": false
+}
