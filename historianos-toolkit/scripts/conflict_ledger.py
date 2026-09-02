@@ -1,0 +1,7 @@
+import argparse,sqlite3
+SCHEMA="""CREATE TABLE IF NOT EXISTS conflict_ledger(conflict_id TEXT PRIMARY KEY,entity_id TEXT NOT NULL,attribute TEXT NOT NULL,source_a_val TEXT,source_b_val TEXT,status TEXT NOT NULL DEFAULT 'OPEN',golden_value TEXT,decision_note TEXT,created_at TEXT DEFAULT CURRENT_TIMESTAMP,updated_at TEXT DEFAULT CURRENT_TIMESTAMP,resolved_at TEXT)"""
+p=argparse.ArgumentParser(); p.add_argument('db',nargs='?',default='historianos.sqlite3'); s=p.add_subparsers(dest='cmd',required=True); s.add_parser('list'); a=s.add_parser('add'); [a.add_argument(x) for x in ['conflict_id','entity_id','attribute','source_a_val','source_b_val']]; r=s.add_parser('resolve'); r.add_argument('conflict_id'); r.add_argument('golden_value'); r.add_argument('--note',default=''); q=p.parse_args(); c=sqlite3.connect(q.db); c.execute(SCHEMA)
+if q.cmd=='list':
+ [print(' | '.join(map(str,x))) for x in c.execute("SELECT conflict_id,entity_id,attribute,source_a_val,source_b_val,status,golden_value FROM conflict_ledger WHERE status!='RESOLVED'")]
+elif q.cmd=='add': c.execute("INSERT OR REPLACE INTO conflict_ledger(conflict_id,entity_id,attribute,source_a_val,source_b_val) VALUES(?,?,?,?,?)",(q.conflict_id,q.entity_id,q.attribute,q.source_a_val,q.source_b_val)); c.commit()
+else: c.execute("UPDATE conflict_ledger SET status='RESOLVED',golden_value=?,decision_note=?,resolved_at=CURRENT_TIMESTAMP,updated_at=CURRENT_TIMESTAMP WHERE conflict_id=? AND status='OPEN'",(q.golden_value,q.note,q.conflict_id)); c.commit()
