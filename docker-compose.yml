@@ -1,0 +1,18 @@
+services:
+  historianos:
+    build:
+      context: .
+      dockerfile: historianos-toolkit/Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      HISTORIANOS_VAULT: /vault
+      HISTORIANOS_SHOWCASE: /showcase/zjazd-gnieznienski
+      HISTORIANOS_DEFAULT_VAULT: gniezno
+      HISTORIANOS_DEFAULT_NAME: "Zjazd Gnieźnieński 1000"
+      PUBLIC_HOST: localhost:8080
+      PORT: 8080
+    volumes:
+      - ./.local-vaults:/vault:rw
+      - ./historianos-toolkit/example-vaults:/showcase:ro
+    restart: unless-stopped
