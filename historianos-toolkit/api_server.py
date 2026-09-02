@@ -219,7 +219,7 @@ def skynet_html(vault_id, base):
 *{{box-sizing:border-box}} body{{margin:0;background:#000;color:#fff;font-family:"Courier New",monospace;max-width:none;padding:18px;line-height:1.35}}
 a{{color:#fff}} .sky{{min-height:100vh;border-top:4px solid #fff;position:relative;overflow:hidden}}
 .sky:before{{content:"";position:absolute;inset:0;pointer-events:none;background:repeating-linear-gradient(0deg,transparent 0 3px,rgba(255,255,255,.025) 4px)}}
-.hdr{{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid #fff;padding:8px 0;font-size:12px;letter-spacing:1px}}
+.modebar{{display:flex;gap:18px;align-items:center;border-bottom:1px solid #fff;padding:8px 0;font-size:12px;letter-spacing:1px}} .modebar a{{text-decoration:none}} .modebar a:hover,.modebar a.active{{color:#f00}} .modeinfo{{margin-left:auto}} .hdr{{display:flex;justify-content:space-between;gap:12px;border-bottom:1px solid #fff;padding:8px 0;font-size:12px;letter-spacing:1px}}
 .status{{color:#ff0000}} .layout{{display:grid;grid-template-columns:3fr 2fr;gap:18px;margin-top:24px}}
 h1{{font-size:32px;margin:0 0 20px;text-transform:uppercase;letter-spacing:-1px}}
 h1:hover{{text-shadow:3px 0 #f00,-3px 0 #0ff}} h2{{font-size:14px;border-bottom:1px solid #fff;padding-bottom:7px;letter-spacing:2px}}
@@ -236,6 +236,7 @@ h1:hover{{text-shadow:3px 0 #f00,-3px 0 #0ff}} h2{{font-size:14px;border-bottom:
 @media(max-width:800px){{.layout{{grid-template-columns:1fr}}.stats{{grid-template-columns:repeat(2,1fr)}}}}
 </style>
 <div class='sky'>
+<nav class='modebar'><a href='/?vault={html.escape(vault_id)}'>[ SKYNET ]</a><a href='/dashboard?vault={html.escape(vault_id)}'>[ COMMAND CENTER ]</a><a href='/vaults?vault={html.escape(vault_id)}'>[ VAULTS ]</a><span>VAULT: {html.escape(vault_id.upper())} | {st['files']} DOCS | {st['fakt']} FACTS | <b>ONLINE</b></span></nav>
 <header class='hdr'><b>HISTORIAN OS SKYNET</b><span>tracking ───────── SYSTEM <span class='status'>ONLINE</span> | VAULT: {html.escape(vault_id)} | {st['files']} DOCUMENTS | {st['fakt']} FACTS | {len(events)} EVENTS | {len(places)} LOCATIONS</span></header>
 <div class='layout'><main>
 <h1>ZJAZD GNIEŹNIEŃSKI 1000</h1>
