@@ -1,0 +1,24 @@
+name: HistorianOS Mega Test
+on:
+  push:
+    branches: ["**"]
+  pull_request:
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    defaults:
+      run:
+        working-directory: historianos-toolkit
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+      - name: Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Syntax check
+        run: python -m compileall -q app tests
+      - name: Selection integration
+        run: python tests/test_selection_integration.py
+      - name: Command Center E2E
+        run: python tests/test_command_center_e2e.py
