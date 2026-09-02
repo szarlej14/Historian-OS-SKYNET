@@ -1,0 +1,13 @@
+services:
+  command-center:
+    build:
+      context: ..
+      dockerfile: historianos-toolkit/Dockerfile
+    ports:
+      - "8080:8080"
+    environment:
+      HISTORIANOS_VAULT: /vault
+      PORT: 8080
+    volumes:
+      - ..:/vault:ro
+    restart: unless-stopped
