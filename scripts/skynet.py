@@ -1,10 +1,15 @@
 #!/usr/bin/env python3
-"""SKYNET knowledge-graph query layer for Historian OS.
+"""SKYNET query + analysis command center.
 
-Commands:
-  ask <text>             Search records and expand their relation graph.
-  path <id> <id>         Find a shortest relation path between two records.
-  graph <id> [depth]     Expand the graph around one record.
+Query commands:
+  ask <text>             Search records and expand relation graph.
+  path <id> <id>         Find shortest relation path.
+  graph <id> [depth]     Expand graph around a record.
+
+Analysis commands:
+  relations | places | events | sources | timeline | gaps | series
+  command-center         Build the complete derived layer stack.
+  all                    Same as command-center.
 """
 import json
 import sys
@@ -13,7 +18,6 @@ from pathlib import Path
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = ROOT / "data"
-
 
 def records():
     result = {}
@@ -26,7 +30,6 @@ def records():
             result[obj["id"]] = obj
     return result
 
-
 def neighbors(rs, rid):
     obj = rs.get(rid)
     if not obj:
@@ -36,7 +39,6 @@ def neighbors(rs, rid):
         if rid in other.get("relations", []):
             out.add(other_id)
     return out
-
 
 def graph(rs, start, depth=2):
     if start not in rs:
@@ -52,7 +54,6 @@ def graph(rs, start, depth=2):
                 seen[nxt] = seen[current] + 1
                 q.append(nxt)
     return seen
-
 
 def shortest_path(rs, start, target):
     if start not in rs or target not in rs:
@@ -73,11 +74,9 @@ def shortest_path(rs, start, target):
                 q.append(nxt)
     return None
 
-
 def score(obj, terms):
-    text = json.dumps(obj, ensure_ascii=False).lower()
-    return sum(text.count(term) for term in terms)
-
+    blob = json.dumps(obj, ensure_ascii=False).lower()
+    return sum(blob.count(term) for term in terms)
 
 def print_record(rs, rid):
     obj = rs[rid]
@@ -86,7 +85,6 @@ def print_record(rs, rid):
     print(f"  category: {obj.get('category', '')}")
     print(f"  summary: {obj.get('summary', '')}")
 
-
 def main():
     args = sys.argv[1:]
     rs = records()
@@ -94,7 +92,20 @@ def main():
         print(__doc__.strip())
         return 0
 
-    cmd = args[0]
+    cmd = args[0].lower()
+    if cmd in {"relations","places","events","sources","timeline","gaps","gap-detector","series","command-center","all"}:
+        sys.path.insert(0, str(ROOT / "scripts"))
+        import layers
+        aliases = {"gap-detector":"gaps","command-center":"command-center"}
+        if cmd in {"command-center","all"}:
+            layers.command_center(rs)
+            print(f"OK: command center built for {len(rs)} records")
+        else:
+            fn = getattr(layers, aliases.get(cmd, cmd.replace("-","_")))
+            p = fn(rs)
+            print(f"OK: {p.relative_to(ROOT)}")
+        return 0
+
     if cmd == "ask" and len(args) > 1:
         terms = [x.lower() for x in " ".join(args[1:]).split()]
         hits = sorted(rs, key=lambda r: score(rs[r], terms), reverse=True)
@@ -102,8 +113,7 @@ def main():
         print(f"ZNALEZIONO: {len(hits)}")
         for rid in hits:
             print_record(rs, rid)
-            ids = graph(rs, rid, 2)
-            related = [x for x in ids if x != rid]
+            related = [x for x in graph(rs, rid, 2) if x != rid]
             if related:
                 print("  graf:", ", ".join(related))
         return 0
@@ -130,7 +140,6 @@ def main():
 
     print(__doc__.strip())
     return 1
-
 
 if __name__ == "__main__":
     raise SystemExit(main())
