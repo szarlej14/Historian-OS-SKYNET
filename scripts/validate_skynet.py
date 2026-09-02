@@ -12,6 +12,7 @@ ROOT = Path(__file__).resolve().parents[1]
 SYNC = ROOT / "scripts" / "sync_catalog.py"
 LAYERS = ROOT / "scripts" / "layers.py"
 ENTITY = ROOT / "scripts" / "entity_resolution.py"
+TEMPORAL = ROOT / "scripts" / "temporal_engine.py"
 
 def run(script, label):
     result = subprocess.run([sys.executable, str(script), "all"] if script == LAYERS
@@ -29,6 +30,8 @@ def main():
     if not run(LAYERS, "analytics layers"):
         return 1
     if not run(ENTITY, "entity resolution candidates"):
+        return 1
+    if not run(TEMPORAL, "temporal engine"):
         return 1
     print("OK: SKYNET integrity pipeline complete")
     return 0
