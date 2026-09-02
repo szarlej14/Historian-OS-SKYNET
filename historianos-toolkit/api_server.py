@@ -225,15 +225,15 @@ def share_html(vault_id, base):
     <h2>Live preview</h2><div class='card'>{render_timeline(timeline(base))}</div>
     <div class='card'>{render_map(map_items(base))}</div>
     <script>
-    async function copyShare() {
+    async function copyShare() {{
       const url = document.getElementById('share-url').textContent;
-      try { await navigator.clipboard.writeText(url); }
-      catch (_) {
+      try {{ await navigator.clipboard.writeText(url); }}
+      catch (_) {{
         const area = document.createElement('textarea'); area.value = url;
         document.body.appendChild(area); area.select(); document.execCommand('copy'); area.remove();
-      }
+      }}
       document.getElementById('copy-state').textContent = 'Copied!';
-    }
+    }}
     </script>
     """
     return html_page(f"Share — {p['name']}", body)
