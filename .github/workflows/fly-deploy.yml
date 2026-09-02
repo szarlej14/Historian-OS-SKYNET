@@ -1,0 +1,57 @@
+name: HistorianOS Fly.io Deploy
+
+on:
+  push:
+    tags: ["v*"]
+  workflow_dispatch:
+    inputs:
+      image:
+        description: "GHCR image reference (optional)"
+        required: false
+        type: string
+
+permissions:
+  contents: read
+  packages: read
+
+concurrency:
+  group: historianos-fly-production
+  cancel-in-progress: false
+
+env:
+  IMAGE: ghcr.io/szarlej14/historian-os-skynet
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install flyctl
+        uses: superfly/flyctl-actions/setup-flyctl@master
+
+      - name: Resolve image
+        id: image
+        shell: bash
+        run: |
+          if [ -n "${{ inputs.image }}" ]; then
+            echo "ref=${{ inputs.image }}" >> "$GITHUB_OUTPUT"
+          elif [[ "${GITHUB_REF}" == refs/tags/* ]]; then
+            echo "ref=${IMAGE}:${GITHUB_REF_NAME}" >> "$GITHUB_OUTPUT"
+          else
+            echo "ref=${IMAGE}:latest" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Deploy
+        env:
+          FLY_API_TOKEN: ${{ secrets.FLY_API_TOKEN }}
+        run: flyctl deploy --config historianos-toolkit/fly.toml --image "${{ steps.image.outputs.ref }}" --remote-only
+
+      - name: Production smoke test
+        run: |
+          set -e
+          curl --fail --silent --show-error https://historianos.fly.dev/api/health
+          curl --fail --silent --show-error "https://historianos.fly.dev/api/stats?vault=gniezno" | grep -q '"fakt":40'
+          curl --fail --silent --show-error "https://historianos.fly.dev/skynet?vault=gniezno" | grep -q 'HISTORIAN OS SKYNET'
+          curl --fail --silent --show-error "https://historianos.fly.dev/vault/gniezno" | grep -q 'Zjazd Gnieźnieński 1000'
