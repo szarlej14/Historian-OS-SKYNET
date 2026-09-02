@@ -14,6 +14,7 @@ import tempfile
 import zipfile
 
 ROOT = Path(os.environ.get("HISTORIANOS_VAULT", "/vault")).resolve()
+SHOWCASE = Path(os.environ.get("HISTORIANOS_SHOWCASE", "/showcase/zjazd-gnieznienski")).resolve()
 DEFAULT_VAULT_ID = os.environ.get("HISTORIANOS_DEFAULT_VAULT", "gniezno")
 DEFAULT_VAULT_NAME = os.environ.get("HISTORIANOS_DEFAULT_NAME", "Zjazd Gnieźnieński 1000")
 MAX_UPLOAD = int(os.environ.get("HISTORIANOS_MAX_UPLOAD_MB", "100")) * 1024 * 1024
@@ -37,6 +38,8 @@ def vault_path(vault_id):
     if direct.is_dir():
         return direct
     if vault_id == DEFAULT_VAULT_ID:
+        if SHOWCASE.is_dir():
+            return SHOWCASE
         showcase = ROOT / "zjazd-gnieznienski"
         if showcase.is_dir():
             return showcase
