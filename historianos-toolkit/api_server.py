@@ -364,7 +364,14 @@ class Handler(BaseHTTPRequestHandler):
         if path == "/api/health":
             return self.send_json({"status": "ok", "mode": "share-readonly", "vault": str(ROOT)})
         if path == "/":
-            return self.send_bytes(self.landing_html().encode())
+            vid = qs.get("vault", [DEFAULT_VAULT_ID])[0]
+            base = vault_path(vid)
+            if not base:
+                return self.send_json({"error": "vault_not_found"}, 404)
+            return self.send_bytes(skynet_html(vid, base).encode(), headers={"Content-Security-Policy": "frame-ancestors *"})
+        if path == "/vaults":
+            return self.send_bytes(self.vaults_html().encode())
+
 
         m = re.fullmatch(r"/vault/([^/]+)", path)
         if m:
@@ -506,6 +513,23 @@ class Handler(BaseHTTPRequestHandler):
             "application/zip",
             {"Content-Disposition": f'attachment; filename="{name}"'},
         )
+
+    def vaults_html(self):
+        cards = []
+        if ROOT.exists():
+            for d in sorted(ROOT.iterdir()):
+                if d.is_dir() and not d.name.startswith(".") and any(d.rglob("*.md")):
+                    vid = DEFAULT_VAULT_ID if d.name == "zjazd-gnieznienski" else d.name
+                    cards.append(
+                        f"<div class='card'><h2>{html.escape(vault_name(vid, d))}</h2>"
+                        f"<p class='muted'>{html.escape(vid)}</p>"
+                        f"<div class='actions'><a class='btn cyan' href='/vault/{html.escape(vid)}'>Share</a>"
+                        f"<a class='btn amber' href='/skynet?vault={html.escape(vid)}'>SKYNET</a>"
+                        f"<a class='btn' href='/dashboard?vault={html.escape(vid)}'>Dashboard</a>"
+                        f"<a class='btn' href='/api/vaults/{html.escape(vid)}/export'>ZIP</a></div></div>"
+                    )
+        body = "<h1>Vaults</h1><p class='muted'>Wybierz bazę historyczną albo wgraj własny ZIP.</p>" +                "<div class='grid'>" + "".join(cards) + "</div>" +                "<h2>Upload</h2><form action='/api/vaults/upload' method='post' enctype='multipart/form-data'>" +                "<input type='file' name='file' accept='.zip' required> <button class='btn cyan' type='submit'>Upload ZIP</button></form>"
+        return html_page("Vaults — Historian OS SKYNET", body)
 
     def landing_html(self):
         vaults = []
