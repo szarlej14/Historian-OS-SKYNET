@@ -9,7 +9,7 @@ def files(): return list(ROOT.rglob("*.md")) if ROOT.exists() else []
 def parse(p):
     t=p.read_text(encoding="utf-8",errors="ignore"); out={"file":str(p.relative_to(ROOT))}
     for line in t.splitlines():
-        m=re.match(r"^([A-Za-z_][\w-]*):\s*["']?(.*?)["']?$",line)
+        m=re.match(r'^([A-Za-z_][\w-]*):\s*["\']?(.*?)["\']?$',line)
         if m: out[m.group(1)]=m.group(2)
     return out
 def records(kind=None):
