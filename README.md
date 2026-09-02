@@ -39,17 +39,56 @@ CANONICAL KNOWLEDGE
 GRAPH / TIMELINE / ANALYSIS
 ```
 
-## Security & reproducibility
+## Share / Embed
 
-Release images should publish an SBOM and SLSA provenance. Deployment credentials belong only in GitHub Actions secrets; never commit tokens to the repository.
+The toolkit now exposes a self-contained share surface for every vault:
 
-## Quick start
+- `/vault/{id}` — share page with stats, dashboard, ZIP export and embed snippets.
+- `/vault/{id}?embed=true` — compact full embed.
+- `/vault/{id}?embed=timeline` — timeline-only embed.
+- `/vault/{id}?embed=map` — map/coordinates-only embed.
+- `/vault/{id}?embed=stats` — stats-only embed.
+- `/api/vaults/{id}/share` — machine-readable share metadata.
+- `/api/vaults/{id}/export` — filtered ZIP export.
+- `POST /api/vaults/upload` — import a ZIP as a new vault.
+
+The default showcase is **Zjazd Gnieźnieński 1000**, exposed as vault id `gniezno`.
+
+## Quick start — Docker
+
+From the repository root:
 
 ```bash
-python3 scripts/historian_query.py search Zumbach
-python3 scripts/historian_query.py show HOS-PERSON-JAN-ZUMBACH
-python3 scripts/historian_query.py related HOS-ORG-303-SQUADRON
-python3 scripts/historian_query.py stats
+docker compose up --build
 ```
 
-See the workflow files and `historianos-toolkit/DEPLOYMENT.md` for deployment instructions.
+Then open:
+
+```
+http://localhost:8080/
+http://localhost:8080/vault/gniezno
+http://localhost:8080/dashboard?vault=gniezno
+```
+
+Uploaded vaults are persisted locally in `.local-vaults/`.
+
+## GHCR release
+
+The release workflow builds multi-architecture images for `linux/amd64` and `linux/arm64`, publishes SBOM/provenance and signs the image.
+
+To publish release **v1.2-embed**:
+
+```bash
+git tag v1.2-embed
+git push origin v1.2-embed
+```
+
+The image is published as:
+
+```
+ghcr.io/szarlej14/historian-os-skynet:v1.2-embed
+```
+
+Security credentials belong only in GitHub Actions secrets; never commit tokens to the repository.
+
+See `historianos-toolkit/docker-compose.yml` for the nested toolkit compose file.
