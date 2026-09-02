@@ -1,7 +1,4 @@
-import io
-import json
 import tempfile
-import zipfile
 from pathlib import Path
 
 import api_server
@@ -24,11 +21,8 @@ def main():
         assert api_server.map_items(base)[0]["lat"] == 52.5348
         payload = api_server.share_payload("test-vault", base)
         assert payload["share_url"] == "/vault/test-vault"
+        assert payload["dashboard_url"].endswith("?vault=test-vault")
         assert payload["export_url"].endswith("/export")
-
-        buf = io.BytesIO()
-        api_server.zipfile.ZipFile(buf, "w").writestr("ok.md", "# ok")
-        api_server.zipfile.ZipFile(buf, "w")
 
     print("HistorianOS API share/embed unit smoke: PASS")
 
