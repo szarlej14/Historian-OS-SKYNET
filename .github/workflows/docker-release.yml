@@ -1,37 +1,52 @@
 name: HistorianOS Secure Container Release
+
 on:
   push:
     tags: ["v*"]
   workflow_dispatch:
+
+concurrency:
+  group: historianos-release-${{ github.ref }}
+  cancel-in-progress: true
+
 permissions:
   contents: read
   packages: write
   id-token: write
   attestations: write
   artifact-metadata: write
+
 env:
   REGISTRY: ghcr.io
   IMAGE_NAME: ${{ github.repository }}
+
 jobs:
   build:
+    name: Build multi-arch image
     runs-on: ubuntu-latest
+    timeout-minutes: 15
     outputs:
       digest: ${{ steps.build.outputs.digest }}
       image: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
     steps:
       - uses: actions/checkout@v4
+
       - uses: docker/setup-buildx-action@v3
+
       - uses: docker/login-action@v3
         with:
-          registry: ghcr.io
+          registry: ${{ env.REGISTRY }}
           username: ${{ github.actor }}
           password: ${{ secrets.GITHUB_TOKEN }}
+
       - id: meta
         uses: docker/metadata-action@v5
         with:
           images: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
+
       - id: build
-        uses: docker/build-push-action@v7
+        name: Build and push
+        uses: docker/build-push-action@v6
         with:
           context: .
           file: historianos-toolkit/Dockerfile
@@ -41,36 +56,105 @@ jobs:
           labels: ${{ steps.meta.outputs.labels }}
           provenance: mode=max
           sbom: true
-      - name: Generate SBOM file
+
+      - name: Verify image digest exists
+        run: |
+          test -n "${{ steps.build.outputs.digest }}"
+          docker buildx imagetools inspect "${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}@${{ steps.build.outputs.digest }}"
+
+  smoke-test:
+    name: Container smoke test
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Pull amd64 image
+        run: docker pull "${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}@${{ needs.build.outputs.digest }}"
+
+      - name: Start container
+        run: |
+          docker run -d --name historianos-test -p 8080:8080             -e PORT=8080             "${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}@${{ needs.build.outputs.digest }}"
+
+      - name: Health check
+        run: |
+          for i in $(seq 1 30); do
+            if curl --fail --silent http://127.0.0.1:8080/api/health; then
+              echo
+              echo "HistorianOS health check: PASS"
+              exit 0
+            fi
+            sleep 2
+          done
+          docker logs historianos-test
+          exit 1
+
+      - name: Container logs
+        if: always()
+        run: docker logs historianos-test
+
+      - name: Cleanup
+        if: always()
+        run: docker rm -f historianos-test || true
+
+  security:
+    name: SBOM and provenance
+    needs: [build, smoke-test]
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: docker/setup-buildx-action@v3
+
+      - uses: docker/login-action@v3
+        with:
+          registry: ${{ env.REGISTRY }}
+          username: ${{ github.actor }}
+          password: ${{ secrets.GITHUB_TOKEN }}
+
+      - name: Generate SBOM
         uses: anchore/sbom-action@v0
         with:
-          image: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}@${{ steps.build.outputs.digest }}
+          image: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}@${{ needs.build.outputs.digest }}
           format: spdx-json
           output-file: sbom.spdx.json
 
-      - name: Generate GitHub provenance attestation
+      - name: Generate provenance attestation
         uses: actions/attest@v4
         with:
           subject-name: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
-          subject-digest: ${{ steps.build.outputs.digest }}
+          subject-digest: ${{ needs.build.outputs.digest }}
           push-to-registry: true
+
       - name: Generate SBOM attestation
         uses: actions/attest@v4
         with:
           subject-name: ${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}
-          subject-digest: ${{ steps.build.outputs.digest }}
+          subject-digest: ${{ needs.build.outputs.digest }}
           sbom-path: sbom.spdx.json
           push-to-registry: true
+
       - name: Verify provenance
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh attestation verify oci://${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}@${{ steps.build.outputs.digest }} -R ${{ github.repository }}
+        run: |
+          gh attestation verify             oci://${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}@${{ needs.build.outputs.digest }}             -R ${{ github.repository }}
+
       - name: Verify SBOM attestation
         env:
           GH_TOKEN: ${{ github.token }}
-        run: gh attestation verify oci://${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}@${{ steps.build.outputs.digest }} -R ${{ github.repository }} --predicate-type https://spdx.dev/Document/v2.3
-      - name: Inspect SBOM
-        run: test -s sbom.spdx.json && python -c "import json; json.load(open('sbom.spdx.json'))"
+        run: |
+          gh attestation verify             oci://${{ env.REGISTRY }}/${{ env.IMAGE_NAME }}@${{ needs.build.outputs.digest }}             -R ${{ github.repository }}             --predicate-type https://spdx.dev/Document/v2.3
+
+      - name: Validate SBOM
+        run: |
+          test -s sbom.spdx.json
+          python -c "import json; json.load(open('sbom.spdx.json'))"
+
       - uses: actions/upload-artifact@v4
         with:
           name: historianos-sbom
